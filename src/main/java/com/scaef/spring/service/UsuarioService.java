@@ -4,7 +4,7 @@ import com.scaef.spring.dto.MessageResponseDTO;
 import com.scaef.spring.dto.UsuarioDTO;
 import com.scaef.spring.entity.Usuario;
 import com.scaef.spring.mapper.UsuarioMapper;
-import com.scaef.spring.service.repository.UsuarioRepository;
+import com.scaef.spring.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,6 @@ public class UsuarioService {
 
         Usuario savedUsuario = usuarioRepository.save(usuarioToSave);
         return MessageResponseDTO.builder()
-                .message("Usuário cadastrado com sucesso ID =  " + savedUsuario.getId())
-                .build();
+                .message("Usuário cadastrado no sistema com o ID =  " + savedUsuario.getId()).build();
     }
 }

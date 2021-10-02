@@ -4,7 +4,7 @@ import com.scaef.spring.dto.MedicamentoDTO;
 import com.scaef.spring.dto.MessageResponseDTO;
 import com.scaef.spring.entity.Medicamento;
 import com.scaef.spring.mapper.MedicamentoMapper;
-import com.scaef.spring.service.repository.MedicamentoRepository;
+import com.scaef.spring.repository.MedicamentoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +26,9 @@ public class MedicamentoService {
 
            Medicamento medicamentoToSave = medicamentoMapper.toModel(medicamentoDTO);
 
-            Medicamento saveMedicamento = medicamentoRepository.save(medicamentoToSave);
+            Medicamento savedMedicamento = medicamentoRepository.save(medicamentoToSave);
             return MessageResponseDTO.builder()
-            .message("Medicamento registrado com o código: " + saveMedicamento.getId()).build();
+            .message("Medicamento " + savedMedicamento.getNome() + " registrado no sistema com o código: " + savedMedicamento.getId()).build();
         }
 
 
