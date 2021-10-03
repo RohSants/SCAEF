@@ -22,9 +22,10 @@ public class UsuarioService {
     }
     
     public MessageResponseDTO create(UsuarioDTO usuarioDTO){
-        Usuario usuarioToSave = usuarioMapper.toModel(usuarioDTO);
 
+        Usuario usuarioToSave = usuarioMapper.toModel(usuarioDTO);
         Usuario savedUsuario = usuarioRepository.save(usuarioToSave);
+
         return MessageResponseDTO.builder()
                 .message("Usuário cadastrado no sistema com o ID =  " + savedUsuario.getId()).build();
     }
