@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import javax.validation.Valid;
 
 
 @RestController
@@ -23,7 +22,7 @@ public class UsuarioController {
     }
     
     @PostMapping
-        public MessageResponseDTO create(@RequestBody @Valid UsuarioDTO usuarioDTO){
+        public MessageResponseDTO create(@RequestBody UsuarioDTO usuarioDTO){
         return usuarioService.create(usuarioDTO);
     }
 }

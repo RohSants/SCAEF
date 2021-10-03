@@ -44,5 +44,4 @@ public class UsuarioDTO {
 
     @NotNull
     private int crf;
-    
 }

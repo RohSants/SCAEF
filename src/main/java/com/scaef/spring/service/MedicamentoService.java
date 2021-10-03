@@ -28,7 +28,8 @@ public class MedicamentoService {
 
             Medicamento savedMedicamento = medicamentoRepository.save(medicamentoToSave);
             return MessageResponseDTO.builder()
-            .message("Medicamento " + savedMedicamento.getNome() + " registrado no sistema com o código: " + savedMedicamento.getId()).build();
+            .message("Medicamento " + savedMedicamento.getNome() + " registrado no sistema com o código: " + savedMedicamento.getId())
+            .build();
         }
 
 
