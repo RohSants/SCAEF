@@ -12,11 +12,9 @@
 	<artifactId>spring</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring</name>
-	<description>Demo project for Spring Boot</description>
+	<description>SCAEF API</description>
 	<properties>
 		<java.version>1.8</java.version>
-		<repackage.classifier/>
-		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>	
 	</properties>
 
 	<dependencies>
