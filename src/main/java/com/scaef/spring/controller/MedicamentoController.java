@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
-@RequestMapping("/api/v1/Medicamento/")
+@RequestMapping("/api/v1/Medicamento")
 public class MedicamentoController {
     private MedicamentoService medicamentoService;
 
@@ -22,7 +24,7 @@ public class MedicamentoController {
     }
 
     @PostMapping
-    public MessageResponseDTO create(@RequestBody MedicamentoDTO medicamentoDTO){ 
+    public MessageResponseDTO create(@RequestBody @Valid MedicamentoDTO medicamentoDTO){ 
         return medicamentoService.create(medicamentoDTO);
     }
 
