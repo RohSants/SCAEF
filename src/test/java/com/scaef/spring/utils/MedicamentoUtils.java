@@ -15,7 +15,16 @@ public class MedicamentoUtils {
     public static MedicamentoDTO createFakeMedicamentoDTO() {
         return MedicamentoDTO.builder()
                 .id(faker.number().numberBetween(0, 100))
-                .nome(faker.medical().medicineName())
+                .nome("Risperidona")
+                .cid("F840")
+                .catReg("Genérico")
+                .pcdt("Esquizofrenia")
+                .dose("2mg")
+                .forma("comprimido")
+                .via("oral")
+                .priA("Risperidona")
+                .classeT("Neurolepticos")
+                /*.nome(faker.medical().medicineName())
                 .cid(faker.numerify("M0###"))
                 .catReg(faker.medical().medicineName())
                 .pcdt(faker.medical().symptoms())
@@ -23,7 +32,7 @@ public class MedicamentoUtils {
                 .forma(faker.name().firstName())
                 .via(faker.name().firstName())
                 .priA(faker.medical().medicineName())
-                .classeT(faker.medical().symptoms())
+                .classeT(faker.medical().symptoms())*/
                 .build();
     }
 

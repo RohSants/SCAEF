@@ -15,7 +15,6 @@ import lombok.AllArgsConstructor;
 
 public class MedicamentoDTO {
 
-    @NotNull
     private int id;
 
     @NotBlank

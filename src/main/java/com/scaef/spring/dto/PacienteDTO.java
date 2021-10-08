@@ -14,7 +14,7 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PacienteDTO {
-    @NotNull
+
     private int id;
 
     @NotBlank

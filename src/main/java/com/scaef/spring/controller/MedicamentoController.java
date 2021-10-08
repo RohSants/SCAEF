@@ -4,6 +4,8 @@ import com.scaef.spring.dto.MedicamentoDTO;
 import com.scaef.spring.dto.MessageResponseDTO;
 import com.scaef.spring.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +24,11 @@ public class MedicamentoController {
     @PostMapping
     public MessageResponseDTO create(@RequestBody MedicamentoDTO medicamentoDTO){ 
         return medicamentoService.create(medicamentoDTO);
+    }
+
+    @GetMapping("/{id}")
+    public MedicamentoDTO findById(@PathVariable int id){ 
+        return medicamentoService.findById(id);
     }
 }
 
