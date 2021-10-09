@@ -1,14 +1,13 @@
 package com.scaef.spring.service;
 
-import java.util.Optional;
+/*import java.util.Optional;*/
 
 import com.scaef.spring.dto.MedicamentoDTO;
 import com.scaef.spring.dto.MessageResponseDTO;
 import com.scaef.spring.entity.Medicamento;
+import com.scaef.spring.exception.MedicamentoNotFoundException;
 import com.scaef.spring.mapper.MedicamentoMapper;
 import com.scaef.spring.repository.MedicamentoRepository;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,11 +34,10 @@ public class MedicamentoService {
             .build();
         }
 
-        public MedicamentoDTO findById(int id){
-            Optional<Medicamento> optionalMedicamento = medicamentoRepository.findById(id);
-            return MedicamentoMapper.toDTO(optionalMedicamento.get());
-
-
+        public MedicamentoDTO findById(int id) throws MedicamentoNotFoundException{
+            Medicamento medicamento = medicamentoRepository.findById(id).orElseThrow(() -> new MedicamentoNotFoundException(id));
+            return MedicamentoMapper.toDTO(medicamento);
         } 
+
 
 }

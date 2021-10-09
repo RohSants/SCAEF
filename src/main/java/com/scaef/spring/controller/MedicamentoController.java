@@ -2,6 +2,7 @@ package com.scaef.spring.controller;
 
 import com.scaef.spring.dto.MedicamentoDTO;
 import com.scaef.spring.dto.MessageResponseDTO;
+import com.scaef.spring.exception.MedicamentoNotFoundException;
 import com.scaef.spring.service.MedicamentoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-
 @RestController
 @RequestMapping("/api/v1/Medicamento")
 public class MedicamentoController {
+    
     private MedicamentoService medicamentoService;
 
     @Autowired
@@ -24,13 +24,14 @@ public class MedicamentoController {
     }
 
     @PostMapping
-    public MessageResponseDTO create(@RequestBody @Valid MedicamentoDTO medicamentoDTO){ 
+    public MessageResponseDTO create(@RequestBody MedicamentoDTO medicamentoDTO){ 
         return medicamentoService.create(medicamentoDTO);
     }
 
     @GetMapping("/{id}")
-    public MedicamentoDTO findById(@PathVariable int id){ 
+    public MedicamentoDTO findById(@PathVariable int id) throws MedicamentoNotFoundException{ 
         return medicamentoService.findById(id);
     }
+
 }
 

@@ -28,7 +28,7 @@ import static com.scaef.spring.utils.UsuarioUtils.asJsonString;
 @ExtendWith(MockitoExtension.class)
 public class UsuarioControllerTest {
 
-    private static final String USUARIO_API_URL_PATH ="/api/v1/Usuario/";
+    private static final String USUARIO_API_URL_PATH ="/api/v1/Usuario";
     
     private MockMvc mockMvc;
 

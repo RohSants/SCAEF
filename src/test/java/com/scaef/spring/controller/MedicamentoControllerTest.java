@@ -27,7 +27,7 @@ import static com.scaef.spring.utils.MedicamentoUtils.asJsonString;
 @ExtendWith(MockitoExtension.class)
 public class MedicamentoControllerTest {
 
-    private static final String MEDICAMENTO_API_URL_PATH = "/api/v1/Medicamento/";
+    private static final String MEDICAMENTO_API_URL_PATH = "/api/v1/Medicamento";
     private MockMvc mockMvc;
 
     @Mock
