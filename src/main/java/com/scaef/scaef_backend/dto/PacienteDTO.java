@@ -30,6 +30,10 @@ public class PacienteDTO {
     @NotBlank
     @Size(max = 11)
     private String cpf;
+
+    @NotBlank
+    @Size(max = 9)
+    private String rg;
     
     @NotNull
     private Date dNasc;
