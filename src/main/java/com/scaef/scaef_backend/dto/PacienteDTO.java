@@ -3,7 +3,7 @@ package com.scaef.scaef_backend.dto;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Date;
+import java.sql.Date;
 
 /*Projeto Lombok*/
 import lombok.Data;
