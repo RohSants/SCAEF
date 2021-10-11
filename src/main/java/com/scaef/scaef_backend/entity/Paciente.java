@@ -39,8 +39,8 @@ public class Paciente {
     @Column(name = "Email", nullable = false)
     private String email;
     
-    @Column(name = "Município", nullable = false)
-    private String mun;
+    @Column(name = "Cidade", nullable = false)
+    private String cida;
     
     @Column(name = "Endereço", nullable = false)
     private String endr;

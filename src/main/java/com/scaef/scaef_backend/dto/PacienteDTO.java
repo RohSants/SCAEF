@@ -40,7 +40,7 @@ public class PacienteDTO {
     
     @NotBlank
     @Size(max = 26)
-    private String mun;
+    private String cida;
     
     @NotBlank
     @Size(max = 80)
