@@ -48,7 +48,7 @@ public class Paciente {
     @Column(name = "Endereço", nullable = false)
     private String endr;
     
-    @Column(name = "Complemento", nullable = false)
+    @Column(name = "Complemento", nullable = true)
     private String comp;
     
     @Column(name = "CEP", nullable = false)
