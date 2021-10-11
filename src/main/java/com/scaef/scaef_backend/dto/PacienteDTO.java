@@ -32,7 +32,7 @@ public class PacienteDTO {
     private String cpf;
 
     @NotBlank
-    @Size(max = 9)
+    @Size(max = 10)
     private String rg;
     
     @NotNull
