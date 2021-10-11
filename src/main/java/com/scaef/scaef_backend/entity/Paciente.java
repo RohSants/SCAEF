@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-/*import java.sql.Date;*/
+import java.sql.Date;
+
 /*Projeto Lombok*/
 import lombok.Data;
 import lombok.Builder;
@@ -32,8 +33,8 @@ public class Paciente {
     @Column(name = "CPF", nullable = false, unique = true)
     private String cpf;
     
-   /*@Column(name = "Nascimento", nullable = false)
-    private Date dNasc;*/
+    @Column(name = "Nascimento", nullable = false)
+    private Date dNasc;
     
     @Column(name = "Email", nullable = false)
     private String email;
