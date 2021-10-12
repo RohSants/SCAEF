@@ -36,7 +36,6 @@ public class MedicamentoControllerTest {
     @InjectMocks
     private MedicamentoController medicamentoController;
 
-
     @BeforeEach
         void setUp(){
             mockMvc = MockMvcBuilders.standaloneSetup(medicamentoController)
@@ -48,6 +47,7 @@ public class MedicamentoControllerTest {
         @Test
         void testWhenPostMapisCalledThenADrugShouldBeRegistered() throws Exception {
             MedicamentoDTO medicamentoDTO =  MedicamentoUtils.createFakeMedicamentoDTO();
+            
             MessageResponseDTO expectedMessageResponse = MessageResponseDTO.builder()
             .message("Medicamento registrado com o código: " + medicamentoDTO.getId())
             .build();
