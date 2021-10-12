@@ -2,6 +2,7 @@ package com.scaef.scaef_backend.service;
 
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.entity.Medicamento;
+import com.scaef.scaef_backend.exception.MedicamentoNotFoundException;
 import com.scaef.scaef_backend.dto.MedicamentoDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.MedicamentoRepository;
@@ -11,8 +12,6 @@ import com.scaef.scaef_backend.mapper.MedicamentoMapper;
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class MedicamentoService {
@@ -35,8 +34,8 @@ public class MedicamentoService {
         return MessageResponseDTO.builder().message("Medicamento " + savedMedicamento.getNome() + " registrado no sistema com o código: " + savedMedicamento.getId()).build();
     }
 
-    public MedicamentoDTO findById(int id) {
-        Optional<Medicamento> optionalMedicamento = medicamentoRepository.findById(id);
-        return medicamentoMapper.toDTO(optionalMedicamento.get());
+    public MedicamentoDTO findById(int id) throws MedicamentoNotFoundException {
+        Medicamento medicamento = medicamentoRepository.findById(id).orElseThrow(() -> new MedicamentoNotFoundException(id));
+        return medicamentoMapper.toDTO(medicamento);
     } 
 }

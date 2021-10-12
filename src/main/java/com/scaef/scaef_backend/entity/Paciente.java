@@ -39,7 +39,7 @@ public class Paciente {
     
     @Column(name = "Nascimento", nullable = false)
     @Builder.Default
-    private String dNasc = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));;
+    private String dNasc = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     
     @Column(name = "Email", nullable = false)
     private String email;
