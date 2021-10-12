@@ -3,6 +3,9 @@ package com.scaef.scaef_backend.service;
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.entity.Usuario;
 import com.scaef.scaef_backend.dto.UsuarioDTO;
+
+import java.util.Optional;
+
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
 import com.scaef.scaef_backend.mapper.UsuarioMapper;
@@ -31,9 +34,8 @@ public class UsuarioService {
 
         return MessageResponseDTO.builder().message("Usuário cadastrado no sistema com o ID =  " + savedUsuario.getId()).build();
     }
-    public UsuarioDTO findById(int id){
-            
-        return Usuario
-
+    public UsuarioDTO findById(int id) {
+        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
+        return usuarioMapper.toDTO(optionalUsuario.get());
     }
 }

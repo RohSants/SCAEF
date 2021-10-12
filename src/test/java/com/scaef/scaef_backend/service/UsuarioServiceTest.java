@@ -1,4 +1,4 @@
-package com.scaef.spring.service;
+package com.scaef.scaef_backend.service;
 
 /*import com.scaef.spring.dto.UsuarioDTO;
 import com.scaef.spring.repository.UsuarioRepository;
