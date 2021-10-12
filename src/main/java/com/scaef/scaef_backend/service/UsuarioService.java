@@ -31,4 +31,9 @@ public class UsuarioService {
 
         return MessageResponseDTO.builder().message("Usuário cadastrado no sistema com o ID =  " + savedUsuario.getId()).build();
     }
+    public UsuarioDTO findById(int id){
+            
+        return Usuario
+
+    }
 }

@@ -13,4 +13,6 @@ public interface PacienteMapper {
     PacienteMapper INSTANCE = Mappers.getMapper(PacienteMapper.class);
 
     Paciente toModel(PacienteDTO pacienteDTO);
+
+    PacienteDTO toDTO(Paciente paciente);
 }

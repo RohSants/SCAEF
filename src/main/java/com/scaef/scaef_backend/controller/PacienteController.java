@@ -7,6 +7,8 @@ import com.scaef.scaef_backend.service.PacienteService;
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +28,10 @@ public class PacienteController {
     @PostMapping
     public MessageResponseDTO create(@RequestBody PacienteDTO pacienteDTO){
         return pacienteService.create(pacienteDTO);
+    }
+
+    @GetMapping("/{id}")
+    public PacienteDTO findById(@PathVariable int id){
+        return pacienteService.findById(id);
     }
 }

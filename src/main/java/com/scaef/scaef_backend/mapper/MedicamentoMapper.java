@@ -14,7 +14,5 @@ public interface MedicamentoMapper {
     
     Medicamento toModel(MedicamentoDTO medicamentoDTO);
 
-    static MedicamentoDTO toDTO(Medicamento medicamento) {
-        return null;
-    }
+    MedicamentoDTO toDTO(Medicamento medicamento);
 }

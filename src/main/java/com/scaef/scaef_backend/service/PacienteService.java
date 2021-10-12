@@ -3,6 +3,9 @@ package com.scaef.scaef_backend.service;
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.entity.Paciente;
 import com.scaef.scaef_backend.dto.PacienteDTO;
+
+import java.util.Optional;
+
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.PacienteRepository;
 import com.scaef.scaef_backend.mapper.PacienteMapper;
@@ -30,5 +33,10 @@ public class PacienteService {
         Paciente savedPaciente = pacienteRepository.save(pacienteToSave);
         
         return MessageResponseDTO.builder().message("Paciente " + savedPaciente.getNome() + " cadastrado com a ID = " + savedPaciente.getId()).build(); 
+    }
+
+    public PacienteDTO findById(int id) {
+        Optional<Paciente> optionalPaciente = pacienteRepository.findById(id);
+        return pacienteMapper.toDTO(optionalPaciente.get());
     }
 }
