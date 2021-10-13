@@ -34,7 +34,6 @@ public class UsuarioDTO {
     @Size(max = 95)
     private String email;
 
-    @NotNull
     private int celular;
 
     @NotNull
