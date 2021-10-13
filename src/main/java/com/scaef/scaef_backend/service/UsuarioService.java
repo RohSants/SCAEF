@@ -3,13 +3,11 @@ package com.scaef.scaef_backend.service;
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.entity.Usuario;
 import com.scaef.scaef_backend.dto.UsuarioDTO;
-
-import java.util.Optional;
+import com.scaef.scaef_backend.exception.UsuarioNotFoundException;
 
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
 import com.scaef.scaef_backend.mapper.UsuarioMapper;
-/*import com.scaef.scaef_backend.exception.PacienteNotFoundException;*/
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,8 +32,8 @@ public class UsuarioService {
 
         return MessageResponseDTO.builder().message("Usuário cadastrado no sistema com o ID =  " + savedUsuario.getId()).build();
     }
-    public UsuarioDTO findById(int id) {
-        Optional<Usuario> optionalUsuario = usuarioRepository.findById(id);
-        return usuarioMapper.toDTO(optionalUsuario.get());
+    public UsuarioDTO findById(int id) throws UsuarioNotFoundException{
+        Usuario usuario = usuarioRepository.findById(id).orElseThrow(() -> new UsuarioNotFoundException(id));
+        return usuarioMapper.toDTO(usuario);
     }
 }

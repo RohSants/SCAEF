@@ -7,7 +7,6 @@ import com.scaef.scaef_backend.dto.MedicamentoDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.MedicamentoRepository;
 import com.scaef.scaef_backend.mapper.MedicamentoMapper;
-/*import com.scaef.scaef_backend.exception.MedicamentoNotFoundException;*/
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;

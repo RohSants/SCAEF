@@ -2,6 +2,7 @@ package com.scaef.scaef_backend.controller;
 
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.dto.PacienteDTO;
+import com.scaef.scaef_backend.exception.PacienteNotFoundException;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.service.PacienteService;
 
@@ -31,7 +32,7 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public PacienteDTO findById(@PathVariable int id){
+    public PacienteDTO findById(@PathVariable int id) throws PacienteNotFoundException{
         return pacienteService.findById(id);
     }
 }
