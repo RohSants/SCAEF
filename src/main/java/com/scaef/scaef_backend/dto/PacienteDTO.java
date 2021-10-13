@@ -59,7 +59,6 @@ public class PacienteDTO {
     @NotNull
     private int num;
     
-    @NotNull
     private int celular;
     
     @NotNull
