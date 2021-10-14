@@ -19,7 +19,6 @@ public class MedicamentoService {
 
     private final MedicamentoMapper medicamentoMapper = MedicamentoMapper.INSTANCE;
 
-
     @Autowired
     public MedicamentoService(MedicamentoRepository medicamentoRepository){
         this.medicamentoRepository = medicamentoRepository;

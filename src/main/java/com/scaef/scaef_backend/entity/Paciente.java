@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+/*import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;*/
 
 /*Projeto Lombok*/
 import lombok.Data;
@@ -28,7 +28,7 @@ public class Paciente {
     @Column(name = "Nome", nullable = false, unique = true)
     private String nome;
 
-    @Column(name = "CNS", nullable = false, unique = true)
+    /*@Column(name = "CNS", nullable = false, unique = true)
     private String cns;
 
     @Column(name = "CPF", nullable = false, unique = true)
@@ -41,7 +41,7 @@ public class Paciente {
     @Builder.Default
     private String dNasc = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     
-    @Column(name = "Email", nullable = false)
+    @Column(name = "Email", nullable = true)
     private String email;
     
     @Column(name = "Cidade", nullable = false)
@@ -62,6 +62,6 @@ public class Paciente {
     @Column(name = "Celular", nullable = false)
     private int celular;
     
-    @Column(name = "Fone Fixo", nullable = false)
-    private int fone;
+    @Column(name = "Fone_Fixo", nullable = false)
+    private int fone;*/
 }

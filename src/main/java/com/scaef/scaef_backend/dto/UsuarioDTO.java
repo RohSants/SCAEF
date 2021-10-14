@@ -30,7 +30,6 @@ public class UsuarioDTO {
     @Size(max = 9)
     private String rg;
     
-    @NotBlank
     @Size(max = 95)
     private String email;
 
