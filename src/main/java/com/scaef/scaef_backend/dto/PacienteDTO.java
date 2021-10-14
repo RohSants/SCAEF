@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.dto;
 
 import javax.validation.constraints.NotBlank;
-/*import javax.validation.constraints.NotNull;*/
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /*Projeto Lombok*/
@@ -22,10 +22,7 @@ public class PacienteDTO {
     @Size(max = 95)
     private String nome;
 
-    @NotBlank
-    private String dNasc;
-
-   /*@NotBlank
+   @NotBlank
     @Size(max = 15)
     private String cns;
 
@@ -37,7 +34,7 @@ public class PacienteDTO {
     @Size(max = 10)
     private String rg;
     
-    @Not
+    @NotBlank
     private String dNasc;
     
     @Size(max = 95)
@@ -64,5 +61,5 @@ public class PacienteDTO {
     private int celular;
     
     @NotNull
-    private int fone;*/
+    private int fone;
 }

@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.utils;
 
-/*import com.scaef.scaef_backend.entity.Paciente;
+import com.scaef.scaef_backend.entity.Paciente;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 
 import com.github.javafaker.Faker;
@@ -83,4 +83,4 @@ public class PacienteUtils {
             throw new RuntimeException(e);
         }
     }
-}*/
+}
