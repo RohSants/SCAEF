@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.service;
 
-import com.scaef.scaef_backend.dto.PacienteDTO;
+/*import com.scaef.scaef_backend.dto.PacienteDTO;
 import com.scaef.scaef_backend.entity.Paciente;
 import com.scaef.scaef_backend.exception.PacienteNotFoundException;
 import com.scaef.scaef_backend.repository.PacienteRepository;
@@ -60,4 +60,4 @@ public class PacienteServiceTest {
 
       assertThrows(PacienteNotFoundException.class, () -> pacienteService.findById(invalidId));
     }
-}
+}*/

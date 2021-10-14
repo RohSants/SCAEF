@@ -18,7 +18,7 @@ public class PacienteUtils {
         return PacienteDTO.builder()
             .id(faker.number().randomDigit())
             .nome(faker.name().firstName())
-            .cns(faker.numerify("###############"))
+            /*.cns(faker.numerify("###############"))
             .rg(faker.numerify("########"))
             .cpf(faker.numerify("###########"))
             .dNasc("11/11/1111")
@@ -67,7 +67,7 @@ public class PacienteUtils {
             .cep(pacienteDTO.getCep())
             .num(pacienteDTO.getNum())
             .celular(pacienteDTO.getCelular())
-            .fone(pacienteDTO.getFone())
+            .fone(pacienteDTO.getFone())*/
             .build();
     }
 
