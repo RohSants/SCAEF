@@ -5,8 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-/*import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;*/
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /*Projeto Lombok*/
 import lombok.Data;
@@ -27,6 +27,10 @@ public class Paciente {
 
     @Column(name = "Nome", nullable = false, unique = true)
     private String nome;
+
+    @Column(name = "Nascimento", nullable = false)
+    @Builder.Default
+    private String dNasc = LocalDate.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
 
     /*@Column(name = "CNS", nullable = false, unique = true)
     private String cns;

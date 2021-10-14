@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.utils;
 
-import com.scaef.scaef_backend.entity.Paciente;
+/*import com.scaef.scaef_backend.entity.Paciente;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 
 import com.github.javafaker.Faker;
@@ -18,7 +18,7 @@ public class PacienteUtils {
         return PacienteDTO.builder()
             .id(faker.number().randomDigit())
             .nome(faker.name().firstName())
-            /*.cns(faker.numerify("###############"))
+            .cns(faker.numerify("###############"))
             .rg(faker.numerify("########"))
             .cpf(faker.numerify("###########"))
             .dNasc("11/11/1111")
@@ -67,7 +67,7 @@ public class PacienteUtils {
             .cep(pacienteDTO.getCep())
             .num(pacienteDTO.getNum())
             .celular(pacienteDTO.getCelular())
-            .fone(pacienteDTO.getFone())*/
+            .fone(pacienteDTO.getFone())
             .build();
     }
 
@@ -83,4 +83,4 @@ public class PacienteUtils {
             throw new RuntimeException(e);
         }
     }
-}
+}*/

@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.controller;
 
-import com.scaef.scaef_backend.dto.MessageResponseDTO;
+/*import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 import com.scaef.scaef_backend.service.PacienteService;
 import com.scaef.scaef_backend.utils.PacienteUtils;
@@ -60,4 +60,4 @@ public class PacienteControllerTest{
             .andExpect(status().isOk())
             .andExpect(jsonPath("$.message", Is.is(expectedMessageResponse.getMessage())));
     }
-}
+}*/

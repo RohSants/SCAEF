@@ -22,6 +22,9 @@ public class PacienteDTO {
     @Size(max = 95)
     private String nome;
 
+    @NotBlank
+    private String dNasc;
+
    /*@NotBlank
     @Size(max = 15)
     private String cns;
@@ -34,7 +37,7 @@ public class PacienteDTO {
     @Size(max = 10)
     private String rg;
     
-    @NotNull
+    @Not
     private String dNasc;
     
     @Size(max = 95)
