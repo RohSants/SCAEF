@@ -34,7 +34,7 @@ public class PacienteDTO {
     @Size(max = 10)
     private String rg;
     
-    @NotBlank
+    /*@NotBlank
     @Size(max = 10)
     private String dNasc;
     

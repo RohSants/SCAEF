@@ -35,7 +35,7 @@ public class Paciente {
     @Column(name = "RG", nullable = false, unique = true)
     private String rg;
     
-    @Column(name = "Nascimento", nullable = false)
+    /*@Column(name = "Nascimento", nullable = false)
     private String dNasc;
     
     /*@Column(name = "Email", nullable = true)
