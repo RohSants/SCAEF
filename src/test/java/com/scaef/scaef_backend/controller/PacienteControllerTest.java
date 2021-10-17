@@ -49,8 +49,7 @@ public class PacienteControllerTest{
         PacienteDTO pacienteDTO = PacienteUtils.createFakePacienteDTO();
 
         MessageResponseDTO expectedMessageResponse = MessageResponseDTO.builder()
-        .message("Paciente " + pacienteDTO.getNome() + " cadastrado com a ID = " + pacienteDTO.getId())
-        .build();
+        .message("Paciente " + pacienteDTO.getNome() + "com RG = " + pacienteDTO.getRg() + " cadastrado com a ID = " + pacienteDTO.getId()).build(); 
 
         when(pacienteService.create(pacienteDTO)).thenReturn(expectedMessageResponse);
 
