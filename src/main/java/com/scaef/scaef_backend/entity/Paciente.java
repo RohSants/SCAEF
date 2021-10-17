@@ -29,7 +29,7 @@ public class Paciente {
     @Column(name = "CNS", nullable = false, unique = true)
     private String cns;
 
-    /*@Column(name = "CPF", nullable = false, unique = true)
+    @Column(name = "CPF", nullable = false, unique = true)
     private String cpf;
 
     /*@Column(name = "RG", nullable = false, unique = true)
