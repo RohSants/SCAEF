@@ -30,11 +30,11 @@ public class PacienteDTO {
     @Size(max = 11)
     private String cpf;
 
-    @NotBlank
-    @Size(max = 10)
-    private String rg;
-    
     /*@NotBlank
+    @Size(max = 10)
+    private String rg;*/
+    
+    @NotBlank
     @Size(max = 10)
     private String dNasc;
     
