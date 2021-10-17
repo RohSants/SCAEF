@@ -29,19 +29,19 @@ public class Paciente {
     @Column(name = "CNS", nullable = false, unique = true)
     private String cns;
 
-    @Column(name = "CPF", nullable = false, unique = true)
+    /*@Column(name = "CPF", nullable = false, unique = true)
     private String cpf;
 
-    @Column(name = "RG", nullable = false, unique = true)
+    /*@Column(name = "RG", nullable = false, unique = true)
     private String rg;
     
     /*@Column(name = "Nascimento", nullable = false)
     private String dNasc;
     
-    @Column(name = "Email", nullable = true)
+    /*@Column(name = "Email", nullable = true)
     private String email;
     
-    @Column(name = "Cidade", nullable = false)
+    /*@Column(name = "Cidade", nullable = false)
     private String cida;
     
     @Column(name = "Endereço", nullable = false)
