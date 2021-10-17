@@ -18,7 +18,7 @@ public class PacienteUtils {
         return PacienteDTO.builder()
             .id(faker.number().randomDigit())
             .nome(faker.name().firstName())
-            .cns(faker.numerify("###############"))
+            /*.cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
             .rg(faker.numerify("########"))
             .dNasc("a")
@@ -29,7 +29,7 @@ public class PacienteUtils {
             .cep(faker.number().randomNumber())
             .num(faker.number().randomDigit())
             .celular(faker.number().randomNumber())
-            .fone(faker.number().randomNumber())
+            .fone(faker.number().randomNumber())*/
             .build();
     }
 
@@ -37,7 +37,7 @@ public class PacienteUtils {
         return Paciente.builder()
             .id(faker.number().randomDigit())
             .nome(faker.name().firstName())
-            .cns(faker.numerify("###############"))
+            /*.cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
             .rg(faker.numerify("########"))
             .dNasc("a")
@@ -48,7 +48,7 @@ public class PacienteUtils {
             .cep(faker.number().randomNumber())
             .num(faker.number().randomDigit())
             .celular(faker.number().randomNumber())
-            .fone(faker.number().randomNumber())
+            .fone(faker.number().randomNumber())*/
             .build();
     }
 
@@ -56,7 +56,7 @@ public class PacienteUtils {
         return Paciente.builder()
             .id(pacienteDTO.getId())
             .nome(pacienteDTO.getNome())
-            .cns(pacienteDTO.getCns())            
+            /*.cns(pacienteDTO.getCns())            
             .cpf(pacienteDTO.getCpf())
             .rg(pacienteDTO.getRg())
             .dNasc(pacienteDTO.getDNasc())
@@ -67,7 +67,7 @@ public class PacienteUtils {
             .cep(pacienteDTO.getCep())
             .num(pacienteDTO.getNum())
             .celular(pacienteDTO.getCelular())
-            .fone(pacienteDTO.getFone())
+            .fone(pacienteDTO.getFone())*/
             .build();
     }
 

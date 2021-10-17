@@ -22,7 +22,7 @@ public class PacienteDTO {
     @Size(max = 95)
     private String nome;
 
-   @NotBlank
+   /*@NotBlank
    @Size(max = 15)
    private String cns;
 
@@ -62,5 +62,5 @@ public class PacienteDTO {
     private long celular;
     
     @NotNull
-    private long fone;
+    private long fone;*/
 }
