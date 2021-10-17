@@ -51,14 +51,14 @@ public class Paciente {
     private String comp;
     
     @Column(name = "CEP", nullable = false)
-    private int cep;
+    private long cep;
     
     @Column(name = "Número_R", nullable = false)
     private int num;
     
     @Column(name = "Celular", nullable = false)
-    private int celular;
+    private long celular;
     
     @Column(name = "Fone_Fixo", nullable = false)
-    private int fone;
+    private long fone;
 }

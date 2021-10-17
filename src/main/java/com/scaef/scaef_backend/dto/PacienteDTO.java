@@ -23,8 +23,8 @@ public class PacienteDTO {
     private String nome;
 
    @NotBlank
-    @Size(max = 15)
-    private String cns;
+   @Size(max = 15)
+   private String cns;
 
     @NotBlank
     @Size(max = 11)
@@ -35,6 +35,7 @@ public class PacienteDTO {
     private String rg;
     
     @NotBlank
+    @Size(max = 10)
     private String dNasc;
     
     @Size(max = 95)
@@ -52,14 +53,14 @@ public class PacienteDTO {
     private String comp;
     
     @NotNull
-    private int cep;
+    private long cep;
     
     @NotNull
     private int num;
     
     @NotNull
-    private int celular;
+    private long celular;
     
     @NotNull
-    private int fone;
+    private long fone;
 }

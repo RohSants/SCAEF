@@ -31,7 +31,7 @@ public class PacienteServiceTest {
 
     @Test
     void WhenGivenExistingIdReturnThisPatient() throws PacienteNotFoundException{
-        Paciente expectedFoundPaciente = PacienteUtils.createFakePaciente();
+      Paciente expectedFoundPaciente = PacienteUtils.createFakePaciente();
 
         Mockito.when(pacienteRepository.findById(expectedFoundPaciente.getId())).thenReturn(Optional.of(expectedFoundPaciente));
 

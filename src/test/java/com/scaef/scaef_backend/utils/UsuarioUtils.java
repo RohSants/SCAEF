@@ -1,12 +1,13 @@
 package com.scaef.scaef_backend.utils;
 
+import com.scaef.scaef_backend.dto.UsuarioDTO;
+import com.scaef.scaef_backend.entity.Usuario;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.javafaker.Faker;
-import com.scaef.scaef_backend.dto.UsuarioDTO;
-import com.scaef.scaef_backend.entity.Usuario;
 
 public class UsuarioUtils {
     
