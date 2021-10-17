@@ -30,7 +30,7 @@ public class PacienteDTO {
     @Size(max = 11)
     private String cpf;
 
-    /*@NotBlank
+    @NotBlank
     @Size(max = 10)
     private String rg;
     
@@ -38,7 +38,7 @@ public class PacienteDTO {
     @Size(max = 10)
     private String dNasc;
     
-    @Size(max = 95)
+    /*@Size(max = 95)
     private String email;
     
     @NotBlank
