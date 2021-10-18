@@ -32,5 +32,37 @@ public class PacienteDTO {
 
     @NotBlank
     @Size(max = 10)
+    private String rg;
+
+    @NotBlank
+    @Size(max = 10)
     private String dataNasc;
+
+    @NotBlank
+    @Size(max = 26)
+    private String cida;
+    
+    @NotBlank
+    @Size(max = 80)
+    private String endr;
+    
+    @NotBlank
+    @Size(max = 50)
+    private String comp;
+    
+    private long cep;
+    
+    private int num;
+    
+    @NotBlank
+    @Size(max = 15)
+    private String celular;
+    
+    @NotBlank
+    @Size(max = 15)
+    private String fone;
+    
+    @NotBlank
+    @Size(max = 95)
+    private String email;
 }

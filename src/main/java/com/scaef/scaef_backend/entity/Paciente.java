@@ -32,6 +32,33 @@ public class Paciente {
     @Column(name = "CPF", nullable = false, unique = true)
     private String cpf;
 
+    @Column(name = "RG", nullable = false, unique = true)
+    private String rg;
+
     @Column(name = "Nascimento", nullable = false)
     private String dataNasc;
+
+    @Column(name = "Cidade", nullable = false)
+    private String cida;
+    
+    @Column(name = "Endereço", nullable = false)
+    private String endr;
+    
+    @Column(name = "Complemento", nullable = true)
+    private String comp;
+    
+    @Column(name = "CEP", nullable = false)
+    private long cep;
+    
+    @Column(name = "Número_R", nullable = false)
+    private int num;
+    
+    @Column(name = "Celular", nullable = false)
+    private String celular;
+    
+    @Column(name = "Fone_Fixo", nullable = false)
+    private String fone;
+    
+    @Column(name = "Email", nullable = true)
+    private String email;
 }
