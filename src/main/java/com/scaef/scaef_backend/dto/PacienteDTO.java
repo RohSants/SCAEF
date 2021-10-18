@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.dto;
 
 import javax.validation.constraints.NotBlank;
-/*import javax.validation.constraints.NotNull;*/
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /*Projeto Lombok*/
@@ -16,53 +16,52 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class PacienteDTO {
 
-    private int id;
+    private long id;
 
-    @NotBlank
+    @NotBlank(message = "Nome do Paciente é obrigatório")
     @Size(max = 95)
     private String nome;
 
-   @NotBlank
+   @NotBlank(message = "CNS do Paciente é obrigatório")
    @Size(max = 15)
    private String cns;
 
-    @NotBlank
+    @NotBlank(message = "CPF do Paciente é obrigatório")
     @Size(max = 11)
     private String cpf;
 
-    @NotBlank
+    /*@NotBlank(message = "RG do Paciente é obrigatório")
     @Size(max = 10)
-    private String rg;
+    private String rg;*/
 
-    @NotBlank
+    @NotBlank(message = "Data de Nascimento do Paciente é obrigatório")
     @Size(max = 10)
     private String dataNasc;
 
-    @NotBlank
+    @NotBlank(message = "Cidade do Paciente é obrigatório")
     @Size(max = 26)
     private String cida;
     
-    @NotBlank
+    @NotBlank(message = "Endereço do Paciente é obrigatório")
     @Size(max = 80)
     private String endr;
     
-    @NotBlank
     @Size(max = 50)
     private String comp;
     
+    @NotNull(message = "CEP do Paciente é obrigatório")
     private long cep;
     
+    @NotNull(message = "Número de Residência do Paciente é obrigatório")
     private int num;
     
-    @NotBlank
+    @NotBlank(message = "Número de Celular do Paciente é obrigatórioa")
     @Size(max = 15)
     private String celular;
     
-    @NotBlank
     @Size(max = 15)
     private String fone;
     
-    @NotBlank
     @Size(max = 95)
     private String email;
 }

@@ -10,7 +10,7 @@ import com.scaef.scaef_backend.entity.Medicamento;
 
 public class MedicamentoUtils {
     
-     private static final Faker faker = Faker.instance();
+    private static final Faker faker = Faker.instance();
 
     public static MedicamentoDTO createFakeMedicamentoDTO() {
         return MedicamentoDTO.builder()

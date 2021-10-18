@@ -32,7 +32,7 @@ public class PacienteService {
         return MessageResponseDTO.builder().message("Paciente " + savedPaciente.getNome() + " cadastrado com a ID = " + savedPaciente.getId()).build(); 
     }
 
-    public PacienteDTO findById(int id) throws PacienteNotFoundException {
+    public PacienteDTO findById(long id) throws PacienteNotFoundException {
         Paciente paciente = pacienteRepository.findById(id).orElseThrow(() -> new PacienteNotFoundException(id));
         return pacienteMapper.toDTO(paciente);
     }
