@@ -29,4 +29,8 @@ public class PacienteDTO {
     @NotBlank
     @Size(max = 11)
     private String cpf;
+
+    @NotBlank
+    @Size(max = 10)
+    private String dataNasc;
 }
