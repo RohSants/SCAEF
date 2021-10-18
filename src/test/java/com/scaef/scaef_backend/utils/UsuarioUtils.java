@@ -41,6 +41,20 @@ public class UsuarioUtils {
                 .build();
     }
     
+    public static Usuario createFakeUsuarioFrom(UsuarioDTO usuarioDTO) {
+        return Usuario.builder()
+                .id(usuarioDTO.getId())
+                .nome(usuarioDTO.getNome())
+                .cpf(usuarioDTO.getCpf())
+                .rg(usuarioDTO.getRg())
+                .email(usuarioDTO.getEmail())
+                .celular(usuarioDTO.getCelular())
+                .fone(usuarioDTO.getFone())
+                .funcao(usuarioDTO.getFuncao())
+                .crf(usuarioDTO.getCrf())
+                .build();
+    }
+
     public static String asJsonString(UsuarioDTO usuarioDTO) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
