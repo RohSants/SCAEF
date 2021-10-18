@@ -39,7 +39,7 @@ public class PacienteServiceTest {
         Assertions.assertEquals(expectedFoundPaciente.getNome(), pacienteDTO.getNome());
         Assertions.assertEquals(expectedFoundPaciente.getCns(), pacienteDTO.getCns());
         Assertions.assertEquals(expectedFoundPaciente.getCpf(), pacienteDTO.getCpf());
-        /*Assertions.assertEquals(expectedFoundPaciente.getRg(), pacienteDTO.getRg());*/
+        Assertions.assertEquals(expectedFoundPaciente.getRg(), pacienteDTO.getRg());
         Assertions.assertEquals(expectedFoundPaciente.getDataNasc(), pacienteDTO.getDataNasc());
         Assertions.assertEquals(expectedFoundPaciente.getCida(), pacienteDTO.getCida());
         Assertions.assertEquals(expectedFoundPaciente.getEndr(), pacienteDTO.getEndr());

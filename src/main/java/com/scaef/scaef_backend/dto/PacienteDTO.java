@@ -30,9 +30,9 @@ public class PacienteDTO {
     @Size(max = 11)
     private String cpf;
 
-    /*@NotBlank(message = "RG do Paciente é obrigatório")
+    @NotBlank(message = "RG do Paciente é obrigatório")
     @Size(max = 10)
-    private String rg;*/
+    private String rg;
 
     @NotBlank(message = "Data de Nascimento do Paciente é obrigatório")
     @Size(max = 10)

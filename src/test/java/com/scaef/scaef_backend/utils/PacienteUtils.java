@@ -20,7 +20,7 @@ public class PacienteUtils {
             .nome(faker.name().firstName())
             .cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
-            /*.rg(faker.numerify("########"))*/
+            .rg(faker.numerify("########"))
             .dataNasc("a")
             .cida(faker.name().firstName())
             .endr(faker.name().firstName()) 
@@ -39,7 +39,7 @@ public class PacienteUtils {
             .nome(faker.name().firstName())
             .cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
-            /*.rg(faker.numerify("##########"))*/
+            .rg(faker.numerify("##########"))
             .dataNasc("a")
             .cida(faker.name().firstName())
             .endr(faker.name().firstName()) 
@@ -58,7 +58,7 @@ public class PacienteUtils {
         .nome(pacienteDTO.getNome())
         .cns(pacienteDTO.getCns())
         .cpf(pacienteDTO.getCpf())
-        /*.rg(pacienteDTO.getRg())*/
+        .rg(pacienteDTO.getRg())
         .dataNasc(pacienteDTO.getDataNasc())
         .cida(pacienteDTO.getCida())
         .endr(pacienteDTO.getEndr()) 
