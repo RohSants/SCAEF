@@ -31,6 +31,5 @@ public class PacienteDTO {
     private String cpf;
 
     @NotBlank
-    @Size(max = 10)
-    private String dataNasc;
+    private String datanasc;
 }

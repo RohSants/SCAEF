@@ -33,5 +33,5 @@ public class Paciente {
     private String cpf;
 
     @Column(name = "Nascimento", nullable = false)
-    private String dataNasc;
+    private String datanasc;
 }
