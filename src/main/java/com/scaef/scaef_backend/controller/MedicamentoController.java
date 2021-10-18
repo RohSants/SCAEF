@@ -1,5 +1,7 @@
 package com.scaef.scaef_backend.controller;
 
+import javax.validation.Valid;
+
 /*Classes SCAEF*/
 import com.scaef.scaef_backend.dto.MedicamentoDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
@@ -27,7 +29,7 @@ public class MedicamentoController {
     }
 
     @PostMapping
-    public MessageResponseDTO create(@RequestBody MedicamentoDTO medicamentoDTO){ 
+    public MessageResponseDTO create(@RequestBody @Valid MedicamentoDTO medicamentoDTO){ 
         return medicamentoService.create(medicamentoDTO);
     }
 
