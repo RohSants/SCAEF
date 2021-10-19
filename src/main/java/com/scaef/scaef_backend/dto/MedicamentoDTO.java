@@ -1,12 +1,9 @@
 package com.scaef.scaef_backend.dto;
 
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import com.scaef.scaef_backend.entity.Cid;
 
 /*Projeto Lombok*/
 import lombok.Data;
@@ -55,5 +52,5 @@ public class MedicamentoDTO {
     private String classeT;
 
     @Valid
-    private Cid cid;
+    private CidDTO cid;
 }

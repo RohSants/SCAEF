@@ -1,12 +1,15 @@
 package com.scaef.scaef_backend.utils;
 
+import com.scaef.scaef_backend.dto.MedicamentoDTO;
+import com.scaef.scaef_backend.entity.Medicamento;
+
+import com.github.javafaker.Faker;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.github.javafaker.Faker;
-import com.scaef.scaef_backend.dto.MedicamentoDTO;
-import com.scaef.scaef_backend.entity.Medicamento;
+
 import static com.scaef.scaef_backend.utils.CidUtils.createFakeCid;
 import static com.scaef.scaef_backend.utils.CidUtils.createFakeCidDTO;
 import static com.scaef.scaef_backend.utils.CidUtils.createFakeCidFrom;
@@ -58,7 +61,7 @@ public class MedicamentoUtils {
                 .via(medicamentoDTO.getVia())
                 .priA(medicamentoDTO.getPriA())
                 .classeT(medicamentoDTO.getClasseT())
-                .cid(createFakeCidFrom(CidDTO.getCod()))
+                .cid(createFakeCidFrom(medicamentoDTO.getCid()))
                 .build();
     }
 
