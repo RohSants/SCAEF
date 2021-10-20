@@ -38,8 +38,14 @@ public class MedicamentoServiceTest {
         MedicamentoDTO medicamentoDTO = medicamentoService.findById(expectedFoundMedicamento.getId());
 
         Assertions.assertEquals(expectedFoundMedicamento.getNome(), medicamentoDTO.getNome());
+        Assertions.assertEquals(expectedFoundMedicamento.getCid(), medicamentoDTO.getCid());
         Assertions.assertEquals(expectedFoundMedicamento.getCatReg(), medicamentoDTO.getCatReg());
         Assertions.assertEquals(expectedFoundMedicamento.getPcdt(), medicamentoDTO.getPcdt());
+        Assertions.assertEquals(expectedFoundMedicamento.getDose(), medicamentoDTO.getDose());
+        Assertions.assertEquals(expectedFoundMedicamento.getForma(), medicamentoDTO.getForma());
+        Assertions.assertEquals(expectedFoundMedicamento.getVia(), medicamentoDTO.getVia());
+        Assertions.assertEquals(expectedFoundMedicamento.getPriA(), medicamentoDTO.getPriA());
+        Assertions.assertEquals(expectedFoundMedicamento.getClasseT(), medicamentoDTO.getClasseT());
     }
 
     @Test

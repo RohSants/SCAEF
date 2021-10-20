@@ -1,6 +1,5 @@
 package com.scaef.scaef_backend.dto;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -22,6 +21,10 @@ public class MedicamentoDTO {
     @NotBlank
     @Size(max = 95)
     private String nome;
+
+    @NotBlank
+    @Size(max = 5)
+    private String cid;
 
     @NotBlank
     @Size(max = 90)
@@ -50,7 +53,4 @@ public class MedicamentoDTO {
     @NotBlank
     @Size(max = 50)
     private String classeT;
-
-    @Valid
-    private CidDTO cid;
 }

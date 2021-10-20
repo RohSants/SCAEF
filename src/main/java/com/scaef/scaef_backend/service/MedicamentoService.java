@@ -22,7 +22,7 @@ public class MedicamentoService {
     @Autowired
     public MedicamentoService(MedicamentoRepository medicamentoRepository){
         this.medicamentoRepository = medicamentoRepository;
-    } 
+    }
 
     public MessageResponseDTO create(MedicamentoDTO medicamentoDTO){ 
 

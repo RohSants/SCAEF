@@ -23,7 +23,7 @@ public class Paciente {
     @Column(name = "ID_Paciente")
     private long id;
 
-    @Column(name = "Nome", nullable = false)
+    @Column(name = "Nome", nullable = false, unique = true)
     private String nome;
 
     @Column(name = "CNS", nullable = false, unique = true)
@@ -38,20 +38,17 @@ public class Paciente {
     @Column(name = "Nascimento", nullable = false)
     private String dataNasc;
 
-    @Column(name = "CEP", nullable = false)
-    private long cep;
-
     @Column(name = "Cidade", nullable = false)
     private String cida;
-
-    @Column(name = "Bairro", nullable = false)
-    private String bai;
     
     @Column(name = "Endereço", nullable = false)
     private String endr;
     
     @Column(name = "Complemento", nullable = true)
-    private String comp;    
+    private String comp;
+    
+    @Column(name = "CEP", nullable = false)
+    private long cep;
     
     @Column(name = "Número_R", nullable = false)
     private int num;

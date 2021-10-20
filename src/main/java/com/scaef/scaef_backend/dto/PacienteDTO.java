@@ -38,23 +38,19 @@ public class PacienteDTO {
     @Size(max = 10)
     private String dataNasc;
 
-    @NotNull(message = "CEP do Paciente é obrigatório")
-    private long cep;
-
     @NotBlank(message = "Cidade do Paciente é obrigatório")
     @Size(max = 26)
     private String cida;
     
-    @NotBlank(message = "Bairro do Paciente é obrigatório")
-    @Size(max = 95)
-    private String bai;
-
     @NotBlank(message = "Endereço do Paciente é obrigatório")
     @Size(max = 80)
     private String endr;
     
     @Size(max = 50)
     private String comp;
+    
+    @NotNull(message = "CEP do Paciente é obrigatório")
+    private long cep;
     
     @NotNull(message = "Número de Residência do Paciente é obrigatório")
     private int num;

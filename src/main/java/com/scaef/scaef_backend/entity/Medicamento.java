@@ -1,14 +1,10 @@
 package com.scaef.scaef_backend.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 /*Projeto Lombok*/
 import lombok.Data;
@@ -29,6 +25,9 @@ public class Medicamento {
  
     @Column(name = "Nome", nullable = false, unique = true)
     private String nome;
+ 
+    @Column(name = "CID", nullable = false)
+    private String cid;
 
     @Column(name = "Categoria_Regulatória", nullable = false)
     private String catReg;
@@ -50,9 +49,4 @@ public class Medicamento {
 
     @Column(name = "Classe_Terapêutica", nullable = false)
     private String classeT;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "Cid_cod")
-    private Cid cid;
-
 }
