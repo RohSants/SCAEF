@@ -21,11 +21,14 @@ public class Paciente {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Paciente")
-    private int id;
+    private long id;
 
-    @Column(name = "Nome", nullable = false, unique = true)
+    @Column(name = "Nome", nullable = false)
     private String nome;
 
+    @Column(name = "Nome da Mãe", nullable = false)
+    private String nomeM;
+  
     @Column(name = "CNS", nullable = false, unique = true)
     private String cns;
 
@@ -34,31 +37,34 @@ public class Paciente {
 
     @Column(name = "RG", nullable = false, unique = true)
     private String rg;
-    
-    /*@Column(name = "Nascimento", nullable = false)
-    private String dNasc;
-    
-    /*@Column(name = "Email", nullable = true)
-    private String email;
-    
-    /*@Column(name = "Cidade", nullable = false)
+
+    @Column(name = "Nascimento", nullable = false)
+    private String dataNasc;
+
+    @Column(name = "CEP", nullable = false)
+    private long cep;
+
+    @Column(name = "Cidade", nullable = false)
     private String cida;
+
+    @Column(name = "Bairro", nullable = false)
+    private String bai;
     
     @Column(name = "Endereço", nullable = false)
     private String endr;
     
     @Column(name = "Complemento", nullable = true)
-    private String comp;
-    
-    @Column(name = "CEP", nullable = false)
-    private long cep;
+    private String comp;    
     
     @Column(name = "Número_R", nullable = false)
     private int num;
     
     @Column(name = "Celular", nullable = false)
-    private long celular;
+    private String celular;
     
-    @Column(name = "Fone_Fixo", nullable = false)
-    private long fone;*/
+    @Column(name = "Fone_Fixo", nullable = true)
+    private String fone;
+    
+    @Column(name = "Email", nullable = true)
+    private String email;
 }

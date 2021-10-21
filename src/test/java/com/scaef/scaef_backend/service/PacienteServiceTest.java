@@ -36,25 +36,24 @@ public class PacienteServiceTest {
         Mockito.when(pacienteRepository.findById(expectedFoundPaciente.getId())).thenReturn(Optional.of(expectedFoundPaciente));
 
         PacienteDTO pacienteDTO = pacienteService.findById(expectedFoundPaciente.getId());
-
         Assertions.assertEquals(expectedFoundPaciente.getNome(), pacienteDTO.getNome());
-        /*Assertions.assertEquals(expectedFoundPaciente.getCns(), pacienteDTO.getCns());
+        Assertions.assertEquals(expectedFoundPaciente.getCns(), pacienteDTO.getCns());
         Assertions.assertEquals(expectedFoundPaciente.getCpf(), pacienteDTO.getCpf());
         Assertions.assertEquals(expectedFoundPaciente.getRg(), pacienteDTO.getRg());
-        Assertions.assertEquals(expectedFoundPaciente.getDNasc(), pacienteDTO.getDNasc());
-        Assertions.assertEquals(expectedFoundPaciente.getEmail(), pacienteDTO.getEmail());
+        Assertions.assertEquals(expectedFoundPaciente.getDataNasc(), pacienteDTO.getDataNasc());
         Assertions.assertEquals(expectedFoundPaciente.getCida(), pacienteDTO.getCida());
         Assertions.assertEquals(expectedFoundPaciente.getEndr(), pacienteDTO.getEndr());
         Assertions.assertEquals(expectedFoundPaciente.getComp(), pacienteDTO.getComp());
         Assertions.assertEquals(expectedFoundPaciente.getCep(), pacienteDTO.getCep());
         Assertions.assertEquals(expectedFoundPaciente.getNum(), pacienteDTO.getNum());
         Assertions.assertEquals(expectedFoundPaciente.getCelular(), pacienteDTO.getCelular());
-        Assertions.assertEquals(expectedFoundPaciente.getFone(), pacienteDTO.getFone());*/
+        Assertions.assertEquals(expectedFoundPaciente.getFone(), pacienteDTO.getFone());
+        Assertions.assertEquals(expectedFoundPaciente.getEmail(), pacienteDTO.getEmail());
     }
 
     @Test
     void whenGivenUnexistingIdThenNotFindThrowAnException(){
-      var invalidId = 10;
+      var invalidId = 10L;
 
       when(pacienteRepository.findById(invalidId)).thenReturn(Optional.ofNullable(any(Paciente.class)));
 
