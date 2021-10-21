@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MedicamentoController {
     
     private MedicamentoService medicamentoService;
-
+    
     @Autowired
     public MedicamentoController(MedicamentoService medicamentoService){
         this.medicamentoService = medicamentoService;
