@@ -26,6 +26,9 @@ public class Paciente {
     @Column(name = "Nome", nullable = false)
     private String nome;
 
+    @Column(name = "Nome da Mãe", nullable = false)
+    private String nomeM;
+  
     @Column(name = "CNS", nullable = false, unique = true)
     private String cns;
 
