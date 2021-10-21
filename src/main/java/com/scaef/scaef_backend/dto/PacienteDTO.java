@@ -59,7 +59,7 @@ public class PacienteDTO {
     @NotNull(message = "Número de Residência do Paciente é obrigatório")
     private int num;
     
-    @NotBlank(message = "Número de Celular do Paciente é obrigatórioa")
+    @NotBlank(message = "Número de Celular do Paciente é obrigatório")
     @Size(max = 15)
     private String celular;
     
