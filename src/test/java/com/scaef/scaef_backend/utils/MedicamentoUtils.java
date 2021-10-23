@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.github.javafaker.Faker;
 import com.scaef.scaef_backend.dto.MedicamentoDTO;
-import com.scaef.scaef_backend.entity.Medicamento;
+import com.scaef.scaef_backend.model.Medicamento;
 
 public class MedicamentoUtils {
     

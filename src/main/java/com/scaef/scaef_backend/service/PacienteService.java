@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.service;
 
 /*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Paciente;
+import com.scaef.scaef_backend.model.Paciente;
 import com.scaef.scaef_backend.exception.PacienteNotFoundException;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;

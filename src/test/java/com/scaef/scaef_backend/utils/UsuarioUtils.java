@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.utils;
 
 import com.scaef.scaef_backend.dto.UsuarioDTO;
-import com.scaef.scaef_backend.entity.Usuario;
+import com.scaef.scaef_backend.model.Usuario;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

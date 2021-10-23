@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.service;
 
 /*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Usuario;
+import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.dto.UsuarioDTO;
 import com.scaef.scaef_backend.exception.UsuarioNotFoundException;
 

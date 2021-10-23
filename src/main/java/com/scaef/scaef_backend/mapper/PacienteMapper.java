@@ -1,7 +1,7 @@
 package com.scaef.scaef_backend.mapper;
 
 /*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Paciente;
+import com.scaef.scaef_backend.model.Paciente;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 
 /*MapStruct*/
