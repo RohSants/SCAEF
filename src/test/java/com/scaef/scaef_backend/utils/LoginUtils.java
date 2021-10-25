@@ -9,7 +9,9 @@ import com.scaef.scaef_backend.entity.Login;
 import com.scaef.scaef_backend.repository.LoginRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class LoginUtils {
     @Autowired
     LoginRepository loginRepository;
@@ -20,7 +22,7 @@ public class LoginUtils {
         List<Login> loginList = new ArrayList<>();
         Login login1 = new Login();
         login1.setEmail("Bruno@Alexandre");
-        login1.setSenha("1234423");
+        login1.setSenha("nemsei1234423");
         
         loginList.add(login1);
        
