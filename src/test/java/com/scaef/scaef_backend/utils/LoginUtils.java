@@ -16,7 +16,7 @@ public class LoginUtils {
     @Autowired
     LoginRepository loginRepository;
 
-    @PostConstruct
+   // @PostConstruct
     public void saveLogin(){
 
         List<Login> loginList = new ArrayList<>();
