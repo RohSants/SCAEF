@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.entity;
+package com.scaef.scaef_backend.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;

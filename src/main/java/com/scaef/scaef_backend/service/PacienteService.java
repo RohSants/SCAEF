@@ -1,12 +1,11 @@
 package com.scaef.scaef_backend.service;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Paciente;
 import com.scaef.scaef_backend.exception.PacienteNotFoundException;
 import com.scaef.scaef_backend.dto.PacienteDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.PacienteRepository;
 import com.scaef.scaef_backend.mapper.PacienteMapper;
+import com.scaef.scaef_backend.model.Paciente;
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;

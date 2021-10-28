@@ -1,13 +1,12 @@
 package com.scaef.scaef_backend.service;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Usuario;
 import com.scaef.scaef_backend.dto.UsuarioDTO;
 import com.scaef.scaef_backend.exception.UsuarioNotFoundException;
 
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
 import com.scaef.scaef_backend.mapper.UsuarioMapper;
+import com.scaef.scaef_backend.model.Usuario;
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;

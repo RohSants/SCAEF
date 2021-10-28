@@ -1,13 +1,12 @@
 package com.scaef.scaef_backend.service;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.entity.Medicamento;
 import com.scaef.scaef_backend.exception.MedicamentoNotFoundException;
 
 import com.scaef.scaef_backend.dto.MedicamentoDTO;
 import com.scaef.scaef_backend.dto.MessageResponseDTO;
 import com.scaef.scaef_backend.repository.MedicamentoRepository;
 import com.scaef.scaef_backend.mapper.MedicamentoMapper;
+import com.scaef.scaef_backend.model.Medicamento;
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;

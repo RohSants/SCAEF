@@ -2,7 +2,7 @@ package com.scaef.scaef_backend.service;
 
 import java.util.List;
 
-import com.scaef.scaef_backend.entity.Login;
+import com.scaef.scaef_backend.model.Login;
 
 public interface LoginService {
     
