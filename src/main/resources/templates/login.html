@@ -35,13 +35,15 @@
                 </header>
 
                 <main id = "campologin">
-                    <form>
+                    <form method="post" action="/logar" th:object=${login}>
                             <p id = "tamanhologin">Usuário</p>
-                            <input id = "formatologin" class = "form-control" type = "text" placeholder = "Email">
+                            <input id = "formatologin" class = "form-control" type = "text" placeholder = "Email" th:field="*{email}" name = "email">
                             <p id="senhalogin" class = "tamanhologin">Senha</p>
                             <div id="camposenha">
-                                <input id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2" >
-                                <button id="botaologin" type="button">
+                                <input id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2" th:field="*{senha}" name = "senha">
+                                <div th:if="${erro != null}" th:text="${erro}"class="alert alert-danger" role="alert">
+                                  </div>
+                                <button id="botaologin" type="submit">
                                 <img src="mídia/vetores/botão_confirmação.svg" alt="botão de confimação do login" id="botaologinform">
                                 </button>
                             </div>
