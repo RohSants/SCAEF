@@ -1,5 +1,6 @@
 package com.scaef.scaef_backend.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -30,6 +31,7 @@ public class UsuarioDTO {
     @Size(max = 9)
     private String rg;
     
+    @Email
     @Size(max = 95)
     private String email;
 
@@ -44,4 +46,7 @@ public class UsuarioDTO {
 
     @NotNull
     private int crf;
+
+    @NotBlank
+    private String senha;
 }

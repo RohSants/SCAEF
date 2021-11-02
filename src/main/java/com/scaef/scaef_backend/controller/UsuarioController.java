@@ -1,39 +1,41 @@
 package com.scaef.scaef_backend.controller;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.dto.UsuarioDTO;
-import com.scaef.scaef_backend.dto.MessageResponseDTO;
-import com.scaef.scaef_backend.service.UsuarioService;
-import com.scaef.scaef_backend.exception.UsuarioNotFoundException;
+import com.scaef.scaef_backend.model.Usuario;
+import com.scaef.scaef_backend.repository.UsuarioRepository;
 
-/*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
-
-@RestController
-@RequestMapping("/api/v1/Usuario")
+@Controller
 public class UsuarioController {
 
-    private UsuarioService usuarioService;
-
     @Autowired
-    public UsuarioController(UsuarioService usuarioService){
-        this.usuarioService = usuarioService;
+    private UsuarioRepository usuarioRepository;
+
+    @GetMapping("/login")
+    public ModelAndView login(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("login");
+        return mv;
+    }
+
+    @GetMapping("/cadastro")
+    public ModelAndView cadastro(){
+        ModelAndView cd = new ModelAndView();
+        cd.addObject("usuario", new Usuario());
+        cd.setViewName("cadastroUsuario");
+        return cd;
+    }
+    @PostMapping("salvarUsuario")
+    public ModelAndView cadastrar(Usuario usuario){
+        ModelAndView cd = new ModelAndView();
+        usuarioRepository.save(usuario);
+        cd.setViewName("redirect:/home");
+        return cd;
     }
     
-    @PostMapping
-        public MessageResponseDTO create(@RequestBody UsuarioDTO usuarioDTO){
-        return usuarioService.create(usuarioDTO);
-    }
-
-    @GetMapping("/{id}")
-    public UsuarioDTO findById(@PathVariable int id) throws UsuarioNotFoundException{ 
-        return usuarioService.findById(id);
-    }
 }
