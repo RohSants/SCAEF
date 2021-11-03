@@ -34,8 +34,7 @@ public class UsuarioController {
     public ModelAndView cadastrar(Usuario usuario){
         ModelAndView cd = new ModelAndView();
         usuarioRepository.save(usuario);
-        cd.setViewName("redirect:/home");
+        cd.setViewName("redirect:login");
         return cd;
-    }
-    
+    } 
 }
