@@ -53,7 +53,7 @@ public class UsuarioController {
                 return "redirect:template";
             }
 
-            model.addAttribute("erro", "email ou senha invalidos");
+            model.addAttribute("erro", "email ou senha inválidos!");
             return "login";
         }
     }

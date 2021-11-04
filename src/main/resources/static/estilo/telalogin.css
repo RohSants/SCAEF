@@ -118,9 +118,8 @@ p{
 #telalogin #campologin {
   display: flex;
   width: 320px;
-  height: 240px;
+  height: 205px;
   margin: 8px 40px 0px 40px;
-
 }
 
 #telalogin #campologin #formatologin {
@@ -173,6 +172,7 @@ p{
   width: 400px;
   height: 70px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 #telalogin #footerlogin > div {
@@ -206,7 +206,17 @@ p{
   height: 60px;
   padding-left: 10px;
   border-left: var(--cor-fonte) solid 1.9px;
-  }
+}
+
+.alerta{
+    width: 271px;
+    height: 20px;
+    margin-bottom: 25px;
+    margin-left: 55px;
+    color: #2d4758;
+    font-weight: 600;
+    padding: 10px;
+}
   
   /*Classes da tag section*/
 
