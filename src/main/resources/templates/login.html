@@ -21,7 +21,7 @@
 
             <section id="personagens">
                     <img src="mídia/vetores/personagem_1.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. O personagem traz características árabes e usa um turbante." class="tamanhosvg">
-                    <img src="mídia/vetores/personagem_3.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica.O personagem traz características negroides." class="tamanhosvg">
+                    <img src="mídia/vetores/personagem_3.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. O personagem traz características negroides." class="tamanhosvg">
                     <img src="mídia/vetores/personagem_2.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. A personagem traz características mestiças, com cabelos ondulados e cor entre negro e branco." id="centro" class="tamanhosvg">
             </section>
 
@@ -50,10 +50,10 @@
                 </main>
 
                 <footer id = "footerlogin">
-                    <div th:if="${erro != null}" th:text="${erro}" class="alerta" role="alert"></div>
-                    <div>
-                            <a href = "#" target = "_self">Mudar Senha</a>
-                            <a href = "#" target = "_self">Esqueci a Senha</a>
+                    <div th:if="${erro != null}" th:text="${erro}" class="mensagem" role="alert"></div>
+                    <div class="menulogin">
+                            <a href = "#" target = "_self">Mudar a Senha</a>
+                            <a href = "redirect:/cadastro" target = "_self">Registrar Usuário</a>
                     </div>
                 </footer>
 
