@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 public class MedicamentoNotFoundException extends Exception {
 
     public MedicamentoNotFoundException(int id){
-        super(String.format("Medicamento com Id não encontrado", id));
+        super(String.format("Medicamento com ID: " + id + " não encontrado"));
 
     }
 }

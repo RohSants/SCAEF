@@ -24,10 +24,17 @@ public class UsuarioController {
         return mv;
     }
 
-    @GetMapping("/template")
-    public ModelAndView template(){
+    @GetMapping("/home")
+    public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("template");
+        mv.setViewName("home");
+        return mv;
+    }
+
+    @GetMapping("/layout")
+    public ModelAndView layout(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("fragments/layout");
         return mv;
     }
 
@@ -50,7 +57,7 @@ public class UsuarioController {
         public String logar(Model model, String email, String senha){
            usuarioRepository.Login(email, senha);
             if(usuarioRepository.Login(email, senha) !=  null){
-                return "redirect:template";
+                return "redirect:home";
             }
 
             model.addAttribute("erro", "Email e/ou Senha Inválidos!");
