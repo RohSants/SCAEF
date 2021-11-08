@@ -8,8 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.bind.annotation.GetMapping;
+/*import org.springframework.web.bind.annotation.GetMapping;*/
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UsuarioController {
@@ -17,34 +18,35 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    @GetMapping("/login")
+    @RequestMapping("/login")
     public ModelAndView login(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
         return mv;
     }
 
-    @GetMapping("/home")
+    @RequestMapping("/home")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
         return mv;
     }
 
-    @GetMapping("/layout")
+    @RequestMapping("/layout")
     public ModelAndView layout(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("fragments/layout");
         return mv;
     }
 
-    @GetMapping("/cadastro")
+    @RequestMapping("/cadastro")
     public ModelAndView cadastro(){
         ModelAndView mv = new ModelAndView();
         mv.addObject("usuario", new Usuario());
         mv.setViewName("cadastroUsuario");
         return mv;
     }
+
     @PostMapping("salvarUsuario")
     public ModelAndView cadastrar(Usuario usuario){
         ModelAndView mv = new ModelAndView();
@@ -63,5 +65,4 @@ public class UsuarioController {
             model.addAttribute("erro", "Email e/ou Senha Inválidos!");
             return "login";
         }
-    }
-    
+}

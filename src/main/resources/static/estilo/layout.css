@@ -65,7 +65,7 @@
 .conteudo{
     grid-area: conteudo;
     grid-column: 2;
-    margin: 25px 40px;
+    margin: 40px 40px 25px;
 }
 
 .rodape{
@@ -100,22 +100,22 @@
     padding-left: 15px;
 }
 
-nav, #menunav{
+nav, .menunav{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
 }
 
-#menunav{
+.menunav{
     margin-top: 25px;
 }
 
-#menunav > li{
+.menunav > li{
     list-style-type: none;
     margin-right: 13px;
 }
 
-#menunav li:nth-child(5){
+.menunav li:nth-child(5){
     margin-right: 0;
 }
 
@@ -157,8 +157,9 @@ nav, #menunav{
 }
 
 .perfilfooter{
-    align-items: center;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .perfilfooter > p{
@@ -168,7 +169,6 @@ nav, #menunav{
     width: 120px;
     text-align: center;
     margin-right: 5px;
-    margin-left: 5px;    
 }
 
 .perfilfooter .imgsus{

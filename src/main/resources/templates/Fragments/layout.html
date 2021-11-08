@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:fragment="layout">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:fragment="layout (conteudo)">
 
-<head>
+<head th:fragment="headconfig (texto)">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
     <link rel="stylesheet" href="estilo/layout.css">
+    <title th:include=":: #thlayouttitle">Layout</title>
 </head>
 
 <body class="app">
@@ -14,11 +14,11 @@
         <a href = "#" target = "_self">
             <figure class="menulogo">
                 <img class="logoscaef" src="mídia/vetores/logo_scaef.svg" alt="logo do sistema">
-                <figcaption id="menufonte">SCAEF</figcaption>
+                <figcaption>SCAEF</figcaption>
             </figure>
         </a>
         <nav>
-            <ul id="menunav">
+            <ul class="menunav">
                 <li>
                     <a href = "#" target = "_self">Principal</a>
                 </li>
@@ -55,13 +55,10 @@
         </footer>
     </aside>
     
-    <main class="conteudo">
-        
-    </main>
+    <main class="conteudo" th:include="${conteudo}"></main>
 
     <footer class="rodape">
         <p>Sistema Cadastral para a Assistência Especializada em Farmácia</p>
     </footer>
 </body>
-
 </html>
