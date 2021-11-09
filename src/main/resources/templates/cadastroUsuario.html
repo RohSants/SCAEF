@@ -17,7 +17,7 @@
                 <div>
                     <label for="cpf">CPF</label>
                     <span th:if="${#fields.hasErrors('cpf')}" th:errors= "*{cpf}" class= "text-danger"></span> 
-                    <input  name="cpf" type="text" th:field="*{cpf}">
+                    <input  name="cpf" type="cpf" th:field="*{cpf}">
                 </div>
 
                 <div>
