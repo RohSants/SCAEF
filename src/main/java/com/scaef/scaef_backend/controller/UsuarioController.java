@@ -47,7 +47,7 @@ public class UsuarioController {
     public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("redirect:cadastro");
+            mv.setViewName("redirect:/cadastro");
             return mv;
         }
         usuarioRepository.save(usuario); 
