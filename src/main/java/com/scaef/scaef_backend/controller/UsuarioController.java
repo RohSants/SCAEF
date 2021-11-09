@@ -35,13 +35,6 @@ public class UsuarioController {
         return mv;
     }
 
-    @RequestMapping("/layout")
-    public ModelAndView layout(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("fragments/layout");
-        return mv;
-    }
-
     @RequestMapping("/cadastro")
     public ModelAndView cadastro(){
         ModelAndView mv = new ModelAndView();
@@ -52,12 +45,11 @@ public class UsuarioController {
 
     @PostMapping("salvarUsuario")
     public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
+        ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("redirect:cadastroUsuario");
-        return mv;
+            mv.setViewName("redirect:cadastro");
+            return mv;
         }
-        ModelAndView mv = new ModelAndView();
         usuarioRepository.save(usuario); 
         mv.setViewName("redirect:login");
         return mv;
