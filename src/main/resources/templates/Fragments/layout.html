@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:fragment="layout (conteudo)">
 
-<head th:fragment="headconfig (texto)">
+<head >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="estilo/layout.css">
     <title th:include=":: #thlayouttitle">Layout</title>
+    <link rel="stylesheet" href="estilo/layout.css">
+    <!--<link rel="stylesheet" th:href="@{/estilo/(${texto}">-->
+    <link rel="icon" type="imagem/svg+xml" href="mídia/vetores/logo_scaef.svg"/>
 </head>
 
 <body class="app">

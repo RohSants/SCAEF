@@ -1,5 +1,7 @@
 package com.scaef.scaef_backend.controller;
 
+import javax.validation.Valid;
+
 import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
 
@@ -7,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 /*import org.springframework.web.bind.annotation.GetMapping;*/
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,12 +51,17 @@ public class UsuarioController {
     }
 
     @PostMapping("salvarUsuario")
-    public ModelAndView cadastrar(Usuario usuario){
+    public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
         ModelAndView mv = new ModelAndView();
-        usuarioRepository.save(usuario);
+        mv.setViewName("redirect:cadastroUsuario");
+        return mv;
+        }
+        ModelAndView mv = new ModelAndView();
+        usuarioRepository.save(usuario); 
         mv.setViewName("redirect:login");
         return mv;
-    } 
+    }
     
     @PostMapping("/logar")
         public String logar(Model model, String email, String senha){

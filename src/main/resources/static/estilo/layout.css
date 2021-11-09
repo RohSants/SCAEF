@@ -185,3 +185,10 @@ nav, .menunav{
     font-size: 1rem;
     text-align: center;
 }
+
+/*estilo cadastro usuário*/
+
+.formulario > div{
+    margin: 15px;
+    color: var(--cor-fonte-menu);
+}

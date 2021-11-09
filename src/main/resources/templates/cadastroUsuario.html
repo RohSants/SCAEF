@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-br"  xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{:: main})}">
     
-<head th:include="~{fragments/layout :: head}">
-    <title id="thlayouttitle">Cadastro de Usuário</title>
+<head>
+    <title id="thlayouttitle">Cadastro de Usuário</title> 
 </head>
 
 <body>
         <main>
-            <form th:object = "${usuario}" method="post" action="salvarUsuario">
-
+            <form class="formulario" th:object = "${usuario}" method="post" action="salvarUsuario">                
                 <div>
                     <label for="nome">Nome</label>
+                    <span th:if="${#fields.hasErrors('nome')}" th:errors= "*{nome}" class= "text-danger"></span>
                     <input  name="nome" type="text"  th:field="*{nome}">
                 </div>
 
                 <div>
                     <label for="cpf">CPF</label>
+                    <span th:if="${#fields.hasErrors('cpf')}" th:errors= "*{cpf}" class= "text-danger"></span> 
                     <input  name="cpf" type="text" th:field="*{cpf}">
                 </div>
 
@@ -26,17 +27,18 @@
 
                 <div>
                     <label for="email">Email</label>
-                    <input name="email" type="email" th:field="*{email}">
+                    <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span> 
+                <input name="email" type="email" th:field="*{email}">
                 </div>
 
                 <div>
                     <label for="celular">Celular</label>
-                    <input name="celular" type="tel" th:field="*{celular}">
+                    <input name="celular" type="number" th:field="*{celular}">
                 </div>
 
                 <div>
                     <label for="fone">Fone</label>
-                    <input name="fone" type="tel"  th:field="*{fone}">
+                    <input name="fone" type="number"  th:field="*{fone}">
                 </div>
 
                 <div>
@@ -51,6 +53,7 @@
 
                 <div>
                     <label for="senha">Senha</label>
+                    <span th:if="${#fields.hasErrors('senha')}" th:errors= "*{senha}" class= "text-danger"></span>
                     <input name="senha" type="password"  th:field="*{senha}">
                 </div>
 
