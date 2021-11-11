@@ -2,7 +2,6 @@ package com.scaef.scaef_backend.utils;
 
 import com.scaef.scaef_backend.dto.UsuarioDTO;
 import com.scaef.scaef_backend.model.Usuario;
-
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -41,20 +40,6 @@ public class UsuarioUtils {
                 .build();
     }
     
-    public static Usuario createFakeUsuarioFrom(UsuarioDTO usuarioDTO) {
-        return Usuario.builder()
-                .id(usuarioDTO.getId())
-                .nome(usuarioDTO.getNome())
-                .cpf(usuarioDTO.getCpf())
-                .rg(usuarioDTO.getRg())
-                .email(usuarioDTO.getEmail())
-                .celular(usuarioDTO.getCelular())
-                .fone(usuarioDTO.getFone())
-                .funcao(usuarioDTO.getFuncao())
-                .crf(usuarioDTO.getCrf())
-                .build();
-    }
-
     public static String asJsonString(UsuarioDTO usuarioDTO) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();

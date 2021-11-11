@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{:: main})}">
+    
+<head>
+    <title id="thlayouttitle">Cadastro de Usuário</title> 
+</head>
+
+<body>
+        <main>
+            <form class="formulario" th:object = "${usuario}" method="post" action="salvarUsuario">                
+                <div>
+                    <label for="nome">Nome</label>
+                    <span th:if="${#fields.hasErrors('nome')}" th:errors= "*{nome}" class= "text-danger"></span>
+                    <input  name="nome" type="text"  th:field="*{nome}">
+                </div>
+
+                <div>
+                    <label for="cpf">CPF</label>
+                    <span th:if="${#fields.hasErrors('cpf')}" th:errors= "*{cpf}" class= "text-danger"></span> 
+                    <input  name="cpf" type="cpf" th:field="*{cpf}">
+                </div>
+
+                <div>
+                    <label for="rg">RG</label>
+                    <input name="rg" type="text"  th:field="*{rg}">
+                </div>
+
+                <div>
+                    <label for="email">Email</label>
+                    <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span> 
+                <input name="email" type="email" th:field="*{email}">
+                </div>
+
+                <div>
+                    <label for="celular">Celular</label>
+                    <input name="celular" type="number" th:field="*{celular}">
+                </div>
+
+                <div>
+                    <label for="fone">Fone</label>
+                    <input name="fone" type="number"  th:field="*{fone}">
+                </div>
+
+                <div>
+                    <label for="funcao">Função</label>
+                    <input name="funcao" type="text"  th:field="*{funcao}">
+                </div>
+
+                <div>
+                    <label for="crf">CRF</label>
+                    <input name="crf" type="number"  th:field="*{crf}">
+                </div>
+
+                <div>
+                    <label for="senha">Senha</label>
+                    <span th:if="${#fields.hasErrors('senha')}" th:errors= "*{senha}" class= "text-danger"></span>
+                    <input name="senha" type="password"  th:field="*{senha}">
+                </div>
+
+                <div class="buttonUsuario">
+                    <button type="submit"> Cadastrar usuário</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>

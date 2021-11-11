@@ -1,8 +1,7 @@
 package com.scaef.scaef_backend.mapper;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.model.Medicamento;
 import com.scaef.scaef_backend.dto.MedicamentoDTO;
+import com.scaef.scaef_backend.model.Medicamento;
 
 /*MapStruct*/
 import org.mapstruct.Mapper;

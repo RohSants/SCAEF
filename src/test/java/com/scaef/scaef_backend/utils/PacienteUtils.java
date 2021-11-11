@@ -2,7 +2,6 @@ package com.scaef.scaef_backend.utils;
 
 import com.scaef.scaef_backend.dto.PacienteDTO;
 import com.scaef.scaef_backend.model.Paciente;
-
 import com.github.javafaker.Faker;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
@@ -21,7 +20,7 @@ public class PacienteUtils {
             .cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
             .rg(faker.numerify("########"))
-            .dataNasc("11-11-1111")
+            .dataNasc("a")
             .cida(faker.name().firstName())
             .endr(faker.name().firstName()) 
             .comp(faker.name().firstName())
@@ -40,7 +39,7 @@ public class PacienteUtils {
             .cns(faker.numerify("###############"))
             .cpf(faker.numerify("###########"))
             .rg(faker.numerify("##########"))
-            .dataNasc("11-11-1111")
+            .dataNasc("a")
             .cida(faker.name().firstName())
             .endr(faker.name().firstName()) 
             .comp(faker.name().firstName())
