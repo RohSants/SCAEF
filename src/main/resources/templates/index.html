@@ -29,6 +29,10 @@
                     <td th:text="${usuario.celular}"></td>
                     <td th:text="${usuario.fone}"></td>
                     <td th:text="${usuario.funcao}"></td>
+					<td>
+						<a th:href="@{/alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluirr</a>		
+					</td>
 				</tr>
 			</tbody>
 		</table>

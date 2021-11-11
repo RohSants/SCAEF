@@ -1,5 +1,7 @@
 package com.scaef.scaef_backend.service;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
@@ -23,5 +25,13 @@ public class UsuarioService {
 
     public Object logar(String email, String senha){
         return usuarioRepository.Login(email, senha);
+    }
+
+    public Optional<Usuario> alterar(int id) {
+        return usuarioRepository.findById(id);
+    }
+
+    public void deletar(Usuario usuario) {
+        usuarioRepository.delete(usuario);
     }
 }

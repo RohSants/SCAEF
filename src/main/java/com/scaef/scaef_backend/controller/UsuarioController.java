@@ -1,6 +1,8 @@
 package com.scaef.scaef_backend.controller;
 
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import com.scaef.scaef_backend.model.Usuario;
@@ -12,7 +14,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -26,6 +31,33 @@ public class UsuarioController {
     public String Usuario(Model model){
         model.addAttribute("listaUsuario", usuarioService.listar());
         return "index";
+    }
+
+    @PostMapping("/usuarioAlterar")
+    public String usuarioNovo(@ModelAttribute("usuario") Usuario usuario){
+        usuarioService.salvar(usuario);
+        return "redirect:/cadastro";
+    }
+
+    @GetMapping("/alterar/{id}")
+    public String alterarUsuario(@PathVariable("id") int id, Model model){
+        Optional<Usuario> usuarioOp = usuarioService.alterar(id);
+        if(usuarioOp.isEmpty()){
+            throw new IllegalArgumentException("usuario inválido.");
+        }
+        model.addAttribute("usuario", usuarioOp.get());
+        return "cadastroUsuario";
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String excluirUsuario(@PathVariable("id") int id){
+        Optional<Usuario> usuarioOp = usuarioService.alterar(id);
+        if(usuarioOp.isEmpty()){
+            throw new IllegalArgumentException("usuario inválido.");
+        }
+        usuarioService.deletar(usuarioOp.get());
+        return "redirect:/listagem";
+
     }
 
     @RequestMapping("/login")
