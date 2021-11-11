@@ -1,9 +1,10 @@
 package com.scaef.scaef_backend.controller;
 
+
 import javax.validation.Valid;
 
 import com.scaef.scaef_backend.model.Usuario;
-import com.scaef.scaef_backend.repository.UsuarioRepository;
+import com.scaef.scaef_backend.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
-/*import org.springframework.web.bind.annotation.GetMapping;*/
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -19,7 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UsuarioController {
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    private UsuarioService usuarioService;
+
+    @GetMapping("/listagem")
+    public String Usuario(Model model){
+        model.addAttribute("listaUsuario", usuarioService.listar());
+        return "index";
+    }
 
     @RequestMapping("/login")
     public ModelAndView login(){
@@ -50,18 +57,17 @@ public class UsuarioController {
             mv.setViewName("redirect:/cadastro");
             return mv;
         }
-        usuarioRepository.save(usuario); 
+        usuarioService.salvar(usuario); 
         mv.setViewName("redirect:login");
         return mv;
     }
     
     @PostMapping("/logar")
         public String logar(Model model, String email, String senha){
-           usuarioRepository.Login(email, senha);
-            if(usuarioRepository.Login(email, senha) !=  null){
+           usuarioService.logar(email, senha);
+            if(usuarioService.logar(email, senha) !=  null){
                 return "redirect:home";
             }
-
             model.addAttribute("erro", "Email e/ou Senha Inválidos!");
             return "login";
         }
