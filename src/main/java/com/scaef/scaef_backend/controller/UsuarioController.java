@@ -14,11 +14,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -33,31 +33,24 @@ public class UsuarioController {
         return "index";
     }
 
-    @PostMapping("/usuarioAlterar")
-    public String usuarioNovo(@ModelAttribute("usuario") Usuario usuario){
-        usuarioService.salvar(usuario);
-        return "redirect:/cadastro";
-    }
-
     @GetMapping("/alterar/{id}")
     public String alterarUsuario(@PathVariable("id") int id, Model model){
-        Optional<Usuario> usuarioOp = usuarioService.alterar(id);
+        Optional<Usuario> usuarioOp = usuarioService.findById(id);
         if(usuarioOp.isEmpty()){
             throw new IllegalArgumentException("usuario inválido.");
         }
         model.addAttribute("usuario", usuarioOp.get());
-        return "cadastroUsuario";
+        return "alterarUsuario";
     }
 
     @GetMapping("/excluir/{id}")
     public String excluirUsuario(@PathVariable("id") int id){
-        Optional<Usuario> usuarioOp = usuarioService.alterar(id);
+        Optional<Usuario> usuarioOp = usuarioService.findById(id);
         if(usuarioOp.isEmpty()){
             throw new IllegalArgumentException("usuario inválido.");
         }
         usuarioService.deletar(usuarioOp.get());
         return "redirect:/listagem";
-
     }
 
     @RequestMapping("/login")
@@ -82,7 +75,7 @@ public class UsuarioController {
         return mv;
     }
 
-    @PostMapping("salvarUsuario")
+    @PostMapping("cadastrarUsuario")
     public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
@@ -90,7 +83,15 @@ public class UsuarioController {
             return mv;
         }
         usuarioService.salvar(usuario); 
-        mv.setViewName("redirect:login");
+        mv.setViewName("redirect:salvarUsuario");
+        return mv;
+    }
+
+    @PostMapping("salvarUsuario")
+    public ModelAndView salvar(@ModelAttribute("usuario") Usuario usuario){
+        ModelAndView mv = new ModelAndView();
+        usuarioService.salvar(usuario); 
+        mv.setViewName("listagem");
         return mv;
     }
     

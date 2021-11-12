@@ -27,7 +27,7 @@ public class UsuarioService {
         return usuarioRepository.Login(email, senha);
     }
 
-    public Optional<Usuario> alterar(int id) {
+    public Optional<Usuario> findById(int id) {
         return usuarioRepository.findById(id);
     }
 
