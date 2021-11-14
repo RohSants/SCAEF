@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -27,47 +26,25 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/listagem")
-    public String Usuario(Model model){
-        model.addAttribute("listaUsuario", usuarioService.listar());
-        return "index";
-    }
-
-    @GetMapping("/alterar/{id}")
-    public String alterarUsuario(@PathVariable("id") int id, Model model){
-        Optional<Usuario> usuarioOp = usuarioService.findById(id);
-        if(usuarioOp.isEmpty()){
-            throw new IllegalArgumentException("usuario inválido.");
+    @PostMapping("/logar")
+    public String logar(Model model, String email, String senha){
+        usuarioService.logar(email, senha);
+        if(usuarioService.logar(email, senha) !=  null){
+            return "redirect:home";
         }
-        model.addAttribute("usuario", usuarioOp.get());
-        return "alterarUsuario";
+        model.addAttribute("erro", "Email e/ou Senha Inválidos!");
+        return "login";
     }
 
-    @GetMapping("/excluir/{id}")
-    public String excluirUsuario(@PathVariable("id") int id){
-        Optional<Usuario> usuarioOp = usuarioService.findById(id);
-        if(usuarioOp.isEmpty()){
-            throw new IllegalArgumentException("usuario inválido.");
-        }
-        usuarioService.deletar(usuarioOp.get());
-        return "redirect:/listagem";
-    }
-
-    @RequestMapping("/login")
-    public ModelAndView login(){
+    @PostMapping("salvarUsuario")
+    public ModelAndView salvar(@ModelAttribute("usuario") Usuario usuario){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("login");
+        usuarioService.salvar(usuario); 
+        mv.setViewName("redirect:/usuario/listagem");
         return mv;
     }
 
-    @RequestMapping("/home")
-    public ModelAndView home(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("home");
-        return mv;
-    }
-
-    @RequestMapping("/cadastro")
+    @RequestMapping("/usuario/cadastro")
     public ModelAndView cadastro(){
         ModelAndView mv = new ModelAndView();
         mv.addObject("usuario", new Usuario());
@@ -79,7 +56,7 @@ public class UsuarioController {
     public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("redirect:/cadastro");
+            mv.setViewName("redirect:/usuario/cadastro");
             return mv;
         }
         usuarioService.salvar(usuario); 
@@ -87,21 +64,27 @@ public class UsuarioController {
         return mv;
     }
 
-    @PostMapping("salvarUsuario")
-    public ModelAndView salvar(@ModelAttribute("usuario") Usuario usuario){
-        ModelAndView mv = new ModelAndView();
-        usuarioService.salvar(usuario); 
-        mv.setViewName("listagem");
-        return mv;
+    @GetMapping("usuario/listagem")
+    public String Usuario(Model model){
+        model.addAttribute("listaUsuario", usuarioService.listar());
+        return "listagemUsuario";
     }
-    
-    @PostMapping("/logar")
-        public String logar(Model model, String email, String senha){
-           usuarioService.logar(email, senha);
-            if(usuarioService.logar(email, senha) !=  null){
-                return "redirect:home";
+
+    @GetMapping("usuario/alterar/{id}")
+        public String buscar(@PathVariable int id, Model model){
+            Optional<Usuario> usuario = usuarioService.findById(id);
+            try {
+                model.addAttribute("usuario", usuario.get());  
+            } catch (Exception e) {
+                return "redirect:/usuario/listagem";
             }
-            model.addAttribute("erro", "Email e/ou Senha Inválidos!");
-            return "login";
-        }
+            return "alterarUsuario";
+        } 
+
+    @GetMapping("usuario/excluir/{id}")
+    public String excluirUsuario(@PathVariable("id") int id){
+        Optional<Usuario> usuarioOp = usuarioService.findById(id);
+        usuarioService.deletar(usuarioOp.get());
+        return "redirect:/usuario/listagem";
+    }
 }

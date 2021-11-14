@@ -34,4 +34,10 @@ public class UsuarioService {
     public void deletar(Usuario usuario) {
         usuarioRepository.delete(usuario);
     }
+
+    public boolean exist(int id) {
+        return usuarioRepository.exist(id);
+    }
+
+   
 }

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-    
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org/%22%3E">
+
 <head>
     <title>Alterar Usuário</title> 
 </head>
 
 <body>
         <main>
-            <form class="formulario" action="#" th:action="@{salvarUsuario}">
+            <form class="formulario" action="#" th:action="@{/salvarUsuario}" method = "post">
                 <input type="hidden" th:name="id" th:value="${usuario.id}">
                 <input type="text" th:name="nome" th:value="${usuario.nome}">
                 <input type="cpf" th:name="cpf" th:value="${usuario.cpf}">
