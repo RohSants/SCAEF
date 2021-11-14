@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html  lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title >listagem</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+
+
+</head>
+<body>
+
+	<div >
+		<h1>Pacientes</h1>
+		<table >
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>CNS</th>
+                    <th>CPF</th>
+					<th>RG</th>
+                    <th>Nome da Mãe</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each = "paciente : ${listaPaciente}">
+					<td th:text="${paciente.nome}"></td>
+					<td th:text="${paciente.cns}"></td>
+                    <td th:text="${paciente.cpf}"></td>
+                    <td th:text="${paciente.rg}"></td>
+                    <td th:text="${paciente.nomeRG}"></td>
+					<!--<td>
+						<a th:href="@{/alterar/{id}(id=${paciente.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{/excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluirr</a>		
+					</td>-->
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

@@ -30,19 +30,17 @@ public class Usuario {
     private int id;
 
     @Column(name = "Nome", nullable = false)
-    @NotBlank(message = "o campo não pode ser vazio")
     private String nome;
 
     @Column(name = "CPF", nullable = false, unique = true)
     @CPF
-    @NotBlank
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
     private String rg;
     
     @Column(name = "Email", nullable = true, unique = true)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank
     @Email
     private String email;
 
@@ -59,6 +57,5 @@ public class Usuario {
     private int crf;
 
     @Column(name = "Senha", nullable = false, unique = true)
-    @NotBlank(message = "o campo não pode ser vazio")
     private String senha;
 }

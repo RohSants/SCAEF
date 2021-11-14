@@ -1,38 +1,54 @@
 package com.scaef.scaef_backend.controller;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.dto.PacienteDTO;
-import com.scaef.scaef_backend.exception.PacienteNotFoundException;
-import com.scaef.scaef_backend.dto.MessageResponseDTO;
+import javax.validation.Valid;
+
+import com.scaef.scaef_backend.model.Paciente;
 import com.scaef.scaef_backend.service.PacienteService;
 
-/*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
-@RestController
-@RequestMapping("/api/v1/Paciente")
+@Controller
 public class PacienteController {
     
-    private PacienteService pacienteService;
-
     @Autowired
-    public PacienteController(PacienteService pacienteService){
-        this.pacienteService = pacienteService;
+    private PacienteService pacienteService;
+    
+    @RequestMapping("paciente/cadastro")
+    public ModelAndView cadastro(){
+        ModelAndView mv = new ModelAndView();
+        mv.addObject("paciente", new Paciente());
+        mv.setViewName("cadastroPaciente");
+        return mv;
     }
     
-    @PostMapping
-    public MessageResponseDTO create(@RequestBody PacienteDTO pacienteDTO){
-        return pacienteService.create(pacienteDTO);
+    @PostMapping("cadastrarPaciente")
+    public ModelAndView cadastrar(@Valid Paciente paciente, BindingResult bindingResult){
+        ModelAndView mv = new ModelAndView();
+        if(bindingResult.hasErrors()){
+            mv.setViewName("redirect:paciente/cadastro");
+            return mv;
+        }
+        mv.setViewName("redirect:salvarPaciente");
+        return mv;
     }
 
-    @GetMapping("/{id}")
-    public PacienteDTO findById(@PathVariable int id) throws PacienteNotFoundException{
-        return pacienteService.findById(id);
+    @PostMapping("salvarPaciente")
+    public String salvar(@ModelAttribute("paciente") Paciente paciente){
+        pacienteService.salvar(paciente);
+        return "redirect:paciente/listagem";
+    }
+
+    @GetMapping("paciente/listagem")
+    public String listar(Model model){
+        model.addAttribute("listaPaciente", pacienteService.listar());
+        return "listagemPaciente";
     }
 }
