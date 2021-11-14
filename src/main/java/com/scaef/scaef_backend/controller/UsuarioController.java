@@ -36,7 +36,7 @@ public class UsuarioController {
         return "login";
     }
 
-    @PostMapping("salvarUsuario")
+    @GetMapping("salvarUsuario")
     public ModelAndView salvar(@ModelAttribute("usuario") Usuario usuario){
         ModelAndView mv = new ModelAndView();
         usuarioService.salvar(usuario); 
@@ -59,7 +59,6 @@ public class UsuarioController {
             mv.setViewName("redirect:/usuario/cadastro");
             return mv;
         }
-        usuarioService.salvar(usuario); 
         mv.setViewName("redirect:salvarUsuario");
         return mv;
     }
