@@ -1,38 +1,33 @@
 package com.scaef.scaef_backend.controller;
 
-/*Classes SCAEF*/
-import com.scaef.scaef_backend.dto.MedicamentoDTO;
-import com.scaef.scaef_backend.dto.MessageResponseDTO;
-import com.scaef.scaef_backend.exception.MedicamentoNotFoundException;
-import com.scaef.scaef_backend.service.MedicamentoService;
 
 /*Spring Framework*/
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
+import com.scaef.scaef_backend.model.Medicamento;
+import com.scaef.scaef_backend.service.MedicamentoService;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
-@RestController
-@RequestMapping("/api/v1/Medicamento")
+
+@Controller
 public class MedicamentoController {
     
-    private MedicamentoService medicamentoService;
-    
     @Autowired
-    public MedicamentoController(MedicamentoService medicamentoService){
-        this.medicamentoService = medicamentoService;
-    }
+    private MedicamentoService medicamentoService;
 
-    @PostMapping
-    public MessageResponseDTO create(@RequestBody MedicamentoDTO medicamentoDTO){ 
-        return medicamentoService.create(medicamentoDTO);
+    @GetMapping("medicamento/listagem")
+    public String Medicamento(Model model){
+        model.addAttribute("listaMedicamento",medicamentoService.listar());
+        return "listagemMedicamento";
     }
-
-    @GetMapping("/{id}")
-    public MedicamentoDTO findById(@PathVariable int id) throws MedicamentoNotFoundException{ 
-        return medicamentoService.findById(id);
-    }
+    
 }
+
+
