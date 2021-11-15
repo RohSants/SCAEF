@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Listagem de Medicamentos</title>
+
+<link rel="stylesheet" href="">
+</head>
+<body>
+
+    <div >
+		<h1>Medicamentos</h1>
+		<table >
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Classificação do medicamento</th>
+                    <th>Categoria regulatória</th>
+					<th>Protocolos Clínicos e Diretrizes de Tratamento</th>
+                    <th>Dosagem</th>
+                    <th>Forma farmacêutica</th>
+                    <th>Via de consumo</th>
+                    <th>Princípio ativo</th>
+                    <th>Classe terapêutica</th>
+				</tr>  
+			</thead>
+			<tbody>
+                <tr th:each = "medicamento : ${listaMedicamento}">
+					<td th:text="${medicamento.nome}"></td>
+					<td th:text="${medicamento.cid}"></td>
+                    <td th:text="${medicamento.categoria_regulatória}"></td>
+                    <td th:text="${medicamento.dosagem}"></td>
+                    <td th:text="${medicamento.forma_farmacêutica}"></td>
+                    <td th:text="${medicamento.via_de_administração}"></td>
+                    <td th:text="${medicamento.princípio_ativo}"></td>
+                    <td th:text="${medicamento.classe_terapêutica}"></td>
+
+        </table>
+    </div>
+</body>
+</html>
