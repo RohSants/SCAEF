@@ -36,54 +36,55 @@ public class UsuarioController {
         return "login";
     }
 
-    @GetMapping("salvarUsuario")
-    public ModelAndView salvar(@ModelAttribute("usuario") Usuario usuario){
-        ModelAndView mv = new ModelAndView();
-        usuarioService.salvar(usuario); 
-        mv.setViewName("redirect:/usuario/listagem");
-        return mv;
-    }
-
-    @RequestMapping("/usuario/cadastro")
-    public ModelAndView cadastro(){
-        ModelAndView mv = new ModelAndView();
-        mv.addObject("usuario", new Usuario());
-        mv.setViewName("cadastroUsuario");
-        return mv;
-    }
-
-    @PostMapping("cadastrarUsuario")
-    public ModelAndView cadastrar(@Valid Usuario usuario, BindingResult bindingResult){
-        ModelAndView mv = new ModelAndView();
+    @PostMapping("salvarUsuario")
+    public ModelAndView salvar(@ModelAttribute("usuario") @Valid Usuario usuario, BindingResult bindingResult){
+        ModelAndView mv = new ModelAndView(); 
         if(bindingResult.hasErrors()){
-            mv.setViewName("redirect:/usuario/cadastro");
+            mv.setViewName("redirect:usuario/cadastro");
             return mv;
         }
-        mv.setViewName("redirect:salvarUsuario");
+        //podemos ter uma outra forma de exibir erros
+        usuarioService.salvar(usuario);
+        mv.setViewName("redirect:usuario/listagem");
+        return mv;
+    }
+
+    @RequestMapping("usuario/cadastro")
+    public ModelAndView cadastro(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("cadastroUsuario");
+        mv.addObject("usuario", new Usuario());
         return mv;
     }
 
     @GetMapping("usuario/listagem")
-    public String Usuario(Model model){
+    public ModelAndView Usuario(Model model){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("listagemUsuario");
         model.addAttribute("listaUsuario", usuarioService.listar());
-        return "listagemUsuario";
+        return mv;    
     }
 
     @GetMapping("usuario/alterar/{id}")
-        public String buscar(@PathVariable int id, Model model){
+        public ModelAndView buscar(@PathVariable int id, Model model){
             Optional<Usuario> usuario = usuarioService.findById(id);
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("alterarUsuario");
             try {
                 model.addAttribute("usuario", usuario.get());  
             } catch (Exception e) {
-                return "redirect:/usuario/listagem";
+                mv.setViewName("redirect:usuario/listagem");
+                return mv;
             }
-            return "alterarUsuario";
+            return mv;
         } 
 
     @GetMapping("usuario/excluir/{id}")
-    public String excluirUsuario(@PathVariable("id") int id){
+    public ModelAndView excluirUsuario(@PathVariable("id") int id){
         Optional<Usuario> usuarioOp = usuarioService.findById(id);
+        ModelAndView mv = new ModelAndView();
         usuarioService.deletar(usuarioOp.get());
-        return "redirect:/usuario/listagem";
+        mv.setViewName("redirect:/usuario/listagem");
+        return mv;
     }
 }

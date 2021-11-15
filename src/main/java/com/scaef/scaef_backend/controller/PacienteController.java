@@ -22,28 +22,23 @@ public class PacienteController {
     private PacienteService pacienteService;
     
     @RequestMapping("paciente/cadastro")
-    public ModelAndView cadastro(){
+    public ModelAndView cadastro(@Valid Paciente paciente){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("paciente", new Paciente());
+        mv.addObject("paciente", paciente);
         mv.setViewName("cadastroPaciente");
         return mv;
     }
     
-    @PostMapping("cadastrarPaciente")
-    public ModelAndView cadastrar(@Valid Paciente paciente, BindingResult bindingResult){
+    @PostMapping("salvarPaciente")
+    public ModelAndView salvar(@ModelAttribute("paciente") Paciente paciente,  BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
+        mv.setViewName("redirect:paciente/listagem");
         if(bindingResult.hasErrors()){
             mv.setViewName("redirect:paciente/cadastro");
             return mv;
         }
-        mv.setViewName("redirect:salvarPaciente");
-        return mv;
-    }
-
-    @PostMapping("salvarPaciente")
-    public String salvar(@ModelAttribute("paciente") Paciente paciente){
         pacienteService.salvar(paciente);
-        return "redirect:paciente/listagem";
+        return mv;
     }
 
     @GetMapping("paciente/listagem")

@@ -10,7 +10,7 @@ public class ScaefController {
     
     @RequestMapping("/")
     public String index(){
-        return "redirect:/home";
+        return "redirect:/login";
     }
 
     @RequestMapping("/home")

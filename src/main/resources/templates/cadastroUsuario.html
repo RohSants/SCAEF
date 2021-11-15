@@ -7,7 +7,7 @@
 
 <body>
         <main>
-            <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/cadastrarUsuario}" method="post">                
+            <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">                
                 <div>
                     <label for="nome">Nome</label>
                     <span th:if="${#fields.hasErrors('nome')}" th:errors= "*{nome}" class= "text-danger"></span>
