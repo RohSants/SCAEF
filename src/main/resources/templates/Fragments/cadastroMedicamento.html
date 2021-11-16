@@ -2,70 +2,66 @@
 <html  lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Cadastro de Medicamento</title>
-
 </head>
 <body>
+    <main>
     <div class="box">
-        <form action="" method="post">
+        <form th:object="${medicamento}" method="post" action="#" th:action="@{/cadastrarMedicamento}">
             <fieldset>
                 <legend>Cadastro de Medicamento</legend>
                 <br>
                 <div class="inputBox">
                     <div>
                         <label for="nome">Nome</label>
-                        <input type="text">
+                        <input type="text" th:type="*{nome}">
                     </div>
                 
                     <div>
                         <label for="cid">Classificação do medicamento</label>
-                        <input type="text">
+                        <input type="text" th:type="*{cid}">>
                     </div>
                 
                     <div>
                         <label for="catReg">Categoria regulatória</label>
-                        <input type="text">
+                        <input type="text" th:type="*{catReg}">>
                     </div>
                 
                     <div>
                         <label for="pcdt">Protocolos Clínicos e Diretrizes de Tratamento</label>
-                        <input type="text">
+                        <input type="text" th:type="*{pcdt}">>
                     </div>
                 
                     <div>
                         <label for="dose">Dosagem</label>
-                        <input type="text">
+                        <input type="text" th:type="*{dose}">>
                     </div>
                 
                     <div>
                         <label for="forma">Forma farmacêutica </label>
-                        <input type="text">
+                        <input type="text" th:type="*{forma}">>
                     </div>
                 
                     <div>
                         <label for="via">Via de consumo</label>
-                        <input type="text">
+                        <input type="text" th:type="*{via}">>
                     </div>
                 
                     <div>
                         <label for="priA">Princípio ativo</label>
-                        <input type="text">
+                        <input type="text" th:type="*{priA}">>
                     </div>
             
                     <div>
                         <label for="classeT">Classe terapêutica</label>
-                        <input type="text">
+                        <input type="text" th:type="*{classeT}">>
                     </div>
                 
                     <div class="buttonMedicamento">
                         <button type="submit"> Cadastrar Medicamento</button>
-                
-         
                 </div>
-            </div>
         </fieldset>
     </form>
 <div>
-
+</main>
 </body>
 </html>

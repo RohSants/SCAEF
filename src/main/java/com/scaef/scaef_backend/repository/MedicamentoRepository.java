@@ -4,7 +4,10 @@ package com.scaef.scaef_backend.repository;
 
 /*Extends JPARepository*/
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 public interface MedicamentoRepository extends JpaRepository <Medicamento, Integer> {
+    @Query(value = "select id from Medicamento where id =:id", nativeQuery = true)
+    boolean exist(int id);
     
 }
