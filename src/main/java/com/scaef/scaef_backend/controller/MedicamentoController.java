@@ -1,7 +1,6 @@
 package com.scaef.scaef_backend.controller;
 
 
-/Spring Framework/
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResultUtils;
