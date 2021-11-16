@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org/%22%3E">
+
+<head>
+    <title>Alterar Usuário</title> 
+</head>
+
+<body>
+        <main>
+            <form class="formulario" action="#" th:action="@{/salvarPaciente}" method = "post">
+                <input type="hidden" th:name="id" th:value="${paciente.id}">
+                <input type="text" th:name="nome" th:value="${paciente.nome}">
+                <input type="text" th:name="nomeM" th:value="${paciente.nomeM}">
+                <input type="text" th:name="cns" th:value="${paciente.cns}">
+                <input type="cpf" th:name="cpf" th:value="${paciente.cpf}">
+                <input type="text" th:name="rg" th:value="${paciente.rg}">
+                <input type="date" th:name="dataNasc" th:value="${paciente.dataNasc}">
+                <input type="text" th:name="cep" th:value="${paciente.cep}">
+                <input type="text" th:name="cida" th:value="${paciente.cida}">
+                <input type="text" th:name="bai" th:value="${paciente.bai}">
+                <input type="text" th:name="endr" th:value="${paciente.endr}">
+                <input type="text" th:name="comp" th:value="${paciente.comp}">
+                <input type="number" th:name="num" th:value="${paciente.num}">
+                <input type="text" th:name="celular" th:value="${paciente.celular}">
+                <input type="text" th:name="fone" th:value="${paciente.fone}">
+                <input type="email" th:name="email" th:value="${paciente.email}">
+                <button type="submit">Alterar</button>
+            </form>
+        </main>
+    </body>
+</html>

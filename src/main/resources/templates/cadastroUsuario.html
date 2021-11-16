@@ -7,16 +7,22 @@
 
 <body>
         <main>
-            <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">                
-                <div>
+            <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">       
+
+                <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                    <label class="validation-message" th:errors="*{nome}"></label>
+                </div>         
+                <div >
                     <label for="nome">Nome</label>
-                    <span th:if="${#fields.hasErrors('nome')}" th:errors= "*{nome}" class= "text-danger"></span>
                     <input  name="nome" type="text"  th:field="*{nome}">
                 </div>
 
+                <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+                    <label class = "validation-message" th:errors="*{cpf}"></label>
+                </div>  
+            
                 <div>
-                    <label for="cpf">CPF</label>
-                    <span th:if="${#fields.hasErrors('cpf')}" th:errors= "*{cpf}" class= "text-danger"></span> 
+                    <label for="cpf">CPF</label> 
                     <input  name="cpf" type="cpf" th:field="*{cpf}">
                 </div>
 
@@ -25,9 +31,12 @@
                     <input name="rg" type="text"  th:field="*{rg}">
                 </div>
 
+                <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                    <label class="validation-message" th:errors="*{email}"></label>
+                </div>  
+
                 <div>
                     <label for="email">Email</label>
-                    <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span> 
                 <input name="email" type="email" th:field="*{email}">
                 </div>
 
@@ -51,9 +60,12 @@
                     <input name="crf" type="number"  th:field="*{crf}">
                 </div>
 
+                <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                    <label class = "validation-message" th:errors="*{senha}"></label>
+                </div>  
+
                 <div>
                     <label for="senha">Senha</label>
-                    <span th:if="${#fields.hasErrors('senha')}" th:errors= "*{senha}" class= "text-danger"></span>
                     <input name="senha" type="password"  th:field="*{senha}">
                 </div>
 

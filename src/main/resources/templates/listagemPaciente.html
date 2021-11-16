@@ -28,11 +28,11 @@
 					<td th:text="${paciente.cns}"></td>
                     <td th:text="${paciente.cpf}"></td>
                     <td th:text="${paciente.rg}"></td>
-                    <td th:text="${paciente.nomeRG}"></td>
-					<!--<td>
-						<a th:href="@{/alterar/{id}(id=${paciente.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{/excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluirr</a>		
-					</td>-->
+                    <td th:text="${paciente.nomeM}"></td>
+					<td>
+						<a th:href="@{alterar/{id}(id=${paciente.id})}" class="btn btn-primary">Alterar</a>
+						<a th:href="@{excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluirr</a>		
+					</td>
 				</tr>
 			</tbody>
 		</table>

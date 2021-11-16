@@ -37,15 +37,16 @@ public class UsuarioController {
     }
 
     @PostMapping("salvarUsuario")
-    public ModelAndView salvar(@ModelAttribute("usuario") @Valid Usuario usuario, BindingResult bindingResult){
-        ModelAndView mv = new ModelAndView(); 
+    public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult){ 
+        ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
             mv.setViewName("redirect:usuario/cadastro");
+            mv.addObject("usuario", usuario);
             return mv;
-        }
-        //podemos ter uma outra forma de exibir erros
+        }else{
         usuarioService.salvar(usuario);
         mv.setViewName("redirect:usuario/listagem");
+        }
         return mv;
     }
 

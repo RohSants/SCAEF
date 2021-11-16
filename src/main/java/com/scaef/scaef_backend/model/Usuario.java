@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
@@ -59,6 +60,7 @@ public class Usuario {
     private int crf;
 
     @Column(name = "Senha", nullable = false, unique = true)
+    @Min(value = 9, message = "Senha Aurelion")
     @NotBlank(message = "o campo não pode ser vazio")
     private String senha;
 }

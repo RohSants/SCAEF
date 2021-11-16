@@ -7,84 +7,84 @@
 
 <body>
     <main>
-        <form th:object="${paciente}" method="post" action="#" th:action="@{/salvarPaciente}">
+        <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
             <div>
                 <label for="nome">Nome completo</label>
-                <input type="text" th:type="*{nome}">
+                <input name="nome" type="text" th:field="*{nome}">
             </div>
         
             <div>
                 <label for="nomeM">Nome da Mãe</label>
-                <input type="text" th:type="*{nomeM}">
+                <input name="nomeM" type="text" th:field="*{nomeM}">
             </div>
 
             <div>
                 <label for="cns">CNS - Número do Cartão do Sus</label>
-                <input type="text" th:type="*{cns}">
+                <input name="cns" type="text" th:field="*{cns}">
             </div>
             
             <div>
                 <label for="cpf">CPF</label>
-                <input type="text" th:type="*{cpf}">
+                <input name="cpf" type="text" th:field="*{cpf}">
             </div>
 
             <div>
                 <label for="rg">RG</label>
-                <input type="text" th:type="*{rg}">
+                <input name="rg" type="text" th:field="*{rg}">
             </div>
         
             <div>
                 <label for="dataNasc">Data de nascimento</label>
-                <input type="text" th:type="*{dataNasc}">
+                <input name="dataNasc" type="date" th:field="*{dataNasc}">
             </div>
 
             <div>
                 <label for="cep">CEP</label>
-                <input type="text" th:type="*{cep}">
+                <input name="cep" type="text" th:field="*{cep}">
             </div>
             
             <div>
                 <label for="cida">Cidade</label>
-                <input type="text" th:type="*{cida}">
+                <input name="cida" type="text" th:field="*{cida}">
             </div>
 
             <div>
                 <label for="bai">Bairro</label>
-                <input type="text" th:type="*{bai}">
+                <input name="bai" type="text" th:field="*{bai}">
             </div>
 
             <div>
                 <label for="endr">Endereço</label>
-                <input type="text" th:type="*{endr}">
+                <input name="endr" type="text" th:field="*{endr}">
             </div>
 
             <div>
                 <label for="comp">Complemento</label>
-                <input type="text" th:type="*{comp}">
+                <input name="comp" type="text" th:field="*{comp}">
             </div>
 
             <div>
                 <label for="num">Número de residência</label>
-                <input type="number" th:type="*{num}">
+                <input name="num" type="number" th:field="*{num}">
             </div>
 
             <div>
                 <label for="celular">Celular</label>
-                <input type="text" th:type="*{celular}">
+                <input name="celular" type="text" th:field="*{celular}">
             </div>
         
             <div>
                 <label for="fone">Telefone residencial</label>
-                <input type="text" th:type="*{fone}">
+                <input name="fone" type="text" th:field="*{fone}">
             </div>
             
             <div>
                 <label for="email">Email</label>
                 <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span> 
-                <input type="email" th:type="*{email}">
+                <input name="email" type="email" th:field="*{email}">
             </div>
 
-            <div class="buttonPaciente">
+            <div>
                 <button type="submit"> Cadastrar paciente</button>
             </div>
         </form>

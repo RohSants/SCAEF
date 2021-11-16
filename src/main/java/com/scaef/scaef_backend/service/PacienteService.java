@@ -1,5 +1,7 @@
 package com.scaef.scaef_backend.service;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import com.scaef.scaef_backend.repository.PacienteRepository;
@@ -21,5 +23,13 @@ public class PacienteService {
 
     public Object listar() {
         return pacienteRepository.findAll();
+    }
+
+    public Optional<Paciente> findById(long id) {
+        return pacienteRepository.findById(id);
+    }
+
+    public void deletar(Paciente paciente) {
+        pacienteRepository.delete(paciente);
     }
 }
