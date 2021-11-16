@@ -1,9 +1,11 @@
 package com.scaef.scaef_backend.controller;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResultUtils;
+import org.springframework.validation.BindingResult;
+
+
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -33,45 +35,44 @@ public class MedicamentoController {
         mv.setViewName("cadastroMedicamento");
         return mv;
     }
-    
-    @PostMapping("cadastrarMedicamento")
-    public ModelAndView cadastrar(@Valid Medicamento medicamento, BindingResultUtils bindingResult){
+
+    @PostMapping("salvarMedicamento")
+    public ModelAndView salvar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
             mv.setViewName("redirect:medicamento/cadastro");
             return mv;
         }
-        mv.setViewName("redirect:salvarMedicamento");
-        return mv;
-    }
-
-    @PostMapping("salvarMedicamento")
-    public String salvar(@ModelAttribute("medicamento") Medicamento medicamento){
-        medicamentoService.salvar(medicamento);
-        return "redirect:medicamento/listagem";
-    }
+    mv.setViewName("redirect:medicamento/listagem");
+    medicamentoService.salvar(medicamento);
+    return mv;
+    }    
     @GetMapping("medicamento/listagem")
-    public String Medicamento(Model model){
+    public String listar(Model model){
         model.addAttribute("listaMedicamento",medicamentoService.listar());
         return "listagemMedicamento";
     }
 
     @GetMapping("medicamento/alterar/{id}")
-        public String buscar(@PathVariable int id, Model model){
+        public ModelAndView buscar(@PathVariable int id, Model model){
             Optional<Medicamento> medicamento = medicamentoService.findById(id);
+            ModelAndView mv = new ModelAndView();
+            mv.setViewName("alterarMedicamento");
             try {
                 model.addAttribute("medicamento", medicamento.get());  
             } catch (Exception e) {
-                return "redirect:/medicamento/listagem";
+                mv.setViewName("redirect:medicamento/listagem");
+                return mv;
             }
-            return "alterarMedicamento";
+            return mv;
         } 
 
     @GetMapping("medicamento/excluir/{id}")
-    public String excluirMedicamento(@PathVariable("id") int id){
+    public ModelAndView excluir(@PathVariable("id") int id){
         Optional<Medicamento> medicamentoOp = medicamentoService.findById(id);
+        ModelAndView mv = new ModelAndView();
         medicamentoService.deletar(medicamentoOp.get());
-        return "redirect:/medicamento/listagem";
-
-    
+        mv.setViewName("redirect:/medicamento/listagem"); 
+         return mv;
+    }
 }
