@@ -40,7 +40,7 @@ public class UsuarioController {
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult){ 
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("redirect:usuario/cadastro");
+            mv.setViewName("cadastroUsuario");
             mv.addObject("usuario", usuario);
             return mv;
         }else{

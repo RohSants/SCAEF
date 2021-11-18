@@ -9,6 +9,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
@@ -36,10 +37,12 @@ public class Usuario {
 
     @Column(name = "CPF", nullable = false, unique = true)
     @CPF
-    @NotBlank
+    @NotBlank(message = "o campo não pode ser vazio")
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
+    @NotNull(message = "o campo não pode ser nulo")
+    @NotBlank(message = "o campo não pode ser vazio")
     private String rg;
     
     @Column(name = "Email", nullable = true, unique = true)
@@ -60,7 +63,7 @@ public class Usuario {
     private int crf;
 
     @Column(name = "Senha", nullable = false, unique = true)
-    @Min(value = 9, message = "Senha Aurelion")
-    @NotBlank(message = "o campo não pode ser vazio")
+    @Min(value = 9, message = "a senha deve conter mais de 9 caracteres.")
+    @NotBlank(message = "o campo não pode ser vazio!")
     private String senha;
 }

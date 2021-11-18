@@ -26,6 +26,10 @@
                     <input  name="cpf" type="cpf" th:field="*{cpf}">
                 </div>
 
+                <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+                    <label class = "validation-message" th:errors="*{rg}"></label>
+                </div>  
+
                 <div>
                     <label for="rg">RG</label>
                     <input name="rg" type="text"  th:field="*{rg}">
