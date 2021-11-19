@@ -41,11 +41,12 @@ public class MedicamentoController {
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
             mv.setViewName("redirect:medicamento/cadastro");
+            mv.addObject("medicamento", medicamento);
             return mv;
         }
-    mv.setViewName("redirect:medicamento/listagem");
-    medicamentoService.salvar(medicamento);
-    return mv;
+         mv.setViewName("redirect:medicamento/listagem");
+         medicamentoService.salvar(medicamento);
+         return mv;
     }    
     @GetMapping("medicamento/listagem")
     public String listar(Model model){
