@@ -35,10 +35,5 @@ public class MedicamentoService {
     public void deletar(Medicamento medicamento) {
         medicamentoRepository.delete(medicamento);
     }
-
-    public boolean exist(int id) {
-        return medicamentoRepository.exist(id);
-    }
-
-    
-    }
+  
+}
