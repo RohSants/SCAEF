@@ -55,13 +55,18 @@
                 </div>
 
                 <div>
-                    <label for="funcao">Função</label>
-                    <input name="funcao" type="text"  th:field="*{funcao}">
+                    <label>Função</label>
+                    <select name="funcao" th:field="*{funcao}" id="fucaoselecionada">
+                        <option selected value="">Selecione uma função</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Atendente">Atendente</option>
+                        <option value="Farmacêutico">Farmacêutico</option>
+                    </select>
                 </div>
 
                 <div>
                     <label for="crf">CRF</label>
-                    <input name="crf" type="number"  th:field="*{crf}">
+                    <input name="crf" type="number" th:field="*{crf}" class="crf">
                 </div>
 
                 <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
