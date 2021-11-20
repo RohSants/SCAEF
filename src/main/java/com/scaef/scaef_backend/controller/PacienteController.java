@@ -1,7 +1,6 @@
 package com.scaef.scaef_backend.controller;
 
 import java.util.Optional;
-
 import javax.validation.Valid;
 
 import com.scaef.scaef_backend.model.Paciente;
@@ -36,7 +35,7 @@ public class PacienteController {
     public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("redirect:paciente/cadastro");
+            mv.setViewName("cadastroPaciente");
             return mv;
         }
         mv.setViewName("redirect:paciente/listagem");

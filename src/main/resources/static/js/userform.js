@@ -1,5 +1,5 @@
 /*<script>
-/*    var opcao = document.getElementById("funcaoselecionada").value;
+/*  var opcao = document.getElementById("funcaoselecionada").value;
     var crf = document.querySelector('.crf');
 
 function hideCrf(farm){

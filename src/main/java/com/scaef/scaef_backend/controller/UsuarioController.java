@@ -7,7 +7,6 @@ import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
