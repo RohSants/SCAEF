@@ -1,8 +1,6 @@
 package com.scaef.scaef_backend.controller;
 
-
 import java.util.Optional;
-
 import javax.validation.Valid;
 
 import com.scaef.scaef_backend.model.Usuario;
@@ -43,10 +41,9 @@ public class UsuarioController {
             mv.setViewName("cadastroUsuario");
             mv.addObject("usuario", usuario);
             return mv;
-        }else{
+        }
         usuarioService.salvar(usuario);
         mv.setViewName("redirect:usuario/listagem");
-        }
         return mv;
     }
 
