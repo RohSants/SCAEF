@@ -36,29 +36,29 @@ public class Usuario {
 
     @Column(name = "Nome", nullable = false)
     @Size(max = 100)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank(message = "o campo  Nome não pode ser vazio")
     private String nome;
 
     @Column(name = "CPF", nullable = false, unique = true)
     @CPF
     @Size(max = 14)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank(message = "o campo CPF não pode ser vazio")
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
     @Size(max = 10)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank(message = "o campo RG não pode ser vazio")
     private String rg;
     
     @Column(name = "Email", nullable = true, unique = true)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank(message = "o campo Email não pode ser vazio")
     @Size(max = 100)
     @Email
     private String email;
 
     @Column(name = "Celular", nullable = false)
     @Size(max = 15)
-    @NotBlank(message = "o campo não pode ser vazio")
+    @NotBlank(message = "o campo Celular não pode ser vazio")
     private String celular;
 
     @Column(name = "Fone_Fixo", nullable = true)
@@ -74,6 +74,6 @@ public class Usuario {
 
     @Column(name = "Senha", nullable = false, unique = true)
     @Size(min = 9, max = 20, message = "a senha deve estar entre 9 e 20 caracteres.")
-    @NotBlank(message = "o campo não pode ser vazio!")
+    @NotBlank(message = "o  Senha campo não pode ser vazio!")
     private String senha;
 }

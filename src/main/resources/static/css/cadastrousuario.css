@@ -1,5 +1,5 @@
 @charset "UTF-8";
 
-* { /* configuração global*/
-  margin: 10px;
+.formulario > label{
+  color: var(--cor-fonte-menu);
 }
