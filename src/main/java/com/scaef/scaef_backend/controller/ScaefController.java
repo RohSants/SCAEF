@@ -8,7 +8,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ScaefController {
     
-    @RequestMapping("/")
+    /*@RequestMapping("/")
     public String index(){
         return "redirect:/login";
     }
@@ -25,5 +25,5 @@ public class ScaefController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
         return mv;
-    }
+    }*/
 }
