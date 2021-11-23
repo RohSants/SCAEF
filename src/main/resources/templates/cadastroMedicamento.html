@@ -2,6 +2,7 @@
 <html  lang="pt-br" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<title id="thlayouttitle">Cadastro de Medicamento</title> 
 </head>
 <body>
     <main>
@@ -16,7 +17,7 @@
                     </div> 
                     <div>
                         <label for="nome">Nome</label>
-                        <input type="text" th:type="*{nome}">
+                        <input name="nome" type="text" th:type="*{nome}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('cid')}" th:errors="*{cid}">
@@ -24,7 +25,7 @@
                     </div> 
                     <div>
                         <label for="cid">Classificação do medicamento</label>
-                        <input type="text" th:type="*{cid}">
+                        <input name="cid" type="text" th:type="*{cid}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('catReg')}" th:errors="*{catReg}">
@@ -32,7 +33,7 @@
                     </div> 
                     <div>
                         <label for="catReg">Categoria regulatória</label>
-                        <input type="text" th:type="*{catReg}">
+                        <input name="catReg" type="text" th:type="*{catReg}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('pcdt')}" th:errors="*{pcdt}">
@@ -40,7 +41,7 @@
                     </div> 
                     <div>
                         <label for="pcdt">Protocolos Clínicos e Diretrizes de Tratamento</label>
-                        <input type="text" th:type="*{pcdt}">
+                        <input name="pcdt" type="text" th:type="*{pcdt}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('dose')}" th:errors="*{dose}">
@@ -48,7 +49,7 @@
                     </div> 
                     <div>
                         <label for="dose">Dosagem</label>
-                        <input type="text" th:type="*{dose}">
+                        <input name="dose" type="text" th:type="*{dose}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('forma')}" th:errors="*{forma}">
@@ -56,7 +57,7 @@
                     </div> 
                     <div>
                         <label for="forma">Forma farmacêutica </label>
-                        <input type="text" th:type="*{forma}">
+                        <input name="forma" type="text" th:type="*{forma}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('via')}" th:errors="*{via}">
@@ -64,7 +65,7 @@
                     </div> 
                     <div>
                         <label for="via">Via de consumo</label>
-                        <input type="text" th:type="*{via}">
+                        <input name="via" type="text" th:type="*{via}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('priA')}" th:errors="*{priA}">
@@ -72,7 +73,7 @@
                     </div> 
                     <div>
                         <label for="priA">Princípio ativo</label>
-                        <input type="text" th:type="*{priA}">
+                        <input name="priA" type="text" th:type="*{priA}">
                     </div>
                     
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('classeT')}" th:errors="*{classeT}">
@@ -80,7 +81,7 @@
                     </div> 
                     <div>
                         <label for="classeT">Classe terapêutica</label>
-                        <input type="text" th:type="*{classeT}">
+                        <input name="classeT" type="text" th:type="*{classeT}">
                     </div>
                 
                     <div class="buttonMedicamento">

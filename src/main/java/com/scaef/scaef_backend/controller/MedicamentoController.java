@@ -27,8 +27,8 @@ public class MedicamentoController {
     @RequestMapping("medicamento/cadastro")
     public ModelAndView cadastro(){
         ModelAndView mv = new ModelAndView();
-        mv.addObject("medicamento", new Medicamento());
         mv.setViewName("cadastroMedicamento");
+        mv.addObject("medicamento", new Medicamento());
         return mv;
     }
 
@@ -45,9 +45,11 @@ public class MedicamentoController {
          return mv;
     }    
     @GetMapping("medicamento/listagem")
-    public String listar(Model model){
+    public ModelAndView Medicamento(Model model){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("listagemMedicamento");
         model.addAttribute("listaMedicamento",medicamentoService.listar());
-        return "listagemMedicamento";
+        return mv;
     }
 
     @GetMapping("medicamento/alterar/{id}")
