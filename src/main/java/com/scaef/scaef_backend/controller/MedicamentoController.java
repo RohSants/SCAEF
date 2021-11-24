@@ -40,8 +40,8 @@ public class MedicamentoController {
             mv.addObject("medicamento", medicamento);
             return mv;
         }
-         mv.setViewName("redirect:medicamento/listagem");
          medicamentoService.salvar(medicamento);
+         mv.setViewName("redirect:medicamento/listagem");
          return mv;
     }    
     @GetMapping("medicamento/listagem")
