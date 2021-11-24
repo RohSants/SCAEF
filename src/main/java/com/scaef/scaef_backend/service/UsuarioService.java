@@ -39,5 +39,7 @@ public class UsuarioService {
         return usuarioRepository.exist(id);
     }
 
-   
+   public Usuario nome(String nome){
+       return usuarioRepository.findByNome(nome);
+   } 
 }

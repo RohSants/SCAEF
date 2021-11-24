@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.seguranca;
-
- /*import com.scaef.scaef_backend.model.Usuario;
+/*
+import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +24,5 @@ public class UserDetailsServiceImp implements UserDetailsService{
           Set<sAuthority> autorities = new
         }
         return null;
-    } 
+    }
 }*/
