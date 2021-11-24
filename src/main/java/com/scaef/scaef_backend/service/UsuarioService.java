@@ -39,13 +39,5 @@ public class UsuarioService {
         return usuarioRepository.exist(id);
     }
 
-   public Usuario username(String nome){
-       return usuarioRepository.findByUsername(nome);
-   }
-
-
-
-
-
    
 }

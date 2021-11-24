@@ -11,10 +11,9 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.br.CPF;
 
 import com.scaef.scaef_backend.enums.EnumFuncao;
-
-import org.hibernate.validator.constraints.br.CPF;
 
 /*Projeto Lombok*/
 import lombok.Data;

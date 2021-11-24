@@ -18,7 +18,7 @@ public class ScaefDataConfiguration {
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/scaef_bd");
         dataSource.setUsername("root");
-        dataSource.setPassword("Mayra15#");
+        dataSource.setPassword("paula3789");
         return dataSource;
     }
 	

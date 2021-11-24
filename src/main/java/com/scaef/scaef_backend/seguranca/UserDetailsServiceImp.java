@@ -1,6 +1,6 @@
 package com.scaef.scaef_backend.seguranca;
 
-import com.scaef.scaef_backend.model.Usuario;
+ /*import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,14 @@ public class UserDetailsServiceImp implements UserDetailsService{
  
     @Autowired
     private UsuarioService usuarioService;
+    return null;
 
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
+   public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
     Usuario usuario = usuarioService.username(username);
         if(usuario != null){
-          SimpleGrantedAuthority sAuthority = new SimpleGrantedAuthority(usuario.getFuncao());
-          Set<sAuthority> autorities = new Has
+          SimpleGrantedAuthority sAuthority = new SimpleGrantedAuthority(usuario.getFuncao().toString());
+          Set<sAuthority> autorities = new
         }
         return null;
-    }
-}
+    } 
+}*/
