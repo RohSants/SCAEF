@@ -2,95 +2,68 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="../css/cadastropaciente.css">
     <div th:replace="fragments/headlayout :: headconfig">
         <title id="thlayouttitle">Cadastro de Paciente</title>
     </div>
+    <link rel="stylesheet" href="../css/cadastropaciente.css">
 </head>
 
 <body th:replace="~{fragments/layout :: layout (~{:: main})}">
     <main>
-        <fieldset>
+        <fieldset class="formularioborda">
             <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
-                <img class="cadicon" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
-                <legend>Cadastro de Paciente</legend>
-
-                <div class="campoform">
+                <div class="cadicon">
+                    <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                    <legend>Cadastro de Paciente</legend>
+                </div>
+                
+                <div class = "campoform">
                     <label for="nome">Nome completo</label>
                     <input name="nome" type="text" th:field="*{nome}">
-                </div>
-            
-                <div class="campoform">
+    
                     <label for="nomeM">Nome da Mãe</label>
                     <input name="nomeM" type="text" th:field="*{nomeM}">
-                </div>
-
-                <div class="campoform">
+    
                     <label for="cns">CNS - Número do Cartão do Sus</label>
                     <input name="cns" type="text" th:field="*{cns}">
-                </div>
-            
-                <div class="campoform">
+    
                     <label for="cpf">CPF</label>
                     <input name="cpf" type="text" th:field="*{cpf}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="rg">RG</label>
                     <input name="rg" type="text" th:field="*{rg}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="dataNasc">Data de nascimento</label>
                     <input name="dataNasc" type="date" th:field="*{dataNasc}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="cep">CEP</label>
                     <input name="cep" type="text" th:field="*{cep}">
-                </div>
-            
-                <div class="campoform">
+    
                     <label for="cida">Cidade</label>
                     <input name="cida" type="text" th:field="*{cida}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="bai">Bairro</label>
                     <input name="bai" type="text" th:field="*{bai}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="endr">Endereço</label>
                     <input name="endr" type="text" th:field="*{endr}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="comp">Complemento</label>
                     <input name="comp" type="text" th:field="*{comp}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="num">Número de residência</label>
                     <input name="num" type="number" th:field="*{num}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="celular">Celular</label>
                     <input name="celular" type="text" th:field="*{celular}">
-                </div>
-                
-                <div class="campoform">
+    
                     <label for="fone">Telefone residencial</label>
                     <input name="fone" type="text" th:field="*{fone}">
-                </div>
-            
-                <div class="campoform">
+    
                     <label for="email">Email</label>
                     <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span>
                     <input name="email" type="email" th:field="*{email}">
                 </div>
-                
                 <button type="submit"> Cadastrar paciente</button>
             </form>
         </fieldset>

@@ -16,12 +16,12 @@
   display: flex;
   align-content: center;
   align-items: center;
-  width: 220px;
-  margin-top: -36px;
-  margin-left: 20px;
+  width: 213px;
+  margin-top: -27px;
+  margin-left: 41px;
   margin-bottom: 20px;
   background-color: var(--cor-fundo-conteudo);
-  box-shadow: 0 0 0 10px var(--cor-fundo-conteudo);
+  box-shadow: 0 0 0 15px var(--cor-fundo-conteudo);
 }
 
 .cadicon > legend {
@@ -40,10 +40,11 @@
 }
 
 .campoform{
-  color: var(--cor-fonte-claro);
   margin: 10px;
 }
 
 .campoform > label {
+  color: var(--cor-fonte-claro);
   font-size: 1.1rem;
 }
+
