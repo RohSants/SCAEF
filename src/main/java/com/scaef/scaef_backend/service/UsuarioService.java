@@ -27,7 +27,7 @@ public class UsuarioService {
         return usuarioRepository.Login(email, senha);
     }
 
-    public Optional<Usuario> findById(int id) {
+    public Optional<Usuario> findById(Long id) {
         return usuarioRepository.findById(id);
     }
 
@@ -35,11 +35,7 @@ public class UsuarioService {
         usuarioRepository.delete(usuario);
     }
 
-    public boolean exist(int id) {
-        return usuarioRepository.exist(id);
-    }
-
-   public Usuario nome(String nome){
+   public Usuario findByNome(String nome){
        return usuarioRepository.findByNome(nome);
    } 
 }

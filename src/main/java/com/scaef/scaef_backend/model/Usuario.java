@@ -23,7 +23,6 @@ import lombok.AllArgsConstructor;
 
 @Entity 
 @Table(name = "usuario")
-@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -31,7 +30,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Usuario")
-    private int id;
+    private long id;
 
     @Column(name = "Nome", nullable = false)
     @Size(max = 100)

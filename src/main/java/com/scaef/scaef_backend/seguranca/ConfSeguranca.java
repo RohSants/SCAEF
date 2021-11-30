@@ -17,14 +17,17 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-          .authorizeRequests()
-            .anyRequest().authenticated()
-            .and()
-        .formLogin()
-            .permitAll()
-            .and()
-        .logout()
-            .permitAll();
+        .authorizeRequests()
+        .antMatchers("/usuario/**").permitAll()
+        /*.anyRequest().authenticated()*/
+        .and()
+        .formLogin(form -> form
+                .loginPage("/login1")
+                .defaultSuccessUrl("/home", true)
+                .permitAll())
+                .logout(logout -> logout.logoutUrl("/logout"))
+                .csrf()
+                .disable();
     }
 
     @Override
@@ -32,7 +35,7 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
     protected UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
         .username("Paula")
-        .password("paula3789")
+        .password("3789")
         .roles("USER")
         .build();
         return new InMemoryUserDetailsManager(user);

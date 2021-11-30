@@ -20,8 +20,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UsuarioController {
 
+
     @Autowired
     private UsuarioService usuarioService;
+
+    @RequestMapping("/")
+    public String index(){
+        return "redirect:login1";
+    }
+
+    @RequestMapping("/home")
+    public ModelAndView home(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("index");
+        return mv;
+    }
+
+    @RequestMapping("/login1")
+    public ModelAndView login(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("login");
+        return mv;
+    }
 
     @PostMapping("/logar")
     public String logar(Model model, String email, String senha){
@@ -63,7 +83,7 @@ public class UsuarioController {
     }
 
     @GetMapping("usuario/alterar/{id}")
-        public ModelAndView buscar(@PathVariable int id, Model model){
+        public ModelAndView buscar(@PathVariable Long id, Model model){
             Optional<Usuario> usuario = usuarioService.findById(id);
             ModelAndView mv = new ModelAndView();
             mv.setViewName("alterarUsuario");
@@ -77,7 +97,7 @@ public class UsuarioController {
         } 
 
     @GetMapping("usuario/excluir/{id}")
-    public ModelAndView excluirUsuario(@PathVariable("id") int id){
+    public ModelAndView excluirUsuario(@PathVariable("id") Long id){
         Optional<Usuario> usuarioOp = usuarioService.findById(id);
         ModelAndView mv = new ModelAndView();
         usuarioService.deletar(usuarioOp.get());

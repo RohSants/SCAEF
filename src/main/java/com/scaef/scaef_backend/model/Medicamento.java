@@ -24,7 +24,7 @@ public class Medicamento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_Medicamento")
-    private int id;
+    private Long id;
  
     @Column(name = "Nome", nullable = false, unique = true)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")

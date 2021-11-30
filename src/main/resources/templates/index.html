@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{:: main})}">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-    <title id="thlayouttitle">Tela Principal</title> 
+    <div th:replace="fragments/headlayout :: headconfig">
+        <title id="thlayouttitle">Tela Principal</title> 
+    </div>
 </head>
 
-<body>
+<body th:replace="~{fragments/layout :: layout (~{:: main})}">
     <main>
         <form class="formulario">                
             <div>

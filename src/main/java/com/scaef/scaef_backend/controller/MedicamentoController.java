@@ -53,7 +53,7 @@ public class MedicamentoController {
     }
 
     @GetMapping("medicamento/alterar/{id}")
-        public ModelAndView buscar(@PathVariable int id, Model model){
+        public ModelAndView buscar(@PathVariable Long id, Model model){
             Optional<Medicamento> medicamento = medicamentoService.findById(id);
             ModelAndView mv = new ModelAndView();
             mv.setViewName("alterarMedicamento");
@@ -67,7 +67,7 @@ public class MedicamentoController {
         } 
 
     @GetMapping("medicamento/excluir/{id}")
-    public ModelAndView excluir(@PathVariable("id") int id){
+    public ModelAndView excluir(@PathVariable("id") Long id){
         Optional<Medicamento> medicamentoOp = medicamentoService.findById(id);
         ModelAndView mv = new ModelAndView();
         medicamentoService.deletar(medicamentoOp.get());

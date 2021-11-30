@@ -5,6 +5,5 @@ public enum EnumFuncao {
 
     Administrador,
     Atendente,
-    Farmacêutico;
-
+    Farmacêutico
 }

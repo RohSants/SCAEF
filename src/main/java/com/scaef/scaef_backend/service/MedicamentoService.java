@@ -28,7 +28,7 @@ public class MedicamentoService {
         medicamentoRepository.save(medicamento);
     }
 
-    public Optional<Medicamento> findById(int id) {
+    public Optional<Medicamento> findById(Long id) {
         return medicamentoRepository.findById(id);
     }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <body class="app" th:fragment="layout (conteudo)">
     <header class="menu">
@@ -35,9 +35,7 @@
         <section class="perfildados">
             <img class="fotouser" src="../mídia/vetores/icone_usuario.svg" alt="Logo do perfil do Usuário">
             <section class = "dadosuser">
-                <p>Nome: Mayra Rodrigues Carvalho</p>
-                <p>Função: Farmacêutica</p>
-                <p>CRF: 021548</p>
+                <label>Olá <span sec:authentication="name">Usuário</span></label>
             </section>
         </section>
 
