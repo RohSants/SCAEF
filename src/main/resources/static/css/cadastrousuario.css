@@ -1,9 +1,25 @@
 @charset "UTF-8";
 
 label {
-  color: var(--cor-fonte-menu);
+  color: var(--cor-fonte-claro);
 }
 
 .mensagem{
-  color: var(--cor-fonte-menu); 
+  color: var(--cor-fonte-claro); 
+}
+
+.input, .inputinside{
+  display: flex;
+}
+
+.inputinside{
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.inputinside > img {
+  width: 18px;
+  padding-right: 6px;
+  position: absolute;
+  cursor: pointer;
 }

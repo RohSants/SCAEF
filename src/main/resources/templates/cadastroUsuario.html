@@ -77,9 +77,14 @@
                     <label class = "validation-message" th:errors="*{senha}"></label>
                 </div>  
 
-                <div>
+                <div class="input">
                     <label for="senha">Senha</label>
-                    <input name="senha" type="password"  th:field="*{senha}">
+                    <div class="inputinside">
+                        <input name="senha" type="password"  th:field="*{senha}" id="senha">
+                        <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
+                        <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
+                        <!--Made by @colebemis-->
+                    </div>
                 </div>
 
                 <div class="buttonUsuario">
@@ -88,4 +93,24 @@
             </form>
         </main>
     </body>
+    <script>
+
+        var entrada = document.getElementById("senha");
+        var icone = document.getElementById("icon")
+
+        function verSenha(){
+
+            if(entrada.type == "password"){
+                entrada.type = "text";
+                icone.src="../mídia/vetores/eye.svg";
+            }
+        }
+
+        function esconderSenha(){
+            if(entrada.type == "text"){
+                entrada.type = "password";
+                icone.src="../mídia/vetores/eye-off.svg";
+            }
+        }
+    </script>
 </html>
