@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head>
-    <div th:replace="fragments/headlayout :: headconfig">
-        <title id="thlayouttitle">Cadastro de Paciente</title>
-    </div>
-    <link rel="stylesheet" href="../css/cadastropaciente.css">
-</head>
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Cadastro de Paciente</title>
+        </div>
+        <link rel="stylesheet" href="../css/cadastropaciente.css">
+    </head>
 
-<body th:replace="~{fragments/layout :: layout (~{:: main})}">
-    <main>
-        <fieldset class="formularioborda">
-            <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
-                <div class="cadicon">
-                    <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
-                    <legend>Cadastro de Paciente</legend>
-                </div>
-                
-                <div class = "campoform">
-                    <label for="nome">Nome completo</label>
-                    <input name="nome" type="text" th:field="*{nome}">
-    
-                    <label for="nomeM">Nome da Mãe</label>
-                    <input name="nomeM" type="text" th:field="*{nomeM}">
-    
-                    <label for="cns">CNS - Número do Cartão do Sus</label>
-                    <input name="cns" type="text" th:field="*{cns}">
-    
-                    <label for="cpf">CPF</label>
-                    <input name="cpf" type="text" th:field="*{cpf}">
-    
-                    <label for="rg">RG</label>
-                    <input name="rg" type="text" th:field="*{rg}">
-    
-                    <label for="dataNasc">Data de nascimento</label>
-                    <input name="dataNasc" type="date" th:field="*{dataNasc}">
-    
-                    <label for="cep">CEP</label>
-                    <input name="cep" type="text" th:field="*{cep}">
-    
-                    <label for="cida">Cidade</label>
-                    <input name="cida" type="text" th:field="*{cida}">
-    
-                    <label for="bai">Bairro</label>
-                    <input name="bai" type="text" th:field="*{bai}">
-    
-                    <label for="endr">Endereço</label>
-                    <input name="endr" type="text" th:field="*{endr}">
-    
-                    <label for="comp">Complemento</label>
-                    <input name="comp" type="text" th:field="*{comp}">
-    
-                    <label for="num">Número de residência</label>
-                    <input name="num" type="number" th:field="*{num}">
-    
-                    <label for="celular">Celular</label>
-                    <input name="celular" type="text" th:field="*{celular}">
-    
-                    <label for="fone">Telefone residencial</label>
-                    <input name="fone" type="text" th:field="*{fone}">
-    
-                    <label for="email">Email</label>
-                    <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span>
-                    <input name="email" type="email" th:field="*{email}">
-                </div>
-                <button type="submit"> Cadastrar paciente</button>
-            </form>
-        </fieldset>
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
+        <main>
+            <fieldset class="formularioborda">
+                <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
+                    <div class="cadicon">
+                        <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                        <legend>Cadastro de Paciente</legend>
+                    </div>
+                    
+                    <div class = "campoform">
+                        <label for="nome">Nome completo</label>
+                        <input name="nome" type="text" th:field="*{nome}">
         
-    </main>
-</body>
+                        <label for="nomeM">Nome da Mãe</label>
+                        <input name="nomeM" type="text" th:field="*{nomeM}">
+        
+                        <label for="cns">CNS - Número do Cartão do Sus</label>
+                        <input name="cns" type="text" th:field="*{cns}">
+        
+                        <label for="cpf">CPF</label>
+                        <input name="cpf" type="text" th:field="*{cpf}">
+        
+                        <label for="rg">RG</label>
+                        <input name="rg" type="text" th:field="*{rg}">
+        
+                        <label for="dataNasc">Data de nascimento</label>
+                        <input name="dataNasc" type="date" th:field="*{dataNasc}">
+        
+                        <label for="cep">CEP</label>
+                        <input name="cep" type="text" th:field="*{cep}">
+        
+                        <label for="cida">Cidade</label>
+                        <input name="cida" type="text" th:field="*{cida}">
+        
+                        <label for="bai">Bairro</label>
+                        <input name="bai" type="text" th:field="*{bai}">
+        
+                        <label for="endr">Endereço</label>
+                        <input name="endr" type="text" th:field="*{endr}">
+        
+                        <label for="comp">Complemento</label>
+                        <input name="comp" type="text" th:field="*{comp}">
+        
+                        <label for="num">Número de residência</label>
+                        <input name="num" type="number" th:field="*{num}">
+        
+                        <label for="celular">Celular</label>
+                        <input name="celular" type="text" th:field="*{celular}">
+        
+                        <label for="fone">Telefone residencial</label>
+                        <input name="fone" type="text" th:field="*{fone}">
+        
+                        <label for="email">Email</label>
+                        <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span>
+                        <input name="email" type="email" th:field="*{email}">
+                    </div>
+                    <button type="submit"> Cadastrar paciente</button>
+                </form>
+            </fieldset>
+            
+        </main>
+    </body>
 
 </html>

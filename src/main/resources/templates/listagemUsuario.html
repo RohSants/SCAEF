@@ -1,41 +1,43 @@
 <!DOCTYPE html>
+
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-<meta charset="UTF-8" />
-<title >listagem</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Lista de Pacientes</title>
+        </div>
+        <!--<link rel="stylesheet" href="../css/">-->
+    </head>
 
-
-</head>
-<body>
-
-	<div >
-		<h1>Usuários</h1>
-		<table >
-			<thead>
-				<tr>
-					<th>Nome</th>
-					<th>Email</th>
-                    <th>celular</th>
-					<th>fone</th>
-                    <th>Função</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each = "usuario : ${listaUsuario}">
-					<td th:text="${usuario.nome}"></td>
-					<td th:text="${usuario.email}"></td>
-                    <td th:text="${usuario.celular}"></td>
-                    <td th:text="${usuario.fone}"></td>
-                    <td th:text="${usuario.funcao}"></td>
-					<td>
-						<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
-						<a th:href="@{excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir</a>		
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-</body>
+	<body th:replace="~{fragments/layout :: layout (~{:: main})}">>
+		<main>
+			<div>
+				<h1>Usuários</h1>
+				<table >
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Email</th>
+								<th>celular</th>
+							<th>fone</th>
+								<th>Função</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each = "usuario : ${listaUsuario}">
+							<td th:text="${usuario.nome}"></td>
+							<td th:text="${usuario.email}"></td>
+								<td th:text="${usuario.celular}"></td>
+								<td th:text="${usuario.fone}"></td>
+								<td th:text="${usuario.funcao}"></td>
+							<td>
+								<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
+								<a th:href="@{excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</main>
+	</body>
 </html>

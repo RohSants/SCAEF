@@ -23,6 +23,7 @@ import lombok.AllArgsConstructor;
 
 @Entity 
 @Table(name = "usuario")
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -71,7 +72,7 @@ public class Usuario {
     private int crf;
 
     @Column(name = "Senha", nullable = false, unique = true)
-    @Size(min = 9, max = 20, message = "a senha deve estar entre 9 e 20 caracteres.")
+    @Size(min = 9, max = 100, message = "a senha deve estar entre 9 e 20 caracteres.")
     @NotBlank(message = "o  Senha campo não pode ser vazio!")
     private String senha;
 }

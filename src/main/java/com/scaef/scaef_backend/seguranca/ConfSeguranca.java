@@ -1,24 +1,30 @@
 package com.scaef.scaef_backend.seguranca;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import com.scaef.scaef_backend.enums.EnumFuncao;
 
 @Configuration
 @EnableWebSecurity
 public class ConfSeguranca extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
         .authorizeRequests()
-        .antMatchers("/usuario/**").permitAll()
+        .antMatchers("/css/**", "/js/**", "/resources/**").permitAll()
+        /*.antMatchers("/usuario/**").hasAnyAuthority(EnumFuncao.Administrador.toString())
         /*.anyRequest().authenticated()*/
         .and()
         .formLogin(form -> form
@@ -29,17 +35,15 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
                 .csrf()
                 .disable();
     }
-
-    @Override
-    @Bean
-    protected UserDetailsService userDetailsService() {
-        UserDetails user = User.withDefaultPasswordEncoder()
-        .username("Paula")
-        .password("3789")
-        .roles("USER")
-        .build();
-        return new InMemoryUserDetailsManager(user);
-
-    }
-    
+    @Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth
+		.userDetailsService(userDetailsService)
+		.passwordEncoder(passwordEncoder());
+	}
+	
+	@Bean
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder(12);
+	}    
 }

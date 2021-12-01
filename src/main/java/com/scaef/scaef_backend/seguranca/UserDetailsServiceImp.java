@@ -17,24 +17,23 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-@Service("UserDetailsService")
+@Service("userDetailsService")
 public class UserDetailsServiceImp implements UserDetailsService{ 
  
-    @Autowired
-    private UsuarioService usuarioService;
+  @Autowired
+  private UsuarioService usuarioService;
     
-
   @Override
   @Transactional 
    public UserDetails loadUserByUsername(String nome) throws UsernameNotFoundException{
     Usuario usuario = usuarioService.findByNome(nome);
     if(usuario != null){
-      SimpleGrantedAuthority authority = new SimpleGrantedAuthority(usuario.toString());
+      SimpleGrantedAuthority authority = new SimpleGrantedAuthority(usuario.getFuncao().toString());
       Set<GrantedAuthority> authorities = new HashSet<>();
       authorities.add(authority);
 
-      /*User user = new User(usuario.getName(), usuario.getPassword(), authorities);
-     return user;*/
+      User user = new User(usuario.getNome(), usuario.getSenha(), authorities); 
+      return user;
     }
 		
     return null;

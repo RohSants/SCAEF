@@ -1,14 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     
-<head>
-    <div th:replace="fragments/headlayout :: headconfig">
-        <title id="thlayouttitle">Cadastro de Usuário</title>
-    </div>
-    <link rel="stylesheet" href="../css/cadastrousuario.css">
-</head>
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Cadastro de Usuário</title>
+        </div>
+        <link rel="stylesheet" href="../css/cadastrousuario.css">
+    </head>
 
-<body th:replace="~{fragments/layout :: layout (~{:: main})}">
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
             <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">       
 

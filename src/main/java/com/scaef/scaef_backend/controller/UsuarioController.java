@@ -7,6 +7,7 @@ import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class UsuarioController {
-
 
     @Autowired
     private UsuarioService usuarioService;
@@ -56,6 +56,9 @@ public class UsuarioController {
     @PostMapping("salvarUsuario")
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult){ 
         ModelAndView mv = new ModelAndView();
+        BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
+        String senhaCriptografada = criptografar.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
         if(bindingResult.hasErrors()){
             mv.setViewName("cadastroUsuario");
             mv.addObject("usuario", usuario);

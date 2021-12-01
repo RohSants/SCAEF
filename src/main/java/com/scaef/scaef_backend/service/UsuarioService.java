@@ -5,6 +5,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 import com.scaef.scaef_backend.model.Usuario;
 import com.scaef.scaef_backend.repository.UsuarioRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,4 +39,8 @@ public class UsuarioService {
    public Usuario findByNome(String nome){
        return usuarioRepository.findByNome(nome);
    } 
+
+   
+   
+   
 }
