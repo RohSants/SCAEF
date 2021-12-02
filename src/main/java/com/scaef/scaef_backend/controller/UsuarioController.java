@@ -26,7 +26,7 @@ public class UsuarioController {
 
     @RequestMapping("/")
     public String index(){
-        return "redirect:login1";
+        return "redirect:login";
     }
 
     @RequestMapping("/home")
@@ -36,7 +36,7 @@ public class UsuarioController {
         return mv;
     }
 
-    @RequestMapping("/login1")
+    @RequestMapping("/login")
     public ModelAndView login(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("login");
@@ -44,14 +44,14 @@ public class UsuarioController {
     }
 
     @PostMapping("/logar")
-    public String logar(Model model, String email, String senha){
+    public String logar(Model model, String email, String senha, Usuario usuario){
         usuarioService.logar(email, senha);
         if(usuarioService.logar(email, senha) !=  null){
             return "redirect:home";
-        }
+        } 
         model.addAttribute("erro", "Email e/ou Senha Inválidos!");
-        return "login";
-    }
+        return "login";    
+}
 
     @PostMapping("salvarUsuario")
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult){ 
@@ -59,6 +59,7 @@ public class UsuarioController {
         BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
         String senhaCriptografada = criptografar.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
+        usuario.getSenha().equals(senhaCriptografada);
         if(bindingResult.hasErrors()){
             mv.setViewName("cadastroUsuario");
             mv.addObject("usuario", usuario);

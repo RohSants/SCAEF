@@ -71,8 +71,12 @@ public class Usuario {
     @Column(name = "CRF", nullable = true, unique = true)
     private int crf;
 
-    @Column(name = "Senha", nullable = false, unique = true)
+    @Column(name = "Senha", nullable = false)
     @Size(min = 9, max = 100, message = "a senha deve estar entre 9 e 20 caracteres.")
     @NotBlank(message = "o  Senha campo não pode ser vazio!")
     private String senha;
+
+    
+
+    
 }
