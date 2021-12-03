@@ -48,3 +48,50 @@
   font-size: 1.1rem;
 }
 
+.campoform > label:nth-child(1) > input{
+}
+
+.campoform > label:nth-child(2) > input{
+}
+
+.campoform > label:nth-child(3) > input{
+}
+
+.campoform > label:nth-child(4) > input{
+}
+
+.campoform > label:nth-child(5) > input{
+}
+
+.campoform > label:nth-child(6) > input{
+  margin-bottom: 10px;
+}
+
+.campoform > label:nth-child(7) > input{
+}
+
+.campoform > label:nth-child(8) > input{
+}
+
+.campoform > label:nth-child(9) > input{
+}
+
+.campoform > label:nth-child(10) > input{
+}
+
+.campoform > label:nth-child(11) > input{
+}
+
+.campoform > label:nth-child(12) > input{
+  margin-bottom: 10px;
+}
+
+.campoform > label:nth-child(13) > input{
+}
+
+.campoform > label:nth-child(14) > input{
+}
+
+.campoform > label:nth-child(15) > input{
+  margin-bottom: 10px;
+}
