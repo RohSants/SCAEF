@@ -64,7 +64,7 @@
 }
 
 .campoform > label:nth-child(6) > input{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .campoform > label:nth-child(7) > input{
@@ -83,7 +83,7 @@
 }
 
 .campoform > label:nth-child(12) > input{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .campoform > label:nth-child(13) > input{
@@ -93,5 +93,5 @@
 }
 
 .campoform > label:nth-child(15) > input{
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }

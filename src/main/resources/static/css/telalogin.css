@@ -2,6 +2,9 @@
 
 :root{
   --cor-fonte: #112e42cc;
+  --cor-barra-1: #3E606F;
+  --cor-barra-2: #849A94;
+  --cor-barra-3: #D1DBBE;
 }
 
 * { /* configuração global*/
@@ -161,6 +164,8 @@ p{
   height: 32px;
   background-color: transparent;
   border: none;
+  position: relative;
+  display: inline-block;
 }
 
 #telalogin #campologin #botaologin #botaologinform {
@@ -168,28 +173,25 @@ p{
   margin-left: -7px;
 }
 
-
-/*esconde o texto*/
-#telalogin #campologin #botaologin .tooltiptext {
+/*configuração da mensagem*/
+#telalogin #campologin #camposenha .tooltipbutton #tooltiptext {
   visibility: hidden;
   width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
   position: absolute;
+  padding: 5px 0;
+  border-radius: 7px;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
+  bottom: 140%;
+  left: 59%;
+  margin-left: -70px;
+  background-color: #3e606f9b;
+  color: #fff;
   opacity: 0;
-  transition: opacity 0.3s;
+  transition: all 1s cubic-bezier(0, 0.73, 0, 1.24) 0s
 }
 
-
-/*deveria mostrar o tooltip*/
-#telalogin #campologin #botaologin .tooltiptext::after {
+/*seta do conteiner da mensagem*/
+#telalogin #campologin #camposenha .tooltipbutton #tooltiptext::after {
   content: "";
   position: absolute;
   top: 100%;
@@ -197,13 +199,7 @@ p{
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #555 transparent transparent transparent;
-}
-
-/*idem*/
-#telalogin #campologin #botaologin:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+  border-color: #3e606fdb transparent transparent transparent;
 }
 
 #telalogin #footerlogin {
