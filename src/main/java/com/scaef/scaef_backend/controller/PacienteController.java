@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class PacienteController {
@@ -32,14 +33,15 @@ public class PacienteController {
     }
     
     @PostMapping("salvarPaciente")
-    public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult){
+    public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
             mv.setViewName("cadastroPaciente");
             return mv;
         }
-        mv.setViewName("redirect:paciente/listagem");
         pacienteService.salvar(paciente);
+        ra.addFlashAttribute("message", "Paciente cadastrado com sucesso!");
+        mv.setViewName("redirect:paciente/listagem");
         return mv;
     }
 

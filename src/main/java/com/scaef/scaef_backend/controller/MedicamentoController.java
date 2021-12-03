@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,7 +34,7 @@ public class MedicamentoController {
     }
 
     @PostMapping("salvarMedicamento")
-    public ModelAndView salvar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult){
+    public ModelAndView salvar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
             mv.setViewName("cadastroMedicamento");
@@ -41,6 +42,7 @@ public class MedicamentoController {
             return mv;
         }
         medicamentoService.salvar(medicamento);
+        ra.addFlashAttribute("message", "Medicamento cadastrado com sucesso!");
          mv.setViewName("redirect:medicamento/listagem");
          return mv;
     }    

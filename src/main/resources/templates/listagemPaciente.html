@@ -10,6 +10,9 @@
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">
 		<main>
+			<div th:if="${message}" class="alert alert-success text-center" >
+			[[${message}]]
+			</div>
 			<div >
 				<h1>Pacientes</h1>
 				<table >
