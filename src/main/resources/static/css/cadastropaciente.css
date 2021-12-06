@@ -8,15 +8,15 @@
   margin: 0px 2px;
   padding: 5px 12px;
   border-radius: 6px;
-  border-style: revert;
-  border-width: 2px;
+  border-style: double;
+  border-width: 3px;
 }
 
 .cadicon{
   display: flex;
   align-content: center;
   align-items: center;
-  width: 230px;
+  width: 250px;
   margin-top: -27px;
   margin-left: 41px;
   margin-bottom: 20px;
@@ -25,11 +25,11 @@
 }
 
 .cadicon > legend {
-  width: 160px;
+  width: 175px;
   height: 20px;
   margin-bottom: 7px;
   color: var(--cor-fonte-claro);
-  font-size: 1.15rem;
+  font-size: 1.3rem;
 }
 
 .cadiconimg{
@@ -51,7 +51,7 @@
 
 .campoform > section > label {
   color: var(--cor-fonte-claro);
-  font-size: 1.28rem;
+  font-size: 1.3rem;
 }
 
 .campoform > section > label > input{

@@ -41,7 +41,7 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
 	
 	@Bean
 	public PasswordEncoder getPasswordEncoder() {
-		return new BCryptPasswordEncoder(8);
+		return new BCryptPasswordEncoder(12);
 	}    
 }
        /*.antMatchers("/css/**", "/js/**", "/resources/**").permitAll()
