@@ -24,9 +24,9 @@ public class UsuarioService {
         usuarioRepository.save(usuario);
     }
 
-    public Object logar(String email, String senha){
+    /*public Object logar(String email, String senha){
         return usuarioRepository.Login(email, senha);
-    }
+    }*/
 
     public Optional<Usuario> findById(Long id) {
         return usuarioRepository.findById(id);

@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.seguranca;
+package com.scaef.scaef_backend.security;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -35,7 +35,6 @@ public class UserDetailsServiceImp implements UserDetailsService{
       User user = new User(usuario.getNome(), usuario.getSenha(), authorities); 
       return user;
     }
-		
     return null;
   }
 }

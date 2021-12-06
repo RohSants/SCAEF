@@ -44,7 +44,7 @@ public class UsuarioController {
         return mv;
     }
 
-    @PostMapping("/logar")
+    /*@PostMapping("/logar")
     public String logar(Model model, String email, String senha, Usuario usuario){
         usuarioService.logar(email, senha);
         if(usuarioService.logar(email, senha) !=  null){
@@ -52,7 +52,7 @@ public class UsuarioController {
         } 
         model.addAttribute("erro", "Email e/ou Senha Inválidos!");
         return "login";    
-}
+    }*/
 
     @PostMapping("salvarUsuario")
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult,RedirectAttributes ra){ 

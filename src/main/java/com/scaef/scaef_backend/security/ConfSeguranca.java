@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.seguranca;
+package com.scaef.scaef_backend.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -21,10 +21,32 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-        .authorizeRequests()
-        .antMatchers("/css/**", "/js/**", "/resources/**").permitAll()
-        /*.antMatchers("/usuario/**").hasAnyAuthority(EnumFuncao.Administrador.toString())
-        /*.anyRequest().authenticated()*/
+            .httpBasic()
+                .and()
+            .formLogin()
+                .defaultSuccessUrl("/home", true)
+                .permitAll()
+                .and()
+            .authorizeRequests()
+                .antMatchers("/usuario/**")
+                .permitAll();
+    }
+
+    @Autowired
+	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+		auth
+		.userDetailsService(userDetailsService)
+		.passwordEncoder(getPasswordEncoder());
+	}
+	
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return new BCryptPasswordEncoder(8);
+	}    
+}
+       /*.antMatchers("/css/**", "/js/**", "/resources/**").permitAll()
+        .antMatchers("/usuario/**").hasAnyAuthority(EnumFuncao.Administrador.toString())
+        .anyRequest().authenticated()
         .and()
         .formLogin(form -> form
                 .loginPage("/login1")
@@ -32,20 +54,4 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
                 .permitAll())
                 .logout(logout -> logout.logoutUrl("/logout"))
                 .csrf()
-                .disable();
-    }
-    @Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-		.userDetailsService(userDetailsService)
-		.passwordEncoder(passwordEncoder());
-	}
-	
-	@Bean
-	public PasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder(8);
-	}    
-}
-
-
-
+                .disable();*/
