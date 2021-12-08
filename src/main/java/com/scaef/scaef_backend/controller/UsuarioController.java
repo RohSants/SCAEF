@@ -67,8 +67,8 @@ public class UsuarioController {
             return mv;
         }
         usuarioService.salvar(usuario);
-        ra.addFlashAttribute("message", "Usuário cadastrado com sucesso!");
-        mv.setViewName("redirect:usuario/listagem");
+        ra.addFlashAttribute("message","Usuário cadastrado com sucesso!");
+        mv.setViewName("redirect:usuario/cadastro");
         return mv;
     }
 

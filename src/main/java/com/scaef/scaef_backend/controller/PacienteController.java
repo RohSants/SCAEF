@@ -41,7 +41,7 @@ public class PacienteController {
         }
         pacienteService.salvar(paciente);
         ra.addFlashAttribute("message", "Paciente cadastrado com sucesso!");
-        mv.setViewName("redirect:paciente/listagem");
+        mv.setViewName("redirect:paciente/cadastro");
         return mv;
     }
 

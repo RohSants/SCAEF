@@ -4,16 +4,13 @@
 
     <head>
         <div th:replace="fragments/headlayout :: headconfig">
-            <title id="thlayouttitle">Lista de Pacientes</title>
+            <title id="thlayouttitle">Lista de Usuários</title>
         </div>
         <!--<link rel="stylesheet" href="../css/">-->
     </head>
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">>
 		<main>
-			<div th:if="${message}" class="alert alert-success text-center" >
-			[[${message}]]
-			<div>
 				<h1>Usuários</h1>
 				<table >
 					<thead>

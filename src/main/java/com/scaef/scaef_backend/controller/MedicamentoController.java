@@ -43,7 +43,7 @@ public class MedicamentoController {
         }
         medicamentoService.salvar(medicamento);
         ra.addFlashAttribute("message", "Medicamento cadastrado com sucesso!");
-         mv.setViewName("redirect:medicamento/listagem");
+         mv.setViewName("redirect:medicamento/cadastro");
          return mv;
     }    
     @GetMapping("medicamento/listagem")

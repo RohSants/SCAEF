@@ -10,6 +10,10 @@
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
+            <div th:if="${message}" class="alert alert-success text-center" >
+                [[${message}]]
+            </div>
+
             <fieldset class="formularioborda">
                 <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
                     <div class="cadicon">
@@ -84,6 +88,7 @@
                     </div>
                     <button type="submit"> Cadastrar paciente</button>
                 </form>
+                <a href="/paciente/listagem" target="blank">Ir para a listagem</a>
             </fieldset>
             
         </main>
