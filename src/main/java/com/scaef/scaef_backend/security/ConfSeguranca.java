@@ -24,12 +24,18 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
             .httpBasic()
                 .and()
             .formLogin()
-                .defaultSuccessUrl("/home", true)
+                .loginPage("/login")
                 .permitAll()
                 .and()
             .authorizeRequests()
                 .antMatchers("/usuario/**")
-                .permitAll();
+                .permitAll()
+                .and()
+            .authorizeRequests()
+                .antMatchers("/resources/**").permitAll()
+                .and()
+            .authorizeRequests()
+                .antMatchers("/css/**", "/js/**", "/resources/**").permitAll();
     }
 
     @Autowired

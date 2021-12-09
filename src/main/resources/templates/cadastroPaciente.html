@@ -26,13 +26,28 @@
                             <input name="cpf" type="text" th:field="*{cpf}">
                             </label>
                             <br>
-                            <label for="nome">Nome completo
+                            <label for="nome">Nome Civil Completo
                             <input name="nome" type="text" th:field="*{nome}">
                             </label>
                             <label for="nomeM">Nome da Mãe
                             <input name="nomeM" type="text" th:field="*{nomeM}">
                             </label>
+                            <label title="De acordo com o decreto 8.727/2016, é a designação pela qual a pessoa travesti ou transexual se identifica e é socialmente reconhecida. Preencher apenas para os(as) usuários(as) que possuírem nome social que divirja do nome de registro.">Nome Social
+                            <input name="nomesocial" type="text">
+                            </label>
+
+                            <label>Identificação Preferencial do Paciente:                            
+                              <label><input type="radio" name="idNome" value="Nome Civil">Nome Civil</label>
+                              <label><input type="radio" name="idNome" value="Nome Social">Nome Social</label>
+                            </label>
+
                             <br>
+
+                            <label title="Marcar de acordo com documento de identificação do paciente a fim de evitar constrangimentos.">Sexo:                            
+                                <label><input type="radio" name="sexo" value="Feminino">Feminino</label>
+                                <label><input type="radio" name="sexo" value="Masculino">Masculino</label>
+                            </label>
+
                             <label for="rg">RG
                             <input name="rg" type="text" th:field="*{rg}">
                             </label>

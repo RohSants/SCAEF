@@ -1,5 +1,6 @@
 package com.scaef.scaef_backend.controller;
 
+import java.security.Principal;
 import java.util.Optional;
 import javax.validation.Valid;
 
@@ -25,11 +26,6 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @RequestMapping("/")
-    public String index(){
-        return "redirect:login";
-    }
-
     @RequestMapping("/home")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
@@ -38,22 +34,16 @@ public class UsuarioController {
     }
 
     @RequestMapping("/login")
-    public ModelAndView login(){
+    public ModelAndView login(Principal principal){
         ModelAndView mv = new ModelAndView();
+        if (principal != null) {
+            mv.setViewName("redirect:/home");
+            return mv;
+        }
         mv.setViewName("login");
         return mv;
     }
-
-    /*@PostMapping("/logar")
-    public String logar(Model model, String email, String senha, Usuario usuario){
-        usuarioService.logar(email, senha);
-        if(usuarioService.logar(email, senha) !=  null){
-            return "redirect:home";
-        } 
-        model.addAttribute("erro", "Email e/ou Senha Inválidos!");
-        return "login";    
-    }*/
-
+    
     @PostMapping("salvarUsuario")
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult,RedirectAttributes ra){ 
         ModelAndView mv = new ModelAndView();

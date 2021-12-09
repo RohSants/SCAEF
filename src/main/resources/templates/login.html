@@ -36,13 +36,13 @@
 
                     <main id = "campologin">
 
-                        <form method="post" th:object = "${usuario}" action="/logar">
+                        <form method="post" th:object = "${usuario}" th:action="@{/login}">
                                 <p id = "tamanhologin">Usuário</p>
-                                <input name="email"  id = "formatologin" class = "form-control" type = "email" placeholder = "Email" >
+                                <input name="username"  id = "formatologin" class = "form-control" type = "text" placeholder = "Email" >
                                 <p id="senhalogin" class = "tamanhologin">Senha</p>
 
                                 <div id="camposenha">
-                                    <input name="senha" id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2" >
+                                    <input name="password" id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2" >
                                     <button id="botaologin" type="submit" onmouseover="mostraTexto()" onmouseout="escondeTexto()">
                                         <div class="tooltipbutton">
                                             <img src="../mídia/vetores/botão_confirmação.svg" alt="botão de confimação do login" id="botaologinform">
