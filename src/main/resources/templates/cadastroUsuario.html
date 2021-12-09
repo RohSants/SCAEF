@@ -11,6 +11,10 @@
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
+            <div th:if="${message}" class="alert alert-success text-center" >
+                [[${message}]]
+            </div>
+
             <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">       
 
                 <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
@@ -91,6 +95,7 @@
                     <button type="submit">Cadastrar usuário</button>
                 </div>
             </form>
+        <a href="/usuario/listagem" target="blank">Ir para a listagem</
         </main>
     </body>
     <script>

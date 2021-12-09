@@ -9,9 +9,11 @@
         <!--<link rel="stylesheet" href="../css/">-->
     </head>
 
-
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
+            <div th:if="${message}" class="alert alert-success text-center" >
+                [[${message}]]
+            </div>
             <div class="box">
                 <form class="formulario" th:object="${medicamento}" method="post" action="#" th:action="@{/salvarMedicamento}">
                     <fieldset>
@@ -98,6 +100,7 @@
                         </div>
                     </fieldset>
                 </form>
+            <a href="/medicamento/listagem" target="blank">Ir para a listagem</a>
             <div>
         </main>
     </body>
