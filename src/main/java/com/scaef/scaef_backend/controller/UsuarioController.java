@@ -26,6 +26,11 @@ public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
+    @RequestMapping("/")
+    public String index(){
+        return "redirect:/login1";
+    }
+
     @RequestMapping("/home")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
