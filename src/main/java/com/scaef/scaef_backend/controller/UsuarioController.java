@@ -55,7 +55,6 @@ public class UsuarioController {
         BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
         String senhaCriptografada = criptografar.encode(usuario.getSenha());
         usuario.setSenha(senhaCriptografada);
-        usuario.getSenha().equals(senhaCriptografada);
         if(bindingResult.hasErrors()){
             mv.setViewName("cadastroUsuario");
             mv.addObject("usuario", usuario);
@@ -84,14 +83,14 @@ public class UsuarioController {
     }
 
     @GetMapping("usuario/alterar/{id}")
-        public ModelAndView buscar(@PathVariable Long id, Model model){
-            Optional<Usuario> usuario = usuarioService.findById(id);
-            ModelAndView mv = new ModelAndView();
-            mv.setViewName("alterarUsuario");
+        public ModelAndView buscar(@PathVariable Long id, Model model, Usuario user){
+        Optional<Usuario> usuario = usuarioService.findById(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("alterarUsuario");
             try {
                 model.addAttribute("usuario", usuario.get());  
             } catch (Exception e) {
-                mv.setViewName("redirect:usuario/listagem");
+                mv.setViewName("redirect:/usuario/listagem");
                 return mv;
             }
             return mv;
@@ -105,4 +104,22 @@ public class UsuarioController {
         mv.setViewName("redirect:/usuario/listagem");
         return mv;
     }
+
+    @PostMapping("alterarUsuario")
+    public ModelAndView alterar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult, RedirectAttributes ra){ 
+        ModelAndView mv = new ModelAndView();
+        BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
+        String senhaCriptografada = criptografar.encode(usuario.getSenha());
+        usuario.setSenha(senhaCriptografada);
+        if(bindingResult.hasErrors()){
+            mv.setViewName("alterarUsuario");
+            mv.addObject("usuario", usuario);
+            return mv;
+        }
+        usuarioService.salvar(usuario);
+        ra.addFlashAttribute("message","Usuário alterado com sucesso!");
+        mv.setViewName("");
+        return mv;
+    }
+
 }

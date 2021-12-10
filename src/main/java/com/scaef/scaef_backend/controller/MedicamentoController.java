@@ -76,4 +76,17 @@ public class MedicamentoController {
         mv.setViewName("redirect:/medicamento/listagem"); 
         return mv;
     }
+
+    @PostMapping("alterarMedicamento")
+    public ModelAndView alterar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult, RedirectAttributes ra){
+        ModelAndView mv = new ModelAndView();
+        if(bindingResult.hasErrors()){
+            mv.setViewName("alterarMedicamento");
+            mv.addObject("medicamento", medicamento);
+            return mv;
+        }
+        medicamentoService.salvar(medicamento);
+         mv.setViewName("redirect:medicamento/listagem");
+         return mv;
+    }    
 }

@@ -75,4 +75,6 @@ public class Usuario {
     @Size(min = 9, max = 100, message = "a senha deve estar entre 9 e 20 caracteres.")
     @NotBlank(message = "o  Senha campo não pode ser vazio!")
     private String senha;
+
+    
 }
