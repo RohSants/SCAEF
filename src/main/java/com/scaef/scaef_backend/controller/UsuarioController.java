@@ -28,7 +28,7 @@ public class UsuarioController {
 
     @RequestMapping("/")
     public String index(){
-        return "redirect:/login1";
+        return "redirect:/login";
     }
 
     @RequestMapping("/home")

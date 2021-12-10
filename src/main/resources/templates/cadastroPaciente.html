@@ -5,6 +5,8 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Cadastro de Paciente</title>
         </div>
+        <!--link de acesso ao bootstrap via CDN-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
         <link rel="stylesheet" href="../css/cadastropaciente.css">
     </head>
 
@@ -20,37 +22,52 @@
                         <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
                         <legend>Cadastro de Paciente</legend>
                     </div>
-                    
+
                     <div class = "campoform">
                         <section id="dados">
                             <label for="cns">CNS - Cartão Nacional de Saúde
-                            <input name="cns" type="text" th:field="*{cns}">
+                            <input name="cns" type="text" th:field="*{cns}" class="form-control">
                             </label>
                             <label for="cpf">CPF
-                            <input name="cpf" type="text" th:field="*{cpf}">
+                            <input name="cpf" type="text" th:field="*{cpf}" class="form-control">
                             </label>
                             <br>
                             <label for="nome">Nome Civil Completo
-                            <input name="nome" type="text" th:field="*{nome}">
+                            <input name="nome" type="text" th:field="*{nome}" class="form-control">
                             </label>
                             <label for="nomeM">Nome da Mãe
-                            <input name="nomeM" type="text" th:field="*{nomeM}">
-                            </label>
-                            <label title="De acordo com o decreto 8.727/2016, é a designação pela qual a pessoa travesti ou transexual se identifica e é socialmente reconhecida. Preencher apenas para os(as) usuários(as) que possuírem nome social que divirja do nome de registro.">Nome Social
-                            <input name="nomesocial" type="text">
+                            <input name="nomeM" type="text" th:field="*{nomeM}" class="form-control">
                             </label>
 
-                            <label>Identificação Preferencial do Paciente:                            
-                              <label><input type="radio" name="idNome" value="Nome Civil">Nome Civil</label>
-                              <label><input type="radio" name="idNome" value="Nome Social">Nome Social</label>
+                            <label for="nomeS">Nome Social
+                                <input name="nomeS" type="text" id="nomeS" class="form-control"th:field="*{nomeS}" >
+                                <!--remover o id ao inserir atributo no jpa pois o id é inserio automáticamente nos campos
+                            -->
                             </label>
+
+                            <label> Identificação Preferencial do Paciente:</label>
+                            <div>
+                                <input type="radio" name="idNome" value="Nome Civil" th:field="*{idNome}">
+                                <label>Nome Civil</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="idNome" value="Nome Social" th:field="*{idNome}">
+                                <label>Nome Social</label>
+                            </div>
 
                             <br>
 
-                            <label title="Marcar de acordo com documento de identificação do paciente a fim de evitar constrangimentos.">Sexo:                            
-                                <label><input type="radio" name="sexo" value="Feminino">Feminino</label>
-                                <label><input type="radio" name="sexo" value="Masculino">Masculino</label>
-                            </label>
+                            <label title="Marcar de acordo com documento de identificação do paciente a fim de evitar constrangimentos.">Sexo:</label>
+                                <div>
+                                    <input type="radio" name="sexo" value="Feminino"th:field="*{sexo}">
+                                    <label>Feminino</label>
+                                </div>
+
+                                <div>
+                                    <input type="radio" name="sexo" value="Masculino" th:field="*{sexo}">
+                                    <label>Masculino</label>
+                                </div>
 
                             <label for="rg">RG
                             <input name="rg" type="text" th:field="*{rg}">
@@ -102,8 +119,10 @@
                         </section>
                     </div>
                     <button type="submit"> Cadastrar paciente</button>
+                <a href="/paciente/listagem">
+                    <button type="button">Lista de Pacientes</button>
+                </a>
                 </form>
-                <a href="/paciente/listagem" >Ir para a listagem</a>
             </fieldset>
             
         </main>

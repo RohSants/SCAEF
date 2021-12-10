@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+a{
+  text-decoration: none;
+}
+
 .conteudo{
   margin-top: 70px;
 }
@@ -10,6 +14,7 @@
   border-radius: 6px;
   border-style: double;
   border-width: 3px;
+  color: var(--cor-fonte-claro);
 }
 
 .cadicon{
@@ -17,7 +22,7 @@
   align-content: center;
   align-items: center;
   width: 250px;
-  margin-top: -27px;
+  margin-top: -35px;
   margin-left: 41px;
   margin-bottom: 20px;
   background-color: var(--cor-fundo-conteudo);
@@ -49,14 +54,22 @@
 
 }
 
+.form-control{
+  padding: 0px;
+}
+
 .campoform > section > label {
   color: var(--cor-fonte-claro);
   font-size: 1.3rem;
+  display: inline-flex;
+  margin-bottom: 10px;
 }
 
 .campoform > section > label > input{
   font-size: 1rem;
   padding-left: 6px;
+  margin-left: 7px;
+  margin-right: 10px;
 }
 
 .campoform #dados {
@@ -69,6 +82,18 @@
 
 .campoform > #dados > label > #cpf{
   width: 120px;
+}
+
+.campoform > #dados > label > #nome{
+  width: 205px;
+}
+
+.campoform > #dados > label > #nomeM{
+  width: 205px;
+}
+
+.campoform > #dados > label > #nomeS{
+  width: 205px;
 }
 
 .campoform #endereco {

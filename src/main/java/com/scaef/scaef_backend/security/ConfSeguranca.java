@@ -50,14 +50,3 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder(12);
 	}    
 }
-       /*.antMatchers("/css/**", "/js/**", "/resources/**").permitAll()
-        .antMatchers("/usuario/**").hasAnyAuthority(EnumFuncao.Administrador.toString())
-        .anyRequest().authenticated()
-        .and()
-        .formLogin(form -> form
-                .loginPage("/login1")
-                .defaultSuccessUrl("/home", true)
-                .permitAll())
-                .logout(logout -> logout.logoutUrl("/logout"))
-                .csrf()
-                .disable();*/

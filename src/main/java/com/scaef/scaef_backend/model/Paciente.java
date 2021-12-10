@@ -40,7 +40,20 @@ public class Paciente {
     @NotBlank(message = "Nome da Mãe do Paciente é obrigatório")
     @Size(max = 95)
     private String nomeM;
+
+    @Column(name = "Nome Social", nullable = true)
+    @Size(max = 95)
+    private String nomeS;
     
+    @Column(name = "Nome Preferencial", nullable = true)
+    @Size(max = 11)
+    private String idNome;
+
+    @Column(name = "Sexo", nullable = false)
+    @Size(max = 9)
+    @NotBlank(message = "Sexo do Paciente é obrigatório")
+    private String sexo;
+
     @Column(name = "CNS", nullable = false, unique = true)
     @NotBlank(message = "CNS do Paciente é obrigatório")
     @Size(max = 15)
