@@ -73,4 +73,16 @@ public class PacienteController {
         mv.setViewName("redirect:/paciente/listagem");
         return mv;
     }
+
+    @PostMapping("alterarPaciente")
+    public ModelAndView alterar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult, RedirectAttributes ra){
+        ModelAndView mv = new ModelAndView();
+        if(bindingResult.hasErrors()){
+            mv.setViewName("alterarPaciente");
+            return mv;
+        }
+        pacienteService.salvar(paciente);
+        mv.setViewName("redirect:paciente/listagem");
+        return mv;
+    }
 }

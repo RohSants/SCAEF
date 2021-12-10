@@ -40,5 +40,11 @@ public class UsuarioService {
        return usuarioRepository.findByNome(nome);
    } 
 
+   public Usuario getNovaSenha(String senha) {
+    return usuarioRepository.findBySenha(senha);
+}
+
+
+
    
    }
