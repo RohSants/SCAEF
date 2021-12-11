@@ -19,8 +19,8 @@
             <form class="formulario" action="#" th:action="@{/alterarUsuario}" method = "post">
                 <input type="hidden" th:name="id" th:value="${usuario.id}">
                 <input type="text" th:name="nome" th:value="${usuario.nome}">
-                <input type="cpf" th:name="cpf" th:value="${usuario.cpf}">
-                <input type="text" th:name="rg" th:value="${usuario.rg}">
+                <input readonly = "readonly" type="cpf" th:name="cpf" th:value="${usuario.cpf}">
+                <input readonly = "readonly" type="text" th:name="rg" th:value="${usuario.rg}">
                 <input type="email" th:name="email" th:value="${usuario.email}">
                 <input type="number" th:name="celular" th:value="${usuario.celular}">
                 <input type="fone" th:name="fone" th:value="${usuario.fone}">

@@ -5,7 +5,7 @@ a{
 }
 
 .conteudo{
-  margin-top: 70px;
+  margin-top: 59px;
 }
 
 .formularioborda{
@@ -51,7 +51,6 @@ a{
     "dados"
     "endereco"
     "contato";
-
 }
 
 .form-control{
@@ -74,6 +73,11 @@ a{
 
 .campoform #dados {
   grid-area: dados;
+}
+
+.campoform section .entrada:focus{
+  border-color: #D1DBBD40;
+  box-shadow: 0 0 0 0.25rem #9fb79e94;
 }
 
 .campoform > #dados > label > #cns{

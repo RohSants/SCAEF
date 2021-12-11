@@ -39,12 +39,13 @@ public class UsuarioController {
     }
 
     @RequestMapping("/login")
-    public ModelAndView login(Principal principal){
+    public ModelAndView login(Model model, Principal principal){
         ModelAndView mv = new ModelAndView();
         if (principal != null) {
             mv.setViewName("redirect:/home");
             return mv;
         }
+        model.addAttribute("erro", "Email e/ou Senha Inválidos!");
         mv.setViewName("login");
         return mv;
     }
