@@ -26,25 +26,25 @@
                 </div>
 
                 <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
-                    <label class = "validation-message" th:errors="*{cpf}" class="form-control entrada"></label>
+                    <label class = "validation-message" th:errors="*{cpf}"></label>
                 </div>  
             
                 <div>
                     <label for="cpf">CPF</label> 
-                    <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada">
+                    <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)">
                 </div>
 
                 <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
-                    <label class = "validation-message" th:errors="*{rg}" class="form-control entrada"></label>
+                    <label class = "validation-message" th:errors="*{rg}"></label>
                 </div>  
 
                 <div>
                     <label for="rg">RG</label>
-                    <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada">
+                    <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
                 </div>
 
                 <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
-                    <label class="validation-message" th:errors="*{email}" class="form-control entrada"></label>
+                    <label class="validation-message" th:errors="*{email}" ></label>
                 </div>  
 
                 <div>
@@ -54,12 +54,12 @@
 
                 <div>
                     <label for="celular">Celular</label>
-                    <input name="celular" type="number" th:field="*{celular}" class="form-control entrada">
+                    <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
                 </div>
 
                 <div>
                     <label for="fone">Fone</label>
-                    <input name="fone" type="number"  th:field="*{fone}" class="form-control entrada">
+                    <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
                 </div>
 
                 <div>
@@ -74,11 +74,11 @@
 
                 <div>
                     <label for="crf">CRF</label>
-                    <input name="crf" type="number" th:field="*{crf}" class="crf" class="form-control entrada">
+                    <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada">
                 </div>
 
                 <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
-                    <label class = "validation-message" th:errors="*{senha}" class="form-control entrada" ></label>
+                    <label class = "validation-message" th:errors="*{senha}" ></label>
                 </div>  
 
                 <div class="input">
@@ -117,5 +117,83 @@
                 icone.src="../mídia/vetores/eye-off.svg";
             }
         }
+
+        function mascaraCpf(mascara, input){
+            const vetMasc = mascara.split("")
+            const numCpf =  input.value.replace(/\D/g, "")
+            const cursor =  Number(input.selectionStart)
+            const tecla = (window.event) ? event.keyCode : event.which
+
+            for(let i = 0; i <numCpf.length; i++){
+                vetMasc.splice(vetMasc.indexOf("_"), 1, numCpf[i])
+            }
+
+            input.value = vetMasc.join("")
+
+            if(tecla != 37 && (cursor == 3 || cursor == 7 || cursor == 11)){
+                input.setSelectionRange(cursor+1, cursor+1)
+            }else{
+                input.setSelectionRange(cursor, cursor)
+            }
+        }
+
+        function mascaraRg(mascara, input){
+            const vetMasc = mascara.split("")
+            const numRg =  input.value.replace(/\D/g, "")
+            const cursor =  Number(input.selectionStart)
+            const tecla = (window.event) ? event.keyCode : event.which
+
+            for(let i = 0; i <numRg.length; i++){
+                vetMasc.splice(vetMasc.indexOf("_"), 1, numRg[i])
+            }
+
+            input.value = vetMasc.join("")
+
+            if(tecla != 37 && (cursor == 2 || cursor == 5 || cursor == 8)){
+                input.setSelectionRange(cursor+1, cursor+1)
+            }else{
+                input.setSelectionRange(cursor, cursor)
+            }
+        }
+
+        function mascaraFone(mascara, input){
+            const vetMasc = mascara.split("")
+            const numF =  input.value.replace(/\D/g, "")
+            const cursor =  Number(input.selectionStart)
+            const tecla = (window.event) ? event.keyCode : event.which
+
+            for(let i = 0; i <numF.length; i++){
+                vetMasc.splice(vetMasc.indexOf("_"), 1, numF[i])
+            }
+
+            input.value = vetMasc.join("")
+
+            if(tecla != 37 && (cursor == 1 || cursor == 4 || cursor == 8)){
+                input.setSelectionRange(cursor+1, cursor+1)
+            }else{
+                input.setSelectionRange(cursor, cursor)
+            }
+        }
+
+        function mascaraCel(mascara, input){
+            const vetMasc = mascara.split("")
+            const numC =  input.value.replace(/\D/g, "")
+            const cursor =  Number(input.selectionStart)
+            const tecla = (window.event) ? event.keyCode : event.which
+
+            for(let i = 0; i <numC.length; i++){
+                vetMasc.splice(vetMasc.indexOf("_"), 1, numC[i])
+            }
+
+            input.value = vetMasc.join("")
+
+            if(tecla != 37 && (cursor == 1 || cursor == 3 || cursor == 8)){
+                input.setSelectionRange(cursor+1, cursor+1)
+            }else{
+                input.setSelectionRange(cursor, cursor)
+            }
+        }
+
+
     </script>
 </html>

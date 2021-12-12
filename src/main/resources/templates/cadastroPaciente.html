@@ -26,9 +26,8 @@
                     <div class = "campoform">
                         <section id="dados">
                             <label for="cns" title="Cartão Nacional de Saúde">CNS 
-                            <input name="cns" type="text" th:field="*{cns}" class="entrada form-control">
-                            </label>
-
+                            <input name="cns" type="text" th:field="*{cns}" class="entrada form-control" maxlength="15">
+                            
                             <label for="cpf" title="Cadastro de Pessoas Físicas">CPF
                             <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control">
                             </label>
@@ -74,7 +73,7 @@
                         
                         <section id="endereco">
                             <label for="cep">CEP
-                            <input name="cep" type="text" th:field="*{cep}" class="entrada form-control" >
+                            <input name="cep" type="text" th:field="*{cep}" class="entrada form-control" autocomplete="off" id = "cep" onkeyup="mascaraCep('_____-___', this)" >
                             </label>
 
                             
@@ -130,5 +129,25 @@
             
         </main>
     </body>
+    <script>
+        function mascaraCep(mascara, input){
+            const vetMasc = mascara.split("")
+            const numCep =  input.value.replace(/\D/g, "")
+            const cursor =  Number(input.selectionStart)
+            const tecla = (window.event) ? event.keyCode : event.which
+
+            for(let i = 0; i <numCep.length; i++){
+                vetMasc.splice(vetMasc.indexOf("_"), 1, numCep[i])
+            }
+
+            input.value = vetMasc.join("")
+
+            if(tecla != 37 && cursor == 6 ){
+                input.setSelectionRange(cursor+1, cursor+1)
+            }else{
+                input.setSelectionRange(cursor, cursor)
+            }
+        }
+    </script>
 
 </html>

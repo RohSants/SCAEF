@@ -56,7 +56,7 @@ public class Paciente {
 
     @Column(name = "CNS", nullable = false, unique = true)
     @NotBlank(message = "CNS do Paciente é obrigatório")
-    @Size(max = 18)
+    @Size(max = 15)
     private String cns;
 
     @Column(name = "CPF", nullable = false, unique = true)
