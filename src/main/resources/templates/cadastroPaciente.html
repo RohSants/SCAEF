@@ -25,86 +25,100 @@
 
                     <div class = "campoform">
                         <section id="dados">
-                            <label for="cns">CNS - Cartão Nacional de Saúde
+                            <label for="cns" title="Cartão Nacional de Saúde">CNS 
                             <input name="cns" type="text" th:field="*{cns}" class="entrada form-control">
                             </label>
-                            <label for="cpf">CPF
+
+                            <label for="cpf" title="Cadastro de Pessoas Físicas">CPF
                             <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control">
                             </label>
+
+                            <label for="rg" title="Cédula de identidade">RG
+                                <input name="rg" type="text" th:field="*{rg}" class="entrada form-control">
+                            </label>
+
                             <br>
                             <label for="nome">Nome Civil Completo
                             <input name="nome" type="text" th:field="*{nome}" class="entrada form-control">
                             </label>
+
                             <label for="nomeM">Nome da Mãe
                             <input name="nomeM" type="text" th:field="*{nomeM}" class="entrada form-control">
                             </label>
 
                             <label for="nomeS">Nome Social
                                 <input name="nomeS" type="text" class="entrada form-control" th:field="*{nomeS}">
-                                <!--remover o id ao inserir atributo no jpa pois o id é inserio automáticamente nos campos
-                            -->
                             </label>
 
-                            <label> Identificação Preferencial do Paciente:
-                               <label><input type="radio" name="idNome" value="Nome Civil" th:field="*{idNome}">Nome Civil</label>
-
-                                <label><input type="radio" name="idNome" value="Nome Social" th:field="*{idNome}">Nome Social</label>
+                            <label for="dataNasc">Data de nascimento
+                                <input name="dataNasc" type="date" th:field="*{dataNasc}" class="entrada form-control" >
                             </label>
 
                             <br>
 
-                            <label title="Marcar de acordo com documento de identificação do paciente a fim de evitar constrangimentos.">Sexo:
-                                    <label><input type="radio" name="sexo" value="Feminino"th:field="*{sexo}">Feminino</label>
-                                    <label><input type="radio" name="sexo" value="Masculino" th:field="*{sexo}">Masculino</label>
-                            </label>
+                            <div class="radioselector">
+                                <label title="Marcar de acordo com documento de identificação do paciente a fim de evitar constrangimentos." class="texto">Sexo:
+                                </label>
+                                
+                                <label class="opcao1"><input type="radio" name="sexo" value="Feminino"th:field="*{sexo}">Feminino</label>
+                                
+                                <label class="opcao2"><input type="radio" name="sexo" value="Masculino" th:field="*{sexo}">Masculino</label>
+                            </div>
 
-                            <label for="rg">RG
-                            <input name="rg" type="text" th:field="*{rg}" class="entrada form-control">
-                            </label>
-                            
-                            <label for="dataNasc">Data de nascimento
-                            <input name="dataNasc" type="date" th:field="*{dataNasc}" class="entrada form-control" >
-                            </label>
+                            <div class="radioselector">
+                                <label class="texto">Identificação Preferencial do Paciente:</label>
+                                <label class="opcao1"><input type="radio" name="idNome" value="Nome Civil" th:field="*{idNome}">Nome Civil</label>
+                                <label class="opcao2"><input type="radio" name="idNome" value="Nome Social" th:field="*{idNome}">Nome Social</label>
+                            </div>
                         </section>
                         
                         <section id="endereco">
                             <label for="cep">CEP
                             <input name="cep" type="text" th:field="*{cep}" class="entrada form-control" >
                             </label>
+
                             
                             <label for="cida">Cidade
                             <input name="cida" type="text" th:field="*{cida}" class="entrada form-control">
                             </label>
+
                             
                             <label for="bai">Bairro
                             <input name="bai" type="text" th:field="*{bai}" class="entrada form-control">
                             </label>
+
                             
                             <label for="endr">Endereço
                             <input name="endr" type="text" th:field="*{endr}" class="entrada form-control">
                             </label>
+
                             
                             <label for="comp">Complemento
                             <input name="comp" type="text" th:field="*{comp}" class="entrada form-control">
                             </label>
+
                             
                             <label for="num">Número de residência
                             <input name="num" type="number" th:field="*{num}" class="entrada form-control">
                             </label>
+
                         </section>
 
                         <section id="contato">
                             <label for="celular">Celular
                             <input name="celular" type="text" th:field="*{celular}" class="entrada form-control">
                             </label>
+
                             <label for="fone">Telefone residencial
                             <input name="fone" type="text" th:field="*{fone}" class="entrada form-control">
                             </label>
+
                             
                             <label for="email">Email
                             <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span>
                             <input name="email" type="email" th:field="*{email}" class="entrada form-control">
                             </label>
+
                         </section>
                     </div>
                     <button type="submit"> Cadastrar paciente</button>

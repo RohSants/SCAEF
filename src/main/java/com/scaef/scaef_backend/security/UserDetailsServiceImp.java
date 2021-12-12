@@ -38,9 +38,4 @@ public class UserDetailsServiceImp implements UserDetailsService{
     return null;
   }
 
-  public Integer getCrf(String nome){
-    Usuario usuario = usuarioService.findByNome(nome);
-
-    return usuario.getCrf();
-  }
 }
