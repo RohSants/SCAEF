@@ -1,10 +1,10 @@
-package com.scaef.scaef_backend.controller;
+package com.scaef.controller;
 
 import java.util.Optional;
 import javax.validation.Valid;
 
-import com.scaef.scaef_backend.model.Paciente;
-import com.scaef.scaef_backend.service.PacienteService;
+import com.scaef.model.Paciente;
+import com.scaef.service.PacienteService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,7 +32,7 @@ public class PacienteController {
         return mv;
     }
     
-    @PostMapping("salvarPaciente")
+    @PostMapping("paciente/cadastro")
     public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
@@ -65,15 +65,6 @@ public class PacienteController {
         return mv;
     } 
 
-    @GetMapping("paciente/excluir/{id}")
-    public ModelAndView excluir(@PathVariable("id") int id){
-        Optional<Paciente> pacienteOp = pacienteService.findById(id);
-        ModelAndView mv = new ModelAndView();
-        pacienteService.deletar(pacienteOp.get());
-        mv.setViewName("redirect:/paciente/listagem");
-        return mv;
-    }
-
     @PostMapping("alterarPaciente")
     public ModelAndView alterar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult, RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
@@ -83,6 +74,15 @@ public class PacienteController {
         }
         pacienteService.salvar(paciente);
         mv.setViewName("redirect:paciente/listagem");
+        return mv;
+    }
+
+    @GetMapping("paciente/excluir/{id}")
+    public ModelAndView excluir(@PathVariable("id") Long id){
+        Optional<Paciente> pacienteOp = pacienteService.findById(id);
+        ModelAndView mv = new ModelAndView();
+        pacienteService.deletar(pacienteOp.get());
+        mv.setViewName("redirect:/paciente/listagem");
         return mv;
     }
 }

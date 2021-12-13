@@ -1,10 +1,10 @@
-package com.scaef.scaef_backend.controller;
+package com.scaef.controller;
 
 import java.util.Optional;
 import javax.validation.Valid;
 
-import com.scaef.scaef_backend.model.Medicamento;
-import com.scaef.scaef_backend.service.MedicamentoService;
+import com.scaef.model.Medicamento;
+import com.scaef.service.MedicamentoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,8 +43,8 @@ public class MedicamentoController {
         }
         medicamentoService.salvar(medicamento);
         ra.addFlashAttribute("message", "Medicamento cadastrado com sucesso!");
-         mv.setViewName("redirect:medicamento/cadastro");
-         return mv;
+        mv.setViewName("redirect:medicamento/cadastro");
+        return mv;
     }    
     @GetMapping("medicamento/listagem")
     public ModelAndView Medicamento(Model model){
@@ -68,15 +68,6 @@ public class MedicamentoController {
             return mv;
         } 
 
-    @GetMapping("medicamento/excluir/{id}")
-    public ModelAndView excluir(@PathVariable("id") Long id){
-        Optional<Medicamento> medicamentoOp = medicamentoService.findById(id);
-        ModelAndView mv = new ModelAndView();
-        medicamentoService.deletar(medicamentoOp.get());
-        mv.setViewName("redirect:/medicamento/listagem"); 
-        return mv;
-    }
-
     @PostMapping("alterarMedicamento")
     public ModelAndView alterar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult, RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
@@ -86,7 +77,16 @@ public class MedicamentoController {
             return mv;
         }
         medicamentoService.salvar(medicamento);
-         mv.setViewName("redirect:medicamento/listagem");
-         return mv;
-    }    
+        mv.setViewName("redirect:medicamento/listagem");
+        return mv;
+    }
+
+    @GetMapping("medicamento/excluir/{id}")
+    public ModelAndView excluir(@PathVariable("id") Long id){
+        Optional<Medicamento> medicamentoOp = medicamentoService.findById(id);
+        ModelAndView mv = new ModelAndView();
+        medicamentoService.deletar(medicamentoOp.get());
+        mv.setViewName("redirect:/medicamento/listagem"); 
+        return mv;
+    }
 }

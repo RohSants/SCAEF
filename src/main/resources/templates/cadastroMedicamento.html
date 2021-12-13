@@ -15,8 +15,8 @@
                 [[${message}]]
             </div>
             <div class="box">
+                <fieldset  class="formularioborda">
                 <form class="formulario" th:object="${medicamento}" method="post" action="#" th:action="@{/salvarMedicamento}">
-                    <fieldset>
                         <legend>Cadastro de Medicamento</legend>
                         <br>
                         <div class="inputBox">
@@ -98,8 +98,8 @@
                                 <button type="submit"> Cadastrar Medicamento</button>
                             </div>
                         </div>
-                    </fieldset>
                 </form>
+            </fieldset>
             <a href="/medicamento/listagem">Ir para a listagem</a>
             <div>
         </main>

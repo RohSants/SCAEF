@@ -1,10 +1,11 @@
-package com.scaef.scaef_backend.service;
+package com.scaef.service;
 
 import java.util.Optional;
 
 import javax.validation.Valid;
-import com.scaef.scaef_backend.model.Usuario;
-import com.scaef.scaef_backend.repository.UsuarioRepository;
+
+import com.scaef.model.Usuario;
+import com.scaef.repository.UsuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

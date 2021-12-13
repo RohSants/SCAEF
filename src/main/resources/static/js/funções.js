@@ -104,3 +104,34 @@ function mascaraCel(mascara, input){
         input.setSelectionRange(cursor, cursor)
     }
 }
+
+function mascaraCep(mascara, input){
+    const vetMasc = mascara.split("")
+    const numCep =  input.value.replace(/\D/g, "")
+    const cursor =  Number(input.selectionStart)
+    const tecla = (window.event) ? event.keyCode : event.which
+
+    for(let i = 0; i <numCep.length; i++){
+        vetMasc.splice(vetMasc.indexOf("_"), 1, numCep[i])
+    }
+
+    input.value = vetMasc.join("")
+
+    if(tecla != 37 && cursor == 6 ){
+        input.setSelectionRange(cursor+1, cursor+1)
+    }else{
+        input.setSelectionRange(cursor, cursor)
+    }
+}
+
+function onlynumber(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    //var regex = /^[0-9.,]+$/;
+    var regex = /^[0-9.]+$/;
+    if( !regex.test(key) ) {
+       theEvent.returnValue = false;
+       if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+ }

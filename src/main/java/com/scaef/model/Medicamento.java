@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.model;
+package com.scaef.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.model;
+package com.scaef.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,9 +11,10 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.br.CPF;
 
-import com.scaef.scaef_backend.enums.EnumFuncao;
+import com.scaef.enums.EnumFuncao;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 /*Projeto Lombok*/
 import lombok.Data;
@@ -45,7 +46,7 @@ public class Usuario {
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
-    @Size(max = 10)
+    @Size(max = 13)
     @NotBlank(message = "o campo RG não pode ser vazio")
     private String rg;
     
@@ -74,7 +75,5 @@ public class Usuario {
     @Column(name = "Senha", nullable = false)
     @Size(min = 9, max = 100, message = "a senha deve estar entre 9 e 20 caracteres.")
     @NotBlank(message = "o  Senha campo não pode ser vazio!")
-    private String senha;
-
-    
+    private String senha;  
 }

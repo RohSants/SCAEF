@@ -23,3 +23,43 @@ label {
   position: absolute;
   cursor: pointer;
 }
+
+
+.form-control{
+  padding: 0px;
+}
+
+.campoform > section {
+  margin-left: 30px;
+}
+
+.formularioborda{
+  margin: 0px 2px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border-style: double;
+  border-width: 3px;
+  color: var(--cor-fonte-claro);
+}
+
+.conteudo{
+  margin-top: 59px;
+}
+
+.campoform > section > label,
+.campoform > section > div > label {
+  color: var(--cor-fonte-claro);
+  font-size: 1.3rem;
+  display: inline-flex;
+  margin-bottom: 10px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.campoform section .entrada:focus{
+  border-color: #D1DBBD40;
+  box-shadow: 0 0 0 0.13rem #9fb79e94;
+  background-color: #f4fff1ff;
+}
+

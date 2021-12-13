@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.model;
+package com.scaef.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -99,7 +99,7 @@ public class Paciente {
     
     @Column(name = "Número_R", nullable = false)
     @NotNull(message = "Número de Residência do Paciente é obrigatório")
-    private int num;
+    private String num;
     
     @Column(name = "Celular", nullable = false)
     @NotBlank(message = "Número de Celular do Paciente é obrigatório")

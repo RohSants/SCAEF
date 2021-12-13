@@ -35,22 +35,22 @@
         <section class="perfildados">
             <img class="fotouser" src="../mídia/vetores/icone_usuario.svg" alt="Logo do perfil do Usuário">
             <section class = "dadosuser">
-                <div sec:authorize="isAuthenticated()">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="nav-item">
 							<form name="logoutForm" th:action="@{/logout}" method="post">
-								<label> <span>Nome: </span><span sec:authentication="name">Usuário</span></label>
-                                <br>
-								<input class="btn btn-outline-danger" type="submit" value="Sair" />
-                            </br>
+								<label> 
+                                    <span>Nome: 
+                                        <span sec:authentication="name"></span>
+                                    </span>
+                                </label>
 							</form>
 						</li>
 					</ul>
-				</div>
-
-
                 </label>
             </section>
+            <div sec:authorize="isAuthenticated()">
+                <input class="logout btn btn-outline-danger" type="submit" value="Sair"/>
+            </div>
         </section>
 
         <footer class="perfilfooter">

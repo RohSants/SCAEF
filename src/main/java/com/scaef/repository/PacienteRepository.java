@@ -1,6 +1,6 @@
-package com.scaef.scaef_backend.repository;
+package com.scaef.repository;
 
-import com.scaef.scaef_backend.model.Paciente;
+import com.scaef.model.Paciente;
 
 /*Extends JPARepository*/
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.enums;
+package com.scaef.enums;
 
 public enum EnumFuncao {
 

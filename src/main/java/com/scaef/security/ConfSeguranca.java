@@ -1,4 +1,6 @@
-package com.scaef.scaef_backend.security;
+package com.scaef.security;
+
+/*import com.scaef.scaef_backend.enums.EnumFuncao;*/
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -42,14 +44,14 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
     }
 
     @Autowired
-	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-		auth
-		.userDetailsService(userDetailsService)
-		.passwordEncoder(getPasswordEncoder());
-	}
-	
-	@Bean
-	public PasswordEncoder getPasswordEncoder() {
-		return new BCryptPasswordEncoder(12);
-	}    
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+        .userDetailsService(userDetailsService)
+        .passwordEncoder(getPasswordEncoder());
+    }
+    
+    @Bean
+    public PasswordEncoder getPasswordEncoder() {
+        return new BCryptPasswordEncoder(12);
+    }    
 }

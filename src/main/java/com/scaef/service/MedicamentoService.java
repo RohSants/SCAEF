@@ -1,12 +1,11 @@
-package com.scaef.scaef_backend.service;
+package com.scaef.service;
 
 import java.util.Optional;
 
 import javax.validation.Valid;
 
-
-import com.scaef.scaef_backend.model.Medicamento;
-import com.scaef.scaef_backend.repository.MedicamentoRepository;
+import com.scaef.model.Medicamento;
+import com.scaef.repository.MedicamentoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

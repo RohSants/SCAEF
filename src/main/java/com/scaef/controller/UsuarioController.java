@@ -1,11 +1,11 @@
-package com.scaef.scaef_backend.controller;
+package com.scaef.controller;
 
 import java.security.Principal;
 import java.util.Optional;
 import javax.validation.Valid;
 
-import com.scaef.scaef_backend.model.Usuario;
-import com.scaef.scaef_backend.service.UsuarioService;
+import com.scaef.model.Usuario;
+import com.scaef.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -47,7 +47,15 @@ public class UsuarioController {
         mv.setViewName("login");
         return mv;
     }
-    
+
+    @RequestMapping("usuario/cadastro")
+    public ModelAndView cadastro(){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("cadastroUsuario");
+        mv.addObject("usuario", new Usuario());
+        return mv;
+    }
+
     @PostMapping("salvarUsuario")
     public ModelAndView salvar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult,RedirectAttributes ra){ 
         ModelAndView mv = new ModelAndView();
@@ -65,16 +73,8 @@ public class UsuarioController {
         return mv;
     }
 
-    @RequestMapping("usuario/cadastro")
-    public ModelAndView cadastro(){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("cadastroUsuario");
-        mv.addObject("usuario", new Usuario());
-        return mv;
-    }
-
     @GetMapping("usuario/listagem")
-    public ModelAndView Usuario(Model model){
+    public ModelAndView listar(Model model){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("listagemUsuario");
         model.addAttribute("listaUsuario", usuarioService.listar());
@@ -93,16 +93,7 @@ public class UsuarioController {
                 return mv;
             }
             return mv;
-        } 
-
-    @GetMapping("usuario/excluir/{id}")
-    public ModelAndView excluirUsuario(@PathVariable("id") Long id){
-        Optional<Usuario> usuarioOp = usuarioService.findById(id);
-        ModelAndView mv = new ModelAndView();
-        usuarioService.deletar(usuarioOp.get());
-        mv.setViewName("redirect:/usuario/listagem");
-        return mv;
-    }
+        }
 
     @PostMapping("alterarUsuario")
     public ModelAndView alterar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult, RedirectAttributes ra){
@@ -121,4 +112,12 @@ public class UsuarioController {
         return mv;
     }
 
+    @GetMapping("usuario/excluir/{id}")
+    public ModelAndView excluirUsuario(@PathVariable("id") Long id){
+        Optional<Usuario> usuarioOp = usuarioService.findById(id);
+        ModelAndView mv = new ModelAndView();
+        usuarioService.deletar(usuarioOp.get());
+        mv.setViewName("redirect:/usuario/listagem");
+        return mv;
+    }
 }

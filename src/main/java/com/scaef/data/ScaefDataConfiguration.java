@@ -1,4 +1,4 @@
-package com.scaef.scaef_backend.data;
+package com.scaef.data;
 
 import javax.sql.DataSource;
 

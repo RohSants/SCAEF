@@ -1,11 +1,11 @@
-package com.scaef.scaef_backend.service;
+package com.scaef.service;
 
 import java.util.Optional;
 
 import javax.validation.Valid;
 
-import com.scaef.scaef_backend.repository.PacienteRepository;
-import com.scaef.scaef_backend.model.Paciente;
+import com.scaef.model.Paciente;
+import com.scaef.repository.PacienteRepository;
 
 /*Spring Framework*/
 import org.springframework.beans.factory.annotation.Autowired;

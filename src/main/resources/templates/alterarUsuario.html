@@ -11,26 +11,26 @@
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-
-            <div th:if="${message}" class="alert alert-error text-center" >
+            <div th:if="${message}" class="alert alert-error text-center">
                 [[${message}]]
             </div>
 
-            <form class="formulario" action="#" th:action="@{/alterarUsuario}" method = "post">
-                <input type="hidden" th:name="id" th:value="${usuario.id}">
-                <input type="text" th:name="nome" th:value="${usuario.nome}">
-                <input readonly = "readonly" type="cpf" th:name="cpf" th:value="${usuario.cpf}" >
-                <input readonly = "readonly" type="text" th:name="rg" th:value="${usuario.rg}">
-                <input type="email" th:name="email" th:value="${usuario.email}">
-                <input type="number" th:name="celular" th:value="${usuario.celular}">
-                <input type="fone" th:name="fone" th:value="${usuario.fone}">
-                <input type="text" th:name="funcao" th:value="${usuario.funcao}">
-                <input type="number" th:name="crf" th:value="${usuario.crf}">
-                <input type="text" th:name="senha" th:value="${usuario.senha}">
-                <button type="submit">Alterar</button>
-                <a href="/usuario/listagem">Ir para a listagem</a>
-
-            </form>
+            <fieldset>
+                <form class="formulario" action="#" th:action="@{/alterarUsuario}" method = "post">
+                    <input type="hidden" th:name="id" th:value="${usuario.id}">
+                    <input type="text" th:name="nome" th:value="${usuario.nome}">
+                    <input readonly = "readonly" type="cpf" th:name="cpf" th:value="${usuario.cpf}" >
+                    <input readonly = "readonly" type="text" th:name="rg" th:value="${usuario.rg}">
+                    <input type="email" th:name="email" th:value="${usuario.email}">
+                    <input type="number" th:name="celular" th:value="${usuario.celular}">
+                    <input type="fone" th:name="fone" th:value="${usuario.fone}">
+                    <input type="text" th:name="funcao" th:value="${usuario.funcao}">
+                    <input type="number" th:name="crf" th:value="${usuario.crf}">
+                    <input type="text" th:name="senha" th:value="${usuario.senha}">
+                    <button type="submit">Alterar</button>
+                    <a href="/usuario/listagem">Ir para a listagem</a>
+                </form>
+            </fieldset>
         </main>
     </body>
 </html>

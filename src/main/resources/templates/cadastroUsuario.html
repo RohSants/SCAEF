@@ -15,86 +15,75 @@
                 [[${message}]]
             </div>
 
-            <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">       
-
-                <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
-                    <label class="validation-message" th:errors="*{nome}"></label>
-                </div>         
-                <div >
-                    <label for="nome">Nome</label>
-                    <input  name="nome" type="text"  th:field="*{nome}" class="form-control entrada">
-                </div>
-
-                <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
-                    <label class = "validation-message" th:errors="*{cpf}"></label>
-                </div>  
-            
-                <div>
-                    <label for="cpf">CPF</label> 
-                    <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)">
-                </div>
-
-                <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
-                    <label class = "validation-message" th:errors="*{rg}"></label>
-                </div>  
-
-                <div>
-                    <label for="rg">RG</label>
-                    <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
-                </div>
-
-                <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
-                    <label class="validation-message" th:errors="*{email}" ></label>
-                </div>  
-
-                <div>
-                    <label for="email">Email</label>
-                <input name="email" type="email" th:field="*{email}" class="form-control entrada">
-                </div>
-
-                <div>
-                    <label for="celular">Celular</label>
-                    <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
-                </div>
-
-                <div>
-                    <label for="fone">Fone</label>
-                    <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
-                </div>
-
-                <div>
-                    <label>Função</label>
-                    <select name="funcao" th:field="*{funcao}" id="fucaoselecionada">
-                        <option selected value="">Selecione uma função</option>
-                        <option value="Administrador">Administrador</option>
-                        <option value="Atendente">Atendente</option>
-                        <option value="Farmacêutico">Farmacêutico</option>
-                    </select>
-                </div>
-
-                <div>
-                    <label for="crf">CRF</label>
-                    <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada">
-                </div>
-
-                <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
-                    <label class = "validation-message" th:errors="*{senha}" ></label>
-                </div>  
-
-                <div class="input">
-                    <label for="senha">Senha</label>
-                    <div class="inputinside">
-                        <input name="senha" type="password"  th:field="*{senha}" id="senha">
-                        <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
-                        <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
-                        <!--Made by @colebemis-->
+            <fieldset  class="formularioborda">
+                <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
+                    <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                        <label class="validation-message" th:errors="*{nome}"></label>
                     </div>
-                </div>
-
-                <div class="buttonUsuario">
-                    <button type="submit">Cadastrar usuário</button>
-                </div>
-            </form>
+                    <div >
+                        <label for="nome">Nome</label>
+                        <input  name="nome" type="text"  th:field="*{nome}" class="form-control entrada">
+                    </div>
+                    <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+                        <label class = "validation-message" th:errors="*{cpf}"></label>
+                    </div>
+                
+                    <div>
+                        <label for="cpf">CPF</label>
+                        <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)">
+                    </div>
+                    <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+                        <label class = "validation-message" th:errors="*{rg}"></label>
+                    </div>
+                    <div>
+                        <label for="rg">RG</label>
+                        <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
+                    </div>
+                    <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                        <label class="validation-message" th:errors="*{email}" ></label>
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                    <input name="email" type="email" th:field="*{email}" class="form-control entrada">
+                    </div>
+                    <div>
+                        <label for="celular">Celular</label>
+                        <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
+                    </div>
+                    <div>
+                        <label for="fone">Telefone</label>
+                        <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
+                    </div>
+                    <div>
+                        <label>Função</label>
+                        <select name="funcao" th:field="*{funcao}" id="fucaoselecionada">
+                            <option selected value="">Selecione uma função</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Atendente">Atendente</option>
+                            <option value="Farmacêutico">Farmacêutico</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="crf">CRF</label>
+                        <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada">
+                    </div>
+                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                        <label class = "validation-message" th:errors="*{senha}" ></label>
+                    </div>
+                    <div class="input">
+                        <label for="senha">Senha</label>
+                        <div class="inputinside">
+                            <input name="senha" type="password"  th:field="*{senha}" id="senha">
+                            <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
+                            <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
+                            <!--Made by @colebemis-->
+                        </div>
+                    </div>
+                    <div class="buttonUsuario">
+                        <button type="submit">Cadastrar usuário</button>
+                    </div>
+                </form>
+            </fieldset>
         <a href="/usuario/listagem">Ir para a listagem</a>
         </main>
     </body>

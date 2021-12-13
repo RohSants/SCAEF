@@ -4,7 +4,7 @@
     --cor-fonte-claro: #fEfAE5;
     --cor-fonte-escuro: #112E42;
     --cor-fundo-conteudo: #253235;
-    --cor-barra-1: #3E606F;
+    --cor-barra-1: #3e606f;
     --cor-barra-2: #849A94;
     --cor-barra-3: #D1DBBE;
     --cor-borda: #0D3B4096;
@@ -16,8 +16,14 @@
     scrollbar-color: #00000000 #112e42cc;
 }
 
-p{
-    margin-bottom: 0;
+a{
+    text-decoration: none;
+    color: var(--cor-fonte-claro);
+}
+
+a:hover{
+    color: var(--cor-fonte-claro);
+    text-decoration: underline;
 }
   
 /*Chrome, Edge, and Safari*/
@@ -33,6 +39,17 @@ p{
 ::-webkit-scrollbar-thumb {
     background-color: #3d4c4ecc;
     border-radius: 5px;
+}
+
+/*Classes do Bootstrap*/
+.btn-primary{
+    background-color: #88a7b3;
+    border-color: #88a7b3;
+}
+
+.btn-danger{
+    background-color: #ff5757;
+    border-color: #ff5757;
 }
 
 .app{
@@ -139,7 +156,7 @@ nav, .menunav{
     color: var(--cor-fonte-claro);
 }
 
-.fotouser{ /* Tamanho da logo do usuario */
+.fotouser{ /* Tamanho da imagem do usuario */
     width: 150px;
     height: 140px;
     background-color: var(--cor-barra-contraste);
@@ -152,7 +169,6 @@ nav, .menunav{
     margin-top: 16px;
     margin-bottom: 16px;
 }
-
 
 .perfildados{
     grid-area: perfildados;
@@ -169,10 +185,38 @@ nav, .menunav{
     padding-left: 10px;
 }
 
-.dadosuser > p{
-    margin: 9px;
+.dadosuser > ul > li > form > label > span{
+    margin: 9px 0px;
     font-size: 1rem;
 }
+
+.logout{
+    margin-left: 30px;
+    border-color: var(--cor-borda);
+    color: var(--cor-fonte-claro);
+    padding : 4px 8px;
+    border-width: 2px;
+
+}
+
+.logout:hover{
+    background-color: #0d3b40d9;
+    border-color: var(--cor-borda);
+}
+
+.logout:active{
+    background-color: #0d3b40d9;
+    border-color: var(--cor-borda);
+}
+
+.logout:active:focus {
+    box-shadow: 0 0 0 0.25rem rgb(62, 96, 111);
+}
+
+.logout:focus {
+    box-shadow: 0 0 0 0.25rem rgb(62, 96, 111);
+}
+
 
 .perfilfooter{
     display: flex;

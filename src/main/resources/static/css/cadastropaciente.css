@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-a{
-  text-decoration: none;
-}
-
 .conteudo{
   margin-top: 59px;
 }
@@ -84,6 +80,40 @@ a{
   grid-area: dados;
 }
 
+#btn1{
+  margin-left: 40px;
+  margin-right: 10px;
+}
+
+.btn-cadastro{
+  background-color: transparent;
+  border-color: var(--cor-barra-2);
+  margin-bottom: 20px;
+}
+
+.btn-cadastro:hover{
+  background-color: transparent;
+  border-color: #3e606f;
+}
+
+.btn-cadastro:active{
+  background-color: #3e606f;
+  border-color: var(--cor-borda);
+}
+
+.btn-cadastro:focus{
+  background-color: #3e606f;
+  border-color: var(--cor-borda);
+}
+
+.btn-cadastro:active:focus {
+  box-shadow: none;
+}
+
+.btn-cadastro:focus {
+  box-shadow: none;
+}
+
 .campoform section .entrada:focus{
   border-color: #D1DBBD40;
   box-shadow: 0 0 0 0.13rem #9fb79e94;
@@ -110,26 +140,38 @@ a{
   width: 205px;
 }
 
-.campoform > #dados > .radioselector{
+.campoform > #dados > #radioselector{
   width: 160px;
   display: grid;
   grid-template-areas:
-    "texto opcao1"
-    "texto opcao2";
-    grid-template-columns: 50px 110px;
+    "texto opcao1 textoid op1"
+    "texto opcao2 textoid op2";
+  grid-template-columns: 55px 125px 145px 125px;
+  grid-template-rows: 50px 50px;
 }
 
-.campoform > #dados > .radioselector > .texto{
+.campoform > #dados > #radioselector > #texto{
   grid-area: texto;
-
 }
 
-.campoform > #dados > .radioselector > .texto > .opcao1{
+.campoform > #dados > #radioselector > #texto > #opcao1{
   grid-area: opcao1;
 }
 
-.campoform > #dados > .radioselector > .texto > .opcao2{
+.campoform > #dados > #radioselector > #texto > #opcao2{
   grid-area: opcao2;
+}
+
+.campoform > #dados > #radioselector > #textoid{
+  grid-area: textoid;
+}
+
+.campoform > #dados > #radioselector > #textoid > #op1{
+  grid-area: op1;
+}
+
+.campoform > #dados > #radioselector > #textoid > #op2{
+  grid-area: op2;
 }
 
 .campoform #endereco {

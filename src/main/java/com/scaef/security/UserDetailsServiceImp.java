@@ -1,12 +1,12 @@
-package com.scaef.scaef_backend.security;
+package com.scaef.security;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.transaction.Transactional;
 
-import com.scaef.scaef_backend.model.Usuario;
-import com.scaef.scaef_backend.service.UsuarioService;
+import com.scaef.model.Usuario;
+import com.scaef.service.UsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
