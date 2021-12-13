@@ -43,9 +43,7 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView();
         if (principal != null) {
             mv.setViewName("redirect:/home");
-            return mv;
         }
-        model.addAttribute("erro", "Email e/ou Senha Inválidos!");
         mv.setViewName("login");
         return mv;
     }
@@ -84,7 +82,7 @@ public class UsuarioController {
     }
 
     @GetMapping("usuario/alterar/{id}")
-        public ModelAndView buscar(@PathVariable Long id, Model model, Usuario user){
+        public ModelAndView buscar(@PathVariable Long id, Model model){
         Optional<Usuario> usuario = usuarioService.findById(id);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("alterarUsuario");
@@ -107,7 +105,7 @@ public class UsuarioController {
     }
 
     @PostMapping("alterarUsuario")
-    public ModelAndView alterar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult, RedirectAttributes ra){ 
+    public ModelAndView alterar(@Valid @ModelAttribute("usuario") Usuario usuario, BindingResult bindingResult, RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         BCryptPasswordEncoder criptografar = new BCryptPasswordEncoder();
         String senhaCriptografada = criptografar.encode(usuario.getSenha());
@@ -119,7 +117,7 @@ public class UsuarioController {
         }
         usuarioService.salvar(usuario);
         ra.addFlashAttribute("message","Usuário alterado com sucesso!");
-        mv.setViewName("");
+        mv.setViewName("redirect:usuario/listagem");
         return mv;
     }
 

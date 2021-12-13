@@ -12,17 +12,17 @@
         <nav>
             <ul class="menunav">
                 <li>
-                   <!-- <a href = "/home" target = "_self">Principal</a> -->
+                   <a href = "/home" target = "_self">Principal</a>
                 </li>
                 <li>
-                  <!--  <a href = "/paciente/listagem" target = "_self">Pacientes</a> -->
+                  <a href = "/paciente/listagem" target = "_self">Pacientes</a>
                 </li>
                 <li>
-                 <!--   <a href = "/medicamento/listagem" target = "_self">Medicamentos</a> -->
+                 <a href = "/medicamento/listagem" target = "_self">Medicamentos</a>
                 </li>
-                <li> <!--<a href = "#" target = "_self">Estoque</a>-->
+                <li><a href = "#" target = "_self">Estoque</a>
                 </li>
-                <li> <!-- <a href = "/usuario/listagem" target = "_self">Usuários</a>-->
+                <li><a href = "/usuario/listagem" target = "_self">Usuários</a>
                 </li>
             </ul>
     </header>
@@ -35,7 +35,18 @@
         <section class="perfildados">
             <img class="fotouser" src="../mídia/vetores/icone_usuario.svg" alt="Logo do perfil do Usuário">
             <section class = "dadosuser">
-                <label>Nome:<span sec:authentication="name">Usuário</span>
+                <div sec:authorize="isAuthenticated()">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav-item">
+							<form name="logoutForm" th:action="@{/logout}" method="post">
+								<label> <span>Nome: </span><span sec:authentication="name">Usuário</span></label>
+                                <br>
+								<input class="btn btn-outline-danger" type="submit" value="Sair" />
+                            </br>
+							</form>
+						</li>
+					</ul>
+				</div>
 
 
                 </label>

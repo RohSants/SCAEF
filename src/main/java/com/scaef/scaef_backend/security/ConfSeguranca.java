@@ -25,6 +25,9 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
                 .and()
             .formLogin()
                 .loginPage("/login")
+                /*.defaultSuccessUrl("/home", true)
+                a home precisa de implementações de consultas*/
+                .defaultSuccessUrl("/paciente/cadastro", true)
                 .permitAll()
                 .and()
             .authorizeRequests()

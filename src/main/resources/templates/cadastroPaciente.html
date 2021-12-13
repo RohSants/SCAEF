@@ -5,8 +5,6 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Cadastro de Paciente</title>
         </div>
-        <!--link de acesso ao bootstrap via CDN-->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous"> 
         <link rel="stylesheet" href="../css/cadastropaciente.css">
     </head>
 
@@ -26,27 +24,29 @@
                     <div class = "campoform">
                         <section id="dados">
                             <label for="cns" title="Cartão Nacional de Saúde">CNS 
-                            <input name="cns" type="text" th:field="*{cns}" class="entrada form-control" maxlength="15">
-                            
+                            <input name="cns" type="text" th:field="*{cns}" class="entrada form-control" maxlength="15" autocomplete="off">
+                            </label>
+
                             <label for="cpf" title="Cadastro de Pessoas Físicas">CPF
-                            <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control">
+                            <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             <label for="rg" title="Cédula de identidade">RG
-                                <input name="rg" type="text" th:field="*{rg}" class="entrada form-control">
+                                <input name="rg" type="text" th:field="*{rg}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             <br>
                             <label for="nome">Nome Civil Completo
-                            <input name="nome" type="text" th:field="*{nome}" class="entrada form-control">
+                            <input name="nome" type="text" th:field="*{nome}" class="entrada form-control" autocomplete="off">
                             </label>
 
-                            <label for="nomeM">Nome da Mãe
-                            <input name="nomeM" type="text" th:field="*{nomeM}" class="entrada form-control">
+                            <label for="nomeM" title="Na ausência da mãe, colocar o nome do pai ou responsável">Nome da Mãe
+                            <input name="nomeM" type="text" th:field="*{nomeM}" class="entrada form-control" autocomplete="off">
                             </label>
 
-                            <label for="nomeS">Nome Social
-                                <input name="nomeS" type="text" class="entrada form-control" th:field="*{nomeS}">
+                            <label for="nomeS" title="De acordo com o decreto 8.727/2016, é a designação pela qual a pessoa travesti ou transexual se identifica e é socialmente reconhecida.                             Preencher apenas para os(as) usuários(as) que possuírem nome social que divirja do nome de registro.
+                            ">Nome Social
+                                <input name="nomeS" type="text" class="entrada form-control" th:field="*{nomeS}" autocomplete="off">
                             </label>
 
                             <label for="dataNasc">Data de nascimento
@@ -78,44 +78,44 @@
 
                             
                             <label for="cida">Cidade
-                            <input name="cida" type="text" th:field="*{cida}" class="entrada form-control">
+                            <input name="cida" type="text" th:field="*{cida}" class="entrada form-control" autocomplete="off" >
                             </label>
 
                             
                             <label for="bai">Bairro
-                            <input name="bai" type="text" th:field="*{bai}" class="entrada form-control">
+                            <input name="bai" type="text" th:field="*{bai}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             
                             <label for="endr">Endereço
-                            <input name="endr" type="text" th:field="*{endr}" class="entrada form-control">
+                            <input name="endr" type="text" th:field="*{endr}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             
                             <label for="comp">Complemento
-                            <input name="comp" type="text" th:field="*{comp}" class="entrada form-control">
+                            <input name="comp" type="text" th:field="*{comp}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             
                             <label for="num">Número de residência
-                            <input name="num" type="number" th:field="*{num}" class="entrada form-control">
+                            <input name="num" type="text" th:field="*{num}" class="entrada form-control" autocomplete="off">
                             </label>
 
                         </section>
 
                         <section id="contato">
                             <label for="celular">Celular
-                            <input name="celular" type="text" th:field="*{celular}" class="entrada form-control">
+                            <input name="celular" type="text" th:field="*{celular}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             <label for="fone">Telefone residencial
-                            <input name="fone" type="text" th:field="*{fone}" class="entrada form-control">
+                            <input name="fone" type="text" th:field="*{fone}" class="entrada form-control" autocomplete="off">
                             </label>
 
                             
                             <label for="email">Email
                             <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span>
-                            <input name="email" type="email" th:field="*{email}" class="entrada form-control">
+                            <input name="email" type="email" th:field="*{email}" class="entrada form-control" autocomplete="off">
                             </label>
 
                         </section>

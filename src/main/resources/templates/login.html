@@ -55,7 +55,7 @@
                     </main>
 
                     <footer id = "footerlogin">
-                        <div th:if="${erro != null}" th:text="${erro}" class="mensagem" role="alert"></div>
+                        <!--<div th:if="${erro != null}" th:text="${erro}" class="mensagem" role="alert"></div>-->
                         <div class="menulogin">
                                 <a href = "#" target = "_self">Esqueci a Senha</a>
                                 <a href = "/usuario/cadastro" target = "_self">Opção 2</a>
@@ -74,20 +74,4 @@
                 </picture>
         </footer>
     </body>
-
-    <script>
-        var x = document.getElementById("tooltiptext");
-
-        function mostraTexto(){
-            x.style.cssText = 
-                'visibility: visible;' +
-                'opacity: 1;' 
-        }
-
-        function escondeTexto(){
-            x.style.cssText = 
-            'opacity = 0;' + 
-            'visibility = "hidden";'
-        }
-    </script>
 </html>
