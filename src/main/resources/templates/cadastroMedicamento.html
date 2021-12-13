@@ -27,7 +27,7 @@
 
                             <div>
                                 <label for="nome">Nome</label>
-                                <input name="nome" type="text" th:type="*{nome}">
+                                <input name="nome" type="text" th:type="*{nome}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('cid')}" th:errors="*{cid}">
@@ -35,7 +35,7 @@
                             </div> 
                             <div>
                                 <label for="cid">Classificação do medicamento</label>
-                                <input name="cid" type="text" th:type="*{cid}">
+                                <input name="cid" type="text" th:type="*{cid}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('catReg')}" th:errors="*{catReg}">
@@ -43,7 +43,7 @@
                             </div> 
                             <div>
                                 <label for="catReg">Categoria regulatória</label>
-                                <input name="catReg" type="text" th:type="*{catReg}">
+                                <input name="catReg" type="text" th:type="*{catReg}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('pcdt')}" th:errors="*{pcdt}">
@@ -51,7 +51,7 @@
                             </div> 
                             <div>
                                 <label for="pcdt">Protocolos Clínicos e Diretrizes de Tratamento</label>
-                                <input name="pcdt" type="text" th:type="*{pcdt}">
+                                <input name="pcdt" type="text" th:type="*{pcdt}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('dose')}" th:errors="*{dose}">
@@ -59,7 +59,7 @@
                             </div> 
                             <div>
                                 <label for="dose">Dosagem</label>
-                                <input name="dose" type="text" th:type="*{dose}">
+                                <input name="dose" type="text" th:type="*{dose}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('forma')}" th:errors="*{forma}">
@@ -67,7 +67,7 @@
                             </div> 
                             <div>
                                 <label for="forma">Forma farmacêutica </label>
-                                <input name="forma" type="text" th:type="*{forma}">
+                                <input name="forma" type="text" th:type="*{forma}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('via')}" th:errors="*{via}">
@@ -75,7 +75,7 @@
                             </div> 
                             <div>
                                 <label for="via">Via de consumo</label>
-                                <input name="via" type="text" th:type="*{via}">
+                                <input name="via" type="text" th:type="*{via}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('priA')}" th:errors="*{priA}">
@@ -83,7 +83,7 @@
                             </div> 
                             <div>
                                 <label for="priA">Princípio ativo</label>
-                                <input name="priA" type="text" th:type="*{priA}">
+                                <input name="priA" type="text" th:type="*{priA}" autocomplete="off">
                             </div>
                             
                             <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('classeT')}" th:errors="*{classeT}">
@@ -91,7 +91,7 @@
                             </div> 
                             <div>
                                 <label for="classeT">Classe terapêutica</label>
-                                <input name="classeT" type="text" th:type="*{classeT}">
+                                <input name="classeT" type="text" th:type="*{classeT}" autocomplete="off">
                             </div>
                         
                             <div class="buttonMedicamento">
