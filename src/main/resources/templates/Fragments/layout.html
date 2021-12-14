@@ -37,19 +37,19 @@
             <section class = "dadosuser">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="nav-item">
-							<form name="logoutForm" th:action="@{/logout}" method="post">
 								<label> 
                                     <span>Nome: 
                                         <span sec:authentication="name"></span>
                                     </span>
                                 </label>
-							</form>
 						</li>
 					</ul>
                 </label>
             </section>
             <div sec:authorize="isAuthenticated()">
-                <input class="logout btn btn-outline-danger" type="submit" value="Sair"/>
+                <form name="logoutForm" th:action="@{/logout}" method="post">
+                    <input class="logout btn btn-outline-danger" type="submit" value="Sair"/>
+                </form>
             </div>
         </section>
 

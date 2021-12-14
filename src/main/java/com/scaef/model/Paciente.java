@@ -61,12 +61,13 @@ public class Paciente {
 
     @Column(name = "CPF", nullable = false, unique = true)
     @CPF
+    @Size(max = 14)
     @NotBlank(message = "CPF do Paciente é obrigatório")
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
     @NotBlank(message = "RG do Paciente é obrigatório")
-    @Size(max = 10)
+    @Size(max = 13)
     private String rg;
 
     @Column(name = "Nascimento", nullable = false)

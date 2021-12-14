@@ -1,5 +1,7 @@
 package com.scaef.security;
 
+import com.scaef.enums.EnumFuncao;
+
 /*import com.scaef.scaef_backend.enums.EnumFuncao;*/
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -27,20 +30,21 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
                 .and()
             .formLogin()
                 .loginPage("/login")
-                /*.defaultSuccessUrl("/home", true)
-                a home precisa de implementações de consultas*/
-                .defaultSuccessUrl("/paciente/cadastro", true)
+                .defaultSuccessUrl("/home", true)
                 .permitAll()
                 .and()
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/login").permitAll()
+                .and()
             .authorizeRequests()
-                .antMatchers("/usuario/**")
+                .antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
+                .antMatchers("/paciente/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString(), EnumFuncao.Atendente.toString())
+                .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())
+                .and()
+            .authorizeRequests()
+                .antMatchers("/css/**", "/js/**", "/mídia/**")
                 .permitAll()
-                .and()
-            .authorizeRequests()
-                .antMatchers("/resources/**").permitAll()
-                .and()
-            .authorizeRequests()
-                .antMatchers("/css/**", "/js/**", "/resources/**").permitAll();
+                .anyRequest().authenticated();
     }
 
     @Autowired
