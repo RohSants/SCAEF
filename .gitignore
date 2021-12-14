@@ -34,3 +34,4 @@ build/
 ### VS Code ###
 .vscode/
 src/main/java/com/scaef/scaef_backend/data/ScaefDataConfiguration.java
+src/main/java/com/scaef/data/DataConfiguration.java
