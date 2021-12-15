@@ -39,7 +39,7 @@ public class Medicamento {
 
     @Column(name = "Categoria_Regulatória", nullable = false)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 90)
+    @Size(max = 60)
     private String catReg;
 
     @Column(name = "PCDT", nullable = false)
@@ -49,7 +49,7 @@ public class Medicamento {
 
     @Column(name = "Dosagem", nullable = false)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 15)
+    @Size(max = 25)
     private String dose;
 
     @Column(name = "Forma_Farmacêutica", nullable = false)
@@ -59,16 +59,16 @@ public class Medicamento {
 
     @Column(name = "Via_de_Administração", nullable = false)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 11)
+    @Size(max = 19)
     private String via;
 
     @Column(name = "Princípio_Ativo", nullable = false)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 50)
+    @Size(max = 55)
     private String priA;
 
     @Column(name = "Classe_Terapêutica", nullable = false)
     @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 50)
+    @Size(max = 60)
     private String classeT;
 }

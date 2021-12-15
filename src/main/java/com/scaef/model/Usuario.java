@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.scaef.enums.EnumFuncao;
@@ -46,7 +47,7 @@ public class Usuario {
     private String cpf;
 
     @Column(name = "RG", nullable = false, unique = true)
-    @Size(max = 13)
+    @Size(min = 12, message = "o campo RG deve conter 9 dígitos")
     @NotBlank(message = "o campo RG não pode ser vazio")
     private String rg;
     
@@ -57,23 +58,24 @@ public class Usuario {
     private String email;
 
     @Column(name = "Celular", nullable = false)
-    @Size(max = 15)
+    @Size(min = 11, message ="o campo Celular deve conter 11 dígitos")
     @NotBlank(message = "o campo Celular não pode ser vazio")
     private String celular;
 
     @Column(name = "Fone_Fixo", nullable = true)
-    @Size(max = 15)
+    @Size(max = 15, message= "o campo Telefone deve conter 11 dígitos")
     private String fone;
 
     @Column(name = "Função", nullable = false)
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "Escolha uma das seguinte opções!")
     private EnumFuncao funcao;
 
     @Column(name = "CRF", nullable = true, unique = true)
-    private int crf;
+    private String crf;
 
     @Column(name = "Senha", nullable = false)
     @Size(min = 9, max = 100, message = "a senha deve estar entre 9 e 20 caracteres.")
-    @NotBlank(message = "o  Senha campo não pode ser vazio!")
+    @NotBlank(message = "o campo Senha não pode ser vazio!")
     private String senha;  
 }

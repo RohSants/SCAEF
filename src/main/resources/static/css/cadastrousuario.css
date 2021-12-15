@@ -4,36 +4,24 @@ label {
   color: var(--cor-fonte-claro);
 }
 
-.mensagem{
-  color: var(--cor-fonte-claro); 
-}
-
-.input, .inputinside{
+#inputinside{
   display: flex;
-}
-
-.inputinside{
   justify-content: flex-end;
   align-items: center;
 }
 
-.inputinside > img {
+#inputinside > img {
   width: 18px;
   padding-right: 6px;
   position: absolute;
   cursor: pointer;
 }
 
-
 .form-control{
   padding: 0px;
 }
 
-.campoform > section {
-  margin-left: 30px;
-}
-
-.formularioborda{
+#formularioborda{
   margin: 0px 2px;
   padding: 5px 12px;
   border-radius: 6px;
@@ -42,24 +30,39 @@ label {
   color: var(--cor-fonte-claro);
 }
 
-.conteudo{
-  margin-top: 59px;
+#formulario{
+  margin: 10px;
 }
 
-.campoform > section > label,
-.campoform > section > div > label {
+#formularioborda > #formulario {
   color: var(--cor-fonte-claro);
   font-size: 1.3rem;
-  display: inline-flex;
   margin-bottom: 10px;
   align-content: center;
   align-items: center;
   justify-content: center;
 }
 
-.campoform section .entrada:focus{
-  border-color: #D1DBBD40;
-  box-shadow: 0 0 0 0.13rem #9fb79e94;
-  background-color: #f4fff1ff;
+#formularioborda > #formulario > label > input{
+  font-size: 1.13rem;
+  padding-left: 6px;
+  width: 205px;
 }
 
+.dados-fila1{
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.dados-fila1:nth-child(1){
+  margin-right: 0;
+}
+
+.dados-fila2{
+  margin-right: 26px;
+  margin-bottom: 20px;
+}
+
+.dados-fila3{
+  margin-right: 26px;
+}

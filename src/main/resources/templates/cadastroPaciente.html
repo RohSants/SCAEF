@@ -23,19 +23,45 @@
 
                     <div class = "campoform">
                         <section id="dados">
-                            <label for="cns" title="Cartão Nacional de Saúde">CNS 
-                            <input name="cns" type="text" th:field="*{cns}" class="entrada form-control" maxlength="15" autocomplete="off" onkeypress="return onlynumber()">
+
+                            <div id="campo-erro1" th:if="${#fields.hasErrors}">
+                            <span id="erroscns" class="mensagem" role ="alert" th:if="${#fields.hasErrors('cns')}" th:errors="*{cns}">
+                                    <span class = "validation-message" th:errors="*{cns}"></span>
+                                </span>  
+
+                                <span id="erroscpf" class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+                                    <span class = "validation-message" th:errors="*{cpf}"></span>
+                                </span>
+
+                                <span id="errosrg" class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+                                    <span class = "validation-message" th:errors="*{rg}"></span>
+                                </span>
+                            </div>
+                            
+                            <label id="lcns" for="cns" title="Cartão Nacional de Saúde">CNS 
+                                <input name="cns" type="text" th:field="*{cns}" class="entrada form-control" maxlength="15" autocomplete="off" onkeypress="return onlynumber()">
                             </label>
 
                             <label for="cpf" title="Cadastro de Pessoas Físicas">CPF
-                            <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)">
+                                <input name="cpf" type="text" th:field="*{cpf}" class="entrada form-control" autocomplete="off"onkeyup="mascaraCpf('___.___.___-__', this)">
                             </label>
-
-                            <label for="rg" title="Cédula de identidade">RG
-                                <input name="rg" type="text" th:field="*{rg}" class="entrada form-control" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
+                          
+                            <label id="lrg" for="rg" title="Cédula de identidade">RG
+                                <input name="rg" type="text" th:field="*{rg}" class="entrada form-control" autocomplete="off"onkeyup="mascaraRg('__.___.___-_', this)" >
                             </label>
 
                             <br>
+
+                            <div id="campo-erro2" th:if="${#fields.hasErrors}">
+                                <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" style="margin-right: 202px;">
+                                    <span class = "validation-message" th:errors="*{nome}"></span>
+                                </span>
+                                
+                                <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('nomeM')}" th:errors="*{nomeM}">
+                                    <span class = "validation-message" th:errors="*{nomeM}"></span>
+                                </span>
+                            </div>
+
                             <label for="nome" title="Nome completo sem qualquer abreviação conforme um documento de identidade oficial">Nome Civil Completo
                             <input name="nome" type="text" th:field="*{nome}" class="entrada form-control" autocomplete="off">
                             </label>
@@ -50,7 +76,7 @@
                             </label>
 
                             <label for="dataNasc">Data de nascimento
-                                <input name="dataNasc" type="date" th:field="*{dataNasc}" class="entrada form-control" >
+                                <input name="dataNasc" type="date" th:field="*{dataNasc}" class="entrada form-control">
                             </label>
 
 
@@ -60,43 +86,63 @@
                                 </label>
                                 
                                 <label id="opcao1">
-                                    <input type="radio" name="sexo" value="Feminino"th:field="*{sexo}" id="opcao1">Feminino
+                                    <input type="radio" name="sexo" value="Feminino"th:field="*{sexo}" id="opcao1" style="margin-right: 10px;">Feminino
                                 </label>
 
                                 <label id="op1">
-                                    <input type="radio" name="idNome" value="Nome Civil" th:field="*{idNome}">Nome Civil
+                                    <input type="radio" name="idNome" value="Nome Civil" th:field="*{idNome}" style="margin-right: 10px;">Nome Civil
                                 </label>
 
                                 <label title="Se a pessoa se identificar como mulher transexual, homem transexual ou travesti/mulher travesti, perguntar com qual nome de identificação prefere ser chamado(a), se pelo nome social ou pelo nome de registro civil. Sempre se referir à pessoa pelo seu nome de preferência" id="textoid">
-                                    Identificação Preferencial do Paciente:
+                                    Identificação <br> Preferencial <br> do Paciente:
                                 </label>
 
                                 <label id="opcao2">
-                                    <input type="radio" name="sexo" value="Masculino" th:field="*{sexo}">Masculino
+                                    <input type="radio" name="sexo" value="Masculino" th:field="*{sexo}" style="margin-right: 10px;">Masculino
                                 </label>
 
                                 <label id="op2">
-                                    <input type="radio" name="idNome" value="Nome Social" th:field="*{idNome}">Nome Social
+                                    <input type="radio" name="idNome" value="Nome Social" th:field="*{idNome}" style="margin-right: 10px;">Nome Social
                                 </label>
                             </div>
                         </section>
                         
                         <section id="endereco">
-                            <label for="cep">CEP
-                            <input name="cep" type="text" th:field="*{cep}" class="entrada form-control" autocomplete="off" id = "cep" onkeyup="mascaraCep('_____-___', this)" >
+
+                            <div id="campo-erro5" th:if="${#fields.hasErrors}">
+                                <span id="erroscep" class="mensagem" role ="alert" th:if="${#fields.hasErrors('cep')}" th:errors="*{cep}">
+                                    <span class = "validation-message" th:errors="*{cep}"></span>
+                                </span>
+
+                                <span id="erroscida" class="mensagem" role ="alert" th:if="${#fields.hasErrors('cida')}" th:errors="*{cida}">
+                                    <span class = "validation-message" th:errors="*{cida}"></span>
+                                </span>
+
+                                <span id="errosbai" class="mensagem" role ="alert" th:if="${#fields.hasErrors('bai')}" th:errors="*{bai}">
+                                    <span class = "validation-message" th:errors="*{bai}"></span>
+                                </span>
+                            </div>
+
+                            <label id="lcep" for="cep">CEP
+                                <input name="cep" type="text" th:field="*{cep}" class="entrada form-control" autocomplete="off" id = "cep" onkeyup="mascaraCep('_____-___', this)" >
                             </label>
 
-                            
                             <label for="cida">Cidade
-                            <input name="cida" type="text" th:field="*{cida}" class="entrada form-control" autocomplete="off" >
+                                <input name="cida" type="text" th:field="*{cida}" class="entrada form-control" autocomplete="off">
                             </label>
 
-                            
-                            <label for="bai">Bairro
+                            <label id="lbai" for="bai">Bairro
                             <input name="bai" type="text" th:field="*{bai}" class="entrada form-control" autocomplete="off">
                             </label>
 
-                            
+                            <br>
+
+                            <!--<div id="campo-erro6" th:if="${#fields.hasErrors}">
+                               <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('num')}" th:errors="*{num}">
+                                    <span class = "validation-message" th:errors="*{num}"></span>
+                                </span>
+                            </div>-->
+
                             <label for="endr">Endereço
                             <input name="endr" type="text" th:field="*{endr}" class="entrada form-control" autocomplete="off">
                             </label>
@@ -106,15 +152,17 @@
                             <input name="comp" type="text" th:field="*{comp}" class="entrada form-control" autocomplete="off">
                             </label>
 
-                            
-                            <label for="num">Número de residência
-                            <input name="num" type="text" th:field="*{num}" class="entrada form-control" id = "num "autocomplete="off"
+                            <label for="num">Nº
+                            <input name="num" type="text" th:field="*{num}" class="entrada form-control" autocomplete="off"
                             onkeypress="return onlynumber()">
                             </label>
 
                         </section>
 
                         <section id="contato">
+                            <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('celular')}" th:errors="*{celular}">
+                                <label class = "validation-message" th:errors="*{celular}"></label>
+                            </div>
                             <label for="celular">Celular
                             <input name="celular" type="text" th:field="*{celular}" class="entrada form-control" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
                             </label>
@@ -131,8 +179,8 @@
 
                         </section>
                     </div>
-                    <button type="submit" id="btn1" class="btn-cadastro btn btn-primary"> Cadastrar paciente</button>
-                    <button type="button" class="btn-cadastro btn btn-primary"><a href="/paciente/listagem">Lista de Pacientes</a></button>
+                    <button type="submit" id="btn1" class="btn-layout btn btn-primary"> Cadastrar paciente</button>
+                    <button type="button" class="btn-layout btn btn-primary"><a href="/paciente/listagem">Lista de Pacientes</a></button>
                 </a>
                 </form>
             </fieldset>

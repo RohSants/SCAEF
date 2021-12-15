@@ -75,4 +75,19 @@
                 </picture>
         </footer>
     </body>
+    <script>
+        var x = document.getElementById("tooltiptext");
+
+        function mostraTexto(){
+            x.style.cssText = 
+                'visibility: visible;' +
+                'opacity: 1;' 
+        }
+
+        function escondeTexto(){
+            x.style.cssText = 
+            'opacity = 0;' + 
+            'visibility = "hidden";'
+        }
+    </script>
 </html>

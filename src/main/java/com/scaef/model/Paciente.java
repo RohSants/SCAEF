@@ -37,7 +37,7 @@ public class Paciente {
     private String nome;
 
     @Column(name = "Nome da Mãe", nullable = false)
-    @NotBlank(message = "Nome da Mãe do Paciente é obrigatório")
+    @NotBlank(message = "Nome da Mãe ou Responsável é obrigatório")
     @Size(max = 95)
     private String nomeM;
 
@@ -51,12 +51,12 @@ public class Paciente {
 
     @Column(name = "Sexo", nullable = false)
     @Size(max = 9)
-    @NotBlank(message = "Sexo do Paciente é obrigatório")
+    @NotNull(message = "Sexo do Paciente é obrigatório")
     private String sexo;
 
     @Column(name = "CNS", nullable = false, unique = true)
     @NotBlank(message = "CNS do Paciente é obrigatório")
-    @Size(max = 15)
+    @Size(max = 15, message = "O campo CNS deve conter 15 dígitos.")
     private String cns;
 
     @Column(name = "CPF", nullable = false, unique = true)
@@ -67,7 +67,7 @@ public class Paciente {
 
     @Column(name = "RG", nullable = false, unique = true)
     @NotBlank(message = "RG do Paciente é obrigatório")
-    @Size(max = 13)
+    @Size(min = 12, message = "O campo RG deve conter 9 dígitos")   
     private String rg;
 
     @Column(name = "Nascimento", nullable = false)
@@ -76,21 +76,21 @@ public class Paciente {
     private String dataNasc;
 
     @Column(name = "CEP", nullable = false)
-    @NotNull(message = "CEP do Paciente é obrigatório")
+    @NotBlank(message = "CEP é campo obrigatório")
     private String cep;
 
-    @NotBlank(message = "Cidade do Paciente é obrigatório")
+    @NotBlank(message = "Cidade é campo obrigatório")
     @Size(max = 26)
     @Column(name = "Cidade", nullable = false)
     private String cida;
 
     @Column(name = "Bairro", nullable = false)
-    @NotBlank(message = "Bairro do Paciente é obrigatório")
+    @NotBlank(message = "Bairro é campo obrigatório")
     @Size(max = 95)
     private String bai;
     
     @Column(name = "Endereço", nullable = false)
-    @NotBlank(message = "Endereço do Paciente é obrigatório")
+    @NotBlank(message = "Endereço é campo obrigatório")
     @Size(max = 80)
     private String endr;
     
@@ -99,16 +99,17 @@ public class Paciente {
     private String comp;    
     
     @Column(name = "Número_R", nullable = false)
-    @NotNull(message = "Número de Residência do Paciente é obrigatório")
+    @NotBlank(message = "Número de Residência é campo obrigatório")
     private String num;
     
     @Column(name = "Celular", nullable = false)
-    @NotBlank(message = "Número de Celular do Paciente é obrigatório")
-    @Size(max = 15)
+    @Size(min = 11, message ="O campo Celular deve conter 11 dígitos")
+    @NotBlank(message = "O campo Celular não pode ser vazio")
     private String celular;
+
     
     @Column(name = "Fone_Fixo", nullable = true)
-    @Size(max = 15)
+    @Size(max = 15, message= "O campo Telefone deve conter 11 dígitos")
     private String fone;
     
     @Column(name = "Email", nullable = true)

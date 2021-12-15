@@ -32,7 +32,7 @@ public class PacienteController {
         return mv;
     }
     
-    @PostMapping("paciente/cadastro")
+    @PostMapping("/salvarPaciente")
     public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){

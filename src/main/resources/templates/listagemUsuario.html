@@ -6,7 +6,7 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Usuários</title>
         </div>
-        <!--<link rel="stylesheet" href="../css/">-->
+        <link rel="stylesheet" href="../css/listagemUsuario.css">
     </head>
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">>
@@ -14,32 +14,35 @@
 			<div th:if="${message}" class="alert alert-success text-center"></div>
 			[[${message}]]
 			<div>
-				<h1>Usuários</h1>
+				<h1>Lista de usuários</h1>
 				<table >
 					<thead>
-						<tr>
+						<tr class="tabela" id="titulo-listagem" >
 							<th>Nome</th>
 							<th>Email</th>
 							<th>celular</th>
-							<th>fone</th>
+							<th>Telefone</th>
 							<th>Função</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each = "usuario : ${listaUsuario}">
+						<tr class="lista" id="titulo-listagem" th:each = "usuario : ${listaUsuario}">
 							<td th:text="${usuario.nome}"></td>
 							<td th:text="${usuario.email}"></td>
 								<td th:text="${usuario.celular}"></td>
 								<td th:text="${usuario.fone}"></td>
 								<td th:text="${usuario.funcao}"></td>
-							<td>
-								<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
-								<a th:href="@{excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir</a>
-							</td>
+							
+								<td th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</td>
+								<td th:href="@{excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir</td>
+							
 						</tr>
 					</tbody>
 				</table>
+			<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;
+			margin-top: 21px;">
 				<a href="/usuario/cadastro">Incluir novo usuário</a>
+			</button>
 			</div>
 		</main>
 	</body>

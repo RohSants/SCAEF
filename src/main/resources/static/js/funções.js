@@ -11,22 +11,6 @@ function hideCrf(farm){
     }
 }*/
 
-var x = document.getElementById("tooltiptext");
-
-        function mostraTexto(){
-            x.style.cssText = 
-                'visibility: visible;' +
-                'opacity: 1;' 
-        }
-
-        function escondeTexto(){
-            x.style.cssText = 
-            'opacity = 0;' + 
-            'visibility = "hidden";'
-
-          
-        }
-
 /* Funções dos formulários de cadastro */
 
 function mascaraCpf(mascara, input){
@@ -79,7 +63,7 @@ function mascaraFone(mascara, input){
 
     input.value = vetMasc.join("")
 
-    if(tecla != 37 && (cursor == 1 || cursor == 4 || cursor == 8)){
+    if(tecla != 37 && (cursor == 1 || cursor == 2 || cursor == 3 || cursor == 8)){
         input.setSelectionRange(cursor+1, cursor+1)
     }else{
         input.setSelectionRange(cursor, cursor)
@@ -98,7 +82,7 @@ function mascaraCel(mascara, input){
 
     input.value = vetMasc.join("")
 
-    if(tecla != 37 && (cursor == 1 || cursor == 3 || cursor == 8)){
+    if(tecla != 37 && (cursor == 1 || cursor == 2 || cursor == 3 || cursor == 9 )){
         input.setSelectionRange(cursor+1, cursor+1)
     }else{
         input.setSelectionRange(cursor, cursor)

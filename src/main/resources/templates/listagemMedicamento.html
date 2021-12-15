@@ -6,47 +6,46 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Medicamentos</title>
         </div>
-        <!--<link rel="stylesheet" href="../css/">-->
+        <link rel="stylesheet" href="../css/listagemMedicamento.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
             <div>
-                <h1>Medicamentos</h1>
+                <h1>Lista de medicamentos</h1>
                 <table>
                     <thead>
-                        <tr>
+                        <tr class="tabela">
                             <th>Nome</th>
-                            <th>Classificação do medicamento</th>
-                            <th>Categoria regulatória</th>
-                            <th>Protocolos Clínicos e Diretrizes de Tratamento</th>
-                            <th>Dosagem</th>
-                            <th>Forma farmacêutica</th>
-                            <th>Via de consumo</th>
-                            <th>Princípio ativo</th>
-                            <th>Classe terapêutica</th>
+                            <th>Dose</th>
+                            <th>Categoria</th>
+                            <th>Forma</th>
+                            <th>Classe</th>
+                            <th>PCDT</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        <tr th:each = "medicamento : ${listaMedicamento}">
+                        <tr class="lista" id="titulo-listagem" th:each = "medicamento : ${listaMedicamento}">
                             <td th:text="${medicamento.nome}"></td>
-                            <td th:text="${medicamento.cid}"></td>
-                            <td th:text="${medicamento.catReg}"></td>
-                            <td th:text="${medicamento.pcdt}"></td>
                             <td th:text="${medicamento.dose}"></td>
+                            <td th:text="${medicamento.catReg}"></td>
                             <td th:text="${medicamento.forma}"></td>
-                            <td th:text="${medicamento.via}"></td>
-                            <td th:text="${medicamento.priA}"></td>
                             <td th:text="${medicamento.classeT}"></td>
-                            <td>
-                                <a th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</a>
-                                <a th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</a>		
-                            </td>
+                            <td th:text="${medicamento.pcdt}"></td>
+
+                            
+                                <td th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</td>
+                                <td th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</td>		
+                            
                         </tr>
                     </tbody>
                 </table>
-            <a href="/medicamento/cadastro">Incluir novo medicamento</a>
+            <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;
+            margin-top: 21px;">
+                <a href="/medicamento/cadastro">Incluir novo medicamento</a>
+            </button>
+            
             </div>
         </main>
     </body>

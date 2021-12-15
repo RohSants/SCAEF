@@ -15,76 +15,93 @@
                 [[${message}]]
             </div>
 
-            <fieldset  class="formularioborda">
-                <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
+            <fieldset id="formularioborda">
+                <form id="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
+
                     <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
                         <label class="validation-message" th:errors="*{nome}"></label>
                     </div>
-                    <div >
-                        <label for="nome">Nome</label>
-                        <input  name="nome" type="text"  th:field="*{nome}" class="form-control entrada">
-                    </div>
+
+                    <label for="nome" class="dados-fila1">Nome
+                        <input name="nome" type="text" th:field="*{nome}" class="form-control entrada">
+                    </label>
+                        
+
                     <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
                         <label class = "validation-message" th:errors="*{cpf}"></label>
                     </div>
-                
-                    <div>
-                        <label for="cpf">CPF</label>
-                        <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)">
-                    </div>
+
+                    <label for="cpf" class="dados-fila1">CPF
+                        <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)" maxlength="15">
+                    </label>
+
                     <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
                         <label class = "validation-message" th:errors="*{rg}"></label>
                     </div>
-                    <div>
-                        <label for="rg">RG</label>
+
+                    <label for="rg" class="dados-fila1">RG
                         <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
-                    </div>
+                    </label>
+
                     <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
                         <label class="validation-message" th:errors="*{email}" ></label>
                     </div>
-                    <div>
-                        <label for="email">Email</label>
-                    <input name="email" type="email" th:field="*{email}" class="form-control entrada">
-                    </div>
-                    <div>
-                        <label for="celular">Celular</label>
+
+                    <label for="email" class="dados-fila1">Email
+                        <input name="email" type="email" th:field="*{email}" class="form-control entrada">
+                    </label>
+                    
+                    <br>
+
+                    <label for="celular" class="dados-fila2">Celular
                         <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
-                    </div>
-                    <div>
-                        <label for="fone">Telefone</label>
+                    </label>
+
+                    <label for="fone" class="dados-fila2">Telefone
                         <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
+                    </label>
+
+                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                        <label class = "validation-message" th:errors="*{senha}" ></label>
                     </div>
-                    <div>
-                        <label>Função</label>
-                        <select name="funcao" th:field="*{funcao}" id="fucaoselecionada">
+
+                    <label for="senha" class="dados-fila2">Senha
+                        <div id="inputinside">
+                            <input name="senha" type="password"  th:field="*{senha}" id="senha" class="form-control entrada">
+                            <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
+                            <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
+                            <!--Made by @colebemis-->
+                        </div>
+                    </label>
+
+                    <br>
+
+                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('funcao')}" th:errors="*{funcao}">
+                        <label class = "validation-message" th:errors="*{funcao}" ></label>
+                    </div>
+
+                    <label class="dados-fila3">Função <br>
+                        <select name="funcao" th:field="*{funcao}" id="fucaoselecionada" class="entrada" style="outline: none;">
                             <option selected value="">Selecione uma função</option>
                             <option value="Administrador">Administrador</option>
                             <option value="Atendente">Atendente</option>
                             <option value="Farmacêutico">Farmacêutico</option>
                         </select>
-                    </div>
-                    <div>
-                        <label for="crf">CRF</label>
-                        <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada">
-                    </div>
-                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
-                        <label class = "validation-message" th:errors="*{senha}" ></label>
-                    </div>
-                    <div class="input">
-                        <label for="senha">Senha</label>
-                        <div class="inputinside">
-                            <input name="senha" type="password"  th:field="*{senha}" id="senha">
-                            <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
-                            <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
-                            <!--Made by @colebemis-->
-                        </div>
-                    </div>
-                    <div class="buttonUsuario">
-                        <button type="submit">Cadastrar usuário</button>
-                    </div>
+                    </label>
+
+                    <label for="crf" class="dados-fila3">CRF
+                        <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada" onkeypress="return onlynumber()">
+                    </label>
+
+                    <br>
+
+                    <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">Cadastrar usuário</button>
+
+                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">
+                        <a href="/usuario/listagem">Ir para a listagem</a>
+                    </button>
                 </form>
             </fieldset>
-        <a href="/usuario/listagem">Ir para a listagem</a>
         </main>
     </body>
     <script>
@@ -106,8 +123,16 @@
                 icone.src="../mídia/vetores/eye-off.svg";
             }
         }
-
         
+        /*var opcao = document.getElementById("funcaoselecionada").value;
+        var crf = document.getElementById('crf');
 
+        function hideCrf(farm){
+            if(opcao === "Farmaceutico"){
+                crf.style.display = 'inline-block';
+            } else {
+                crf.style.display = 'none';
+            }
+        }*/
     </script>
 </html>

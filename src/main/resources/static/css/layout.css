@@ -16,6 +16,7 @@
     scrollbar-color: #00000000 #112e42cc;
 }
 
+/*estilizações gerais que serão herdadas*/
 a{
     text-decoration: none;
     color: var(--cor-fonte-claro);
@@ -26,7 +27,22 @@ a:hover{
     text-decoration: underline;
 }
   
-/*Chrome, Edge, and Safari*/
+p, h1, table, thead, tr, th{
+    color: var(--cor-fonte-claro);
+}
+
+.mensagem{
+    color: var(--cor-fonte-claro); 
+}
+
+.entrada:focus{
+    border-color: #D1DBBD40;
+    box-shadow: 0 0 0 0.13rem #9fb79e94;
+    background-color: #f4fff1ff;
+}  
+
+/*barra de rolagem*/
+    /*Chrome, Edge, and Safari*/
 ::-webkit-scrollbar {
     width: 8px;
 }
@@ -43,14 +59,79 @@ a:hover{
 
 /*Classes do Bootstrap*/
 .btn-primary{
-    background-color: #88a7b3;
-    border-color: #88a7b3;
+    background-color: #70a0b3;
+    border-color: #70a0b3;
+
 }
+
+.btn-primary:hover{
+    background-color: #6cc0e1;
+    border-color: #6cc0e1;
+}
+  
+.btn-primary:active{
+    background-color: #6cc0e1;
+    border-color: #6cc0e1;
+}
+  
+.btn-primary:focus{
+    background-color: #6cc0e1;
+    border-color: #6cc0e1;
+}
+ 
 
 .btn-danger{
     background-color: #ff5757;
     border-color: #ff5757;
 }
+
+.btn-danger:hover{
+    background-color: #e94a4a;
+    border-color: #e94a4a;
+}
+  
+.btn-danger:active{
+    background-color: #e94a4a;
+    border-color: #e94a4a;
+}
+  
+.btn-danger:focus{
+    background-color: #e94a4a;
+    border-color: #e94a4a;
+}
+
+.btn-layout{
+    background-color: transparent;
+    border-color: var(--cor-barra-2);
+    margin-bottom: 20px;
+  }
+  
+  .btn-layout > a {
+    text-decoration: none;
+  }
+  
+  .btn-layout:hover{
+    background-color: transparent;
+    border-color: #3e606f;
+  }
+  
+  .btn-layout:active{
+    background-color: #3e606f;
+    border-color: var(--cor-borda);
+  }
+  
+  .btn-layout:focus{
+    background-color: #3e606f;
+    border-color: var(--cor-borda);
+  }
+  
+  .btn-layout:active:focus {
+    box-shadow: none;
+  }
+  
+  .btn-layout:focus {
+    box-shadow: none;
+  }  
 
 .app{
     min-height: 100vh;
@@ -64,7 +145,7 @@ a:hover{
         "barra conteudo"
         "barra rodape";
     grid-template-columns: 295px auto;
-    grid-template-rows: 10% auto 8%;
+    grid-template-rows: 80px auto 8%;
 }
 
 .menu{
@@ -92,7 +173,7 @@ a:hover{
 .conteudo{
     grid-area: conteudo;
     grid-column: 2;
-    margin: 40px 40px 25px;
+    margin: 40px 50px 25px;
 }
 
 .rodape{
@@ -104,6 +185,8 @@ a:hover{
 /*menu*/
 
 .menu{
+    height: 66px;
+    width: 983px;
     margin-right: 40px;
     margin-left: 40px;
     border-bottom: 1px solid var(--cor-fonte-claro);

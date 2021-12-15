@@ -18,7 +18,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class ConfSeguranca extends WebSecurityConfigurerAdapter {
+public class ConfigSecurity extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserDetailsService userDetailsService;
@@ -37,14 +37,17 @@ public class ConfSeguranca extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login").permitAll()
                 .and()
             .authorizeRequests()
-                .antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
+                .antMatchers("/home").permitAll()
+                .and()
+            .authorizeRequests()
+                /*.antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
                 .antMatchers("/paciente/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString(), EnumFuncao.Atendente.toString())
-                .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())
+                .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())*/
+                .antMatchers("/resources/**"). permitAll()
                 .and()
             .authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/mídia/**")
-                .permitAll()
-                .anyRequest().authenticated();
+                .permitAll();
     }
 
     @Autowired

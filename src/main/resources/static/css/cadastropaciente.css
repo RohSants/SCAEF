@@ -1,9 +1,5 @@
 @charset "UTF-8";
 
-.conteudo{
-  margin-top: 59px;
-}
-
 .formularioborda{
   margin: 0px 2px;
   padding: 5px 12px;
@@ -62,14 +58,14 @@
   color: var(--cor-fonte-claro);
   font-size: 1.3rem;
   display: inline-flex;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   align-content: center;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .campoform > section > label > input{
-  font-size: 1rem;
+  font-size: 1.13rem;
   padding-left: 6px;
   margin-left: 7px;
   margin-right: 10px;
@@ -78,6 +74,7 @@
 
 .campoform #dados {
   grid-area: dados;
+  margin-top: 20px;
 }
 
 #btn1{
@@ -85,39 +82,9 @@
   margin-right: 10px;
 }
 
-.btn-cadastro{
-  background-color: transparent;
-  border-color: var(--cor-barra-2);
-  margin-bottom: 20px;
-}
-
-.btn-cadastro:hover{
-  background-color: transparent;
-  border-color: #3e606f;
-}
-
-.btn-cadastro:active{
-  background-color: #3e606f;
-  border-color: var(--cor-borda);
-}
-
-.btn-cadastro:focus{
-  background-color: #3e606f;
-  border-color: var(--cor-borda);
-}
-
-.btn-cadastro:active:focus {
-  box-shadow: none;
-}
-
-.btn-cadastro:focus {
-  box-shadow: none;
-}
-
-.campoform section .entrada:focus{
-  border-color: #D1DBBD40;
-  box-shadow: 0 0 0 0.13rem #9fb79e94;
-  background-color: #f4fff1ff;
+.campoform > #dados > #lcns {
+  margin-left: 5px;
+  margin-right: 20px;
 }
 
 .campoform > #dados > label > #cns{
@@ -125,7 +92,15 @@
 }
 
 .campoform > #dados > label > #cpf{
-  width: 120px;
+  width: 130px;
+}
+
+.campoform > #dados > #lrg {
+  margin-left: 68px;
+}
+
+.campoform > #dados > label > #rg{
+  width: 115px;
 }
 
 .campoform > #dados > label > #nome{
@@ -146,7 +121,7 @@
   grid-template-areas:
     "texto opcao1 textoid op1"
     "texto opcao2 textoid op2";
-  grid-template-columns: 55px 125px 145px 125px;
+  grid-template-columns: 70px 170px 145px 140px;
   grid-template-rows: 50px 50px;
 }
 
@@ -174,8 +149,59 @@
   grid-area: op2;
 }
 
+.campoform > #dados > #campo-erro1 {
+  margin-left: 5px;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "erroscns erroscpf errosrg";
+  grid-template-columns: 250px 255px 225px;
+}
+
+.campoform > #dados > #campo-erro1 > #erroscns{
+  grid-area: erroscns;
+}
+
+.campoform > #dados > #campo-erro1 > #erroscpf{
+  grid-area: erroscpf;
+}
+
+.campoform > #dados > #campo-erro1 > #errosrg{
+  grid-area: errosrg;
+}
+
 .campoform #endereco {
   grid-area: endereco;
+}
+
+.campoform > #endereco > label > #num{
+  width: 40px;
+}
+
+.campoform > #endereco > #lcep{
+  margin-right: 15px;
+}
+
+.campoform > #endereco > #lbai{
+  margin-left: 15px;
+}
+
+.campoform > #endereco > #campo-erro5 {
+  display: grid;
+  align-items: center;
+  grid-template-areas: "erroscep erroscida errosbai";
+  grid-template-columns: 278px 301px;
+}
+
+.campoform > #endereco > #campo-erro5 > #erroscep{
+  grid-area: erroscep;
+}
+
+.campoform > #endereco > #campo-erro5 > #erroscida{
+  grid-area: erroscida;
+}
+
+.campoform > #endereco > #campo-erro5 > #errosbai{
+  grid-area: errosbai;
 }
 
 .campoform #contato {

@@ -5,34 +5,36 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Pacientes</title>
         </div>
-        <!--<link rel="stylesheet" href="../css/">-->
+        <link rel="stylesheet" href="../css/listagemPaciente.css">
     </head>
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">
 		<main>
 			<div >
-				<h1>Pacientes</h1>
+				<h1>Lista de pacientes</h1>
 				<table >
 					<thead>
-						<tr>
+						<tr class="tabela" id="titulo-listagem">
 							<th>Nome</th>
 							<th>CNS</th>
-								<th>CPF</th>
-							<th>RG</th>
-								<th>Nome da Mãe</th>
+							<th>CPF</th>
+							<th>Nome da Mãe</th>
+							<th>Data de Nascimento</th>
+							<th>Sexo</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr th:each = "paciente : ${listaPaciente}">
+						<tr class="lista" id="titulo-listagem" th:each = "paciente : ${listaPaciente}">
 							<td th:text="${paciente.nome}"></td>
 							<td th:text="${paciente.cns}"></td>
 								<td th:text="${paciente.cpf}"></td>
-								<td th:text="${paciente.rg}"></td>
 								<td th:text="${paciente.nomeM}"></td>
-							<td>
-								<a th:href="@{alterar/{id}(id=${paciente.id})}" class="btn btn-primary">Alterar</a>
-								<a th:href="@{excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluirr</a>
-							</td>
+								<td th:text="${paciente.dataNasc}"></td>
+								<td th:text="${paciente.sexo}"></td>
+
+				
+								<td th:href="@{alterar/{id}(id=${paciente.id})}" class="btn btn-primary">Alterar</td>
+								<td th:href="@{excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluir</td>
 						</tr>
 					</tbody>
 				</table>
