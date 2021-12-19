@@ -56,6 +56,7 @@
                     </main>
 
                     <footer id = "footerlogin">
+                        <div th:if="${erro != null}" th:text="${erro}" class="mensagem" role="alert"></div>
                         <div class="menulogin">
                                 <a href = "#" target = "_self">Esqueci a Senha</a>
                                 <a href = "/usuario/cadastro" target = "_self">Opção 2</a>

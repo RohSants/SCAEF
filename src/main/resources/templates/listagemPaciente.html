@@ -15,7 +15,7 @@
 				<table >
 					<thead>
 						<tr class="tabela" id="titulo-listagem">
-							<th>Nome</th>
+							<th title="Nome Civil ou Social">Nome</th>
 							<th>CNS</th>
 							<th>CPF</th>
 							<th>Nome da Mãe</th>
@@ -25,7 +25,15 @@
 					</thead>
 					<tbody>
 						<tr class="lista" id="titulo-listagem" th:each = "paciente : ${listaPaciente}">
-							<td th:text="${paciente.nome}"></td>
+							<!--<td th:text="${paciente.nome}"></td>-->
+							<td th:switch="${paciente.idNome == 'Nome Social'}">
+								<span th:case="true">
+									<p th:text="${paciente.nomeS}" style="margin-bottom: 0px;"></p>
+								</span>
+								<span th:case="*">
+									<p th:text="${paciente.nome}" style="margin-bottom: 0px;"></p>
+								</span>
+							</td>
 							<td th:text="${paciente.cns}"></td>
 							<td th:text="${paciente.cpf}"></td>
 							<td th:text="${paciente.nomeM}"></td>
