@@ -2,61 +2,34 @@
 
 .formulariobox{
   margin: 0px 2px;
-  padding: 5px 20px;
+  padding: 5px 12px;
   border-radius: 6px;
   border-style: double;
-  border-width: 2px;
+  border-width: 3px;
   color: var(--cor-fonte-claro);
 }
 
 .form-control{
   padding: 0px;
-  width:60%;
 }
 
-.btn-cadastroMed{
-  background-color: transparent;
-  border-color: var(--cor-barra-2);
-  margin-bottom: 18px;
+.formulario >  label {
+  font-size: 1.3rem;
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
-.btn-cadastroMed:hover{
-  background-color: transparent;
-  border-color: #3e606f;
-}
-
-.btn-cadastroMed:active{
-  background-color: #3e606f;
-  border-color: var(--cor-borda);
-}
-
-.btn-cadastroMed:focus{
-  background-color: #3e606f;
-  border-color: var(--cor-borda);
-}
-
-.btn-cadastroMed:active:focus {
-  box-shadow: none;
-}
-
-.btn-cadastroMed:focus {
-  box-shadow: none;
-}
-
-.btn-cadastroMed > a {
-  text-decoration: none;
-}
-
-#btn3{
-
-}
-
-.campos{
-  font-size: 1.13rem;
+.formulario >  label > input{
   padding-left: 6px;
-  margin-left: 7px;
-  margin-right: 10px;
+  width: 205px;
+
 }
 
+.cadicon{
+  width: 290px;
+}
 
+.cadicon > legend{
+  width: 220px;
+}
 

@@ -40,10 +40,9 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers("/home").permitAll()
                 .and()
             .authorizeRequests()
-                /*.antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
+                .antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
                 .antMatchers("/paciente/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString(), EnumFuncao.Atendente.toString())
-                .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())*/
-                .antMatchers("/resources/**"). permitAll()
+                .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())
                 .and()
             .authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/mídia/**")

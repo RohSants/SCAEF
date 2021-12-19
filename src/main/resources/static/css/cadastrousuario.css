@@ -43,19 +43,24 @@ label {
   justify-content: center;
 }
 
-#formularioborda > #formulario > label > input{
+#formularioborda > #formulario > label > input,
+#formularioborda > #formulario > label > div > input{
   font-size: 1.13rem;
   padding-left: 6px;
   width: 205px;
 }
 
+.cadicon{
+  margin-top: -45px;
+}
+
+.mensagem{
+  font-size: var(--bs-body-font-size);
+}
+
 .dados-fila1{
   margin-right: 20px;
   margin-bottom: 20px;
-}
-
-.dados-fila1:nth-child(1){
-  margin-right: 0;
 }
 
 .dados-fila2{

@@ -11,47 +11,59 @@
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-            <div th:if="${message}" class="alert alert-success text-center" >
+            <div th:if="${message}" class="alert alert-success text-center">
                 [[${message}]]
             </div>
 
             <fieldset id="formularioborda">
                 <form id="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
-
-                    <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
-                        <label class="validation-message" th:errors="*{nome}"></label>
+                    <div class="cadicon">
+                        <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                        <legend>Cadastro de Usuário</legend>
                     </div>
 
-                    <label for="nome" class="dados-fila1">Nome
+                    <div id="campo-erro1" th:if="${#fields.hasErrors()}">
+                        <span class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                            <span class="validation-message" th:errors="*{nome}"></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+                            <span class = "validation-message" th:errors="*{cpf}"></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                            <span class="validation-message" th:errors="*{email}" ></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+                            <span class = "validation-message" th:errors="*{rg}"></span>
+                        </span>
+                    </div>
+
+                    <label for="nome" class="dados-fila1">
+                        Nome
                         <input name="nome" type="text" th:field="*{nome}" class="form-control entrada">
                     </label>
                         
-
-                    <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
-                        <label class = "validation-message" th:errors="*{cpf}"></label>
-                    </div>
-
                     <label for="cpf" class="dados-fila1">CPF
                         <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)" maxlength="15">
                     </label>
 
-                    <div class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
-                        <label class = "validation-message" th:errors="*{rg}"></label>
-                    </div>
-
                     <label for="rg" class="dados-fila1">RG
                         <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
                     </label>
-
-                    <div class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
-                        <label class="validation-message" th:errors="*{email}" ></label>
-                    </div>
 
                     <label for="email" class="dados-fila1">Email
                         <input name="email" type="email" th:field="*{email}" class="form-control entrada">
                     </label>
                     
                     <br>
+
+                    <div id="campo-erro2" th:if="${#fields.hasErrors()}">
+                        <span class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                            <span class = "validation-message" th:errors="*{senha}" ></span>
+                        </span>
+                    </div>
 
                     <label for="celular" class="dados-fila2">Celular
                         <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
@@ -60,10 +72,6 @@
                     <label for="fone" class="dados-fila2">Telefone
                         <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
                     </label>
-
-                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
-                        <label class = "validation-message" th:errors="*{senha}" ></label>
-                    </div>
 
                     <label for="senha" class="dados-fila2">Senha
                         <div id="inputinside">
@@ -76,9 +84,11 @@
 
                     <br>
 
-                    <div class="mensagem" role = "alert" th:if="${#fields.hasErrors('funcao')}" th:errors="*{funcao}">
-                        <label class = "validation-message" th:errors="*{funcao}" ></label>
-                    </div>
+                <div id="campo-erro3" th:if="${#fields.hasErrors()}">
+                    <span class="mensagem" role = "alert" th:if="${#fields.hasErrors('funcao')}" th:errors="*{funcao}">
+                        <span class = "validation-message" th:errors="*{funcao}" ></span>
+                    </span> 
+                </div>
 
                     <label class="dados-fila3">Função <br>
                         <select name="funcao" th:field="*{funcao}" id="fucaoselecionada" class="entrada" style="outline: none;">
@@ -97,7 +107,8 @@
 
                     <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">Cadastrar usuário</button>
 
-                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">
+                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px; padding-right: 5px;
+                    margin-right: -7px;">
                         <a href="/usuario/listagem">Ir para a listagem</a>
                     </button>
                 </form>

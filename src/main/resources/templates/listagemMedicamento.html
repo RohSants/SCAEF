@@ -18,7 +18,7 @@
                         <tr class="tabela">
                             <th>Nome</th>
                             <th>Dose</th>
-                            <th>Categoria</th>
+                            <th>CID</th>
                             <th>Forma</th>
                             <th>Classe</th>
                             <th>PCDT</th>
@@ -29,20 +29,22 @@
                         <tr class="lista" id="titulo-listagem" th:each = "medicamento : ${listaMedicamento}">
                             <td th:text="${medicamento.nome}"></td>
                             <td th:text="${medicamento.dose}"></td>
-                            <td th:text="${medicamento.catReg}"></td>
+                            <td th:text="${medicamento.cid}"></td>
                             <td th:text="${medicamento.forma}"></td>
                             <td th:text="${medicamento.classeT}"></td>
                             <td th:text="${medicamento.pcdt}"></td>
 
                             
-                                <td th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</td>
-                                <td th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</td>		
-                            
+                            <td>
+                                <a th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</a>
+                            </td>
+                            <td>
+                                <a th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</a>
+                            </td>		
                         </tr>
                     </tbody>
                 </table>
-            <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;
-            margin-top: 21px;">
+            <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;margin-top: 21px;">
                 <a href="/medicamento/cadastro">Incluir novo medicamento</a>
             </button>
             

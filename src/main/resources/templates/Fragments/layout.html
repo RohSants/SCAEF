@@ -1,68 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<body class="app" th:fragment="layout (conteudo)">
-    <header class="menu">
-        <a href = "#" target = "_self">
-            <figure class="menulogo">
-                <img class="logoscaef" src="../mídia/vetores/logo_scaef.svg" alt="logo do sistema">
-                <figcaption>SCAEF</figcaption>
-            </figure>
-        </a>
-        <nav>
-            <ul class="menunav">
-                <li>
-                   <a href = "/home" target = "_self">Principal</a>
-                </li>
-                <li>
-                  <a href = "/paciente/listagem" target = "_self">Pacientes</a>
-                </li>
-                <li>
-                 <a href = "/medicamento/listagem" target = "_self">Medicamentos</a>
-                </li>
-                <li><a href = "#" target = "_self">Estoque</a>
-                </li>
-                <li><a href = "/usuario/listagem" target = "_self">Usuários</a>
-                </li>
-            </ul>
-    </header>
+    <body class="app" th:fragment="layout (conteudo)">
+        <header class="menu">
+            <a href = "#" target = "_self">
+                <figure class="menulogo">
+                    <img class="logoscaef" src="../mídia/vetores/logo_scaef.svg" alt="logo do sistema">
+                    <figcaption>SCAEF</figcaption>
+                </figure>
+            </a>
+            <nav>
+                <ul class="menunav">
+                    <li>
+                    <a href = "/home" target = "_self" sec:authorize="isAuthenticated()">Principal</a>
+                    </li>
+                    <li>
+                        <a href = "/paciente/listagem" target = "_self" sec:authorize="hasAnyAuthority('Administrador', 'Farmacêutico', 'Atendente')">Pacientes</a>
+                    </li>
+                    <li>
+                        <a href = "/medicamento/listagem" target = "_self" sec:authorize="hasAnyAuthority('Administrador', 'Farmacêutico')">Medicamentos</a>
+                    </li>
+                    <li>
+                        <a href = "#" target = "_self"sec:authorize="hasAnyAuthority('Administrador')">Estoque</a>
+                    </li>
+                    <li>
+                        <a href = "/usuario/listagem" target = "_self" sec:authorize="hasAnyAuthority('Administrador')">Usuários</a>
+                    </li>
+                </ul>
+        </header>
 
-    <aside class="barra">
-        <section class="perfilacesso">
-            <p class="headerperfil">Seu último acesso: 11/11/1111</p>
-        </section>
-        
-        <section class="perfildados">
-            <img class="fotouser" src="../mídia/vetores/icone_usuario.svg" alt="Logo do perfil do Usuário">
-            <section class = "dadosuser">
-					<ul class="nav navbar-nav navbar-right">
-						<li class="nav-item">
-								<label> 
-                                    <span>Nome: 
-                                        <span sec:authentication="name"></span>
-                                    </span>
-                                </label>
-						</li>
-					</ul>
-                </label>
+        <aside class="barra">
+            <section class="perfilacesso">
+                <p class="headerperfil">Seu último acesso: 11/11/1111</p>
             </section>
-            <div sec:authorize="isAuthenticated()">
-                <form name="logoutForm" th:action="@{/logout}" method="post">
-                    <input class="logout btn btn-outline-danger" type="submit" value="Sair"/>
-                </form>
-            </div>
-        </section>
+            
+            <section class="perfildados">
+                <img class="fotouser" src="../mídia/vetores/icone_usuario.svg" alt="Logo do perfil do Usuário">
+                <section class = "dadosuser">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="nav-item">
+                                    <label> 
+                                        <span>Nome: 
+                                            <span sec:authentication="name"></span>
+                                        </span>
+                                    </label>
+                            </li>
+                        </ul>
+                    </label>
+                </section>
+                <div sec:authorize="isAuthenticated()">
+                    <form name="logoutForm" th:action="@{/logout}" method="post">
+                        <input class="logout btn btn-outline-danger" type="submit" value="Sair"/>
+                    </form>
+                </div>
+            </section>
 
-        <footer class="perfilfooter">
-            <p>Ministério da Saúde do Brasil</p>
-            <img class = "imgsus" src="../mídia/imagens/logo_sus.png" alt="Logo  do Sistema Único de Saúde (SUS)">
+            <footer class="perfilfooter">
+                <p>Ministério da Saúde do Brasil</p>
+                <img class = "imgsus" src="../mídia/imagens/logo_sus.png" alt="Logo  do Sistema Único de Saúde (SUS)">
+            </footer>
+        </aside>
+        
+        <main class="conteudo" th:include="${conteudo}"></main>
+
+        <footer class="rodape">
+            <p>Sistema Cadastral para a Assistência Especializada em Farmácia</p>
         </footer>
-    </aside>
-    
-    <main class="conteudo" th:include="${conteudo}"></main>
-
-    <footer class="rodape">
-        <p>Sistema Cadastral para a Assistência Especializada em Farmácia</p>
-    </footer>
-</body>
-</html>
+    </body>
+    </html>

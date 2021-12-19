@@ -9,33 +9,6 @@
   color: var(--cor-fonte-claro);
 }
 
-.cadicon{
-  display: flex;
-  align-content: center;
-  align-items: center;
-  width: 250px;
-  margin-top: -35px;
-  margin-left: 41px;
-  margin-bottom: 20px;
-  background-color: var(--cor-fundo-conteudo);
-  box-shadow: 0 0 0 15px var(--cor-fundo-conteudo);
-}
-
-.cadicon > legend {
-  width: 175px;
-  height: 20px;
-  margin-bottom: 7px;
-  color: var(--cor-fonte-claro);
-  font-size: 1.3rem;
-}
-
-.cadiconimg{
-  border: 4px solid #fefae5e3;
-  border-radius: 25%;
-  margin-right: 20px;
-  padding: 4px;
-}
-
 .campoform{
   margin: 10px;
   display: grid;

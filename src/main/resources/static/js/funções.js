@@ -11,6 +11,21 @@ function hideCrf(farm){
     }
 }*/
 
+/* Funções de animações da interface */
+var x = document.getElementById("tooltiptext");
+
+function mostraTexto(){
+    x.style.cssText = 
+        'visibility: visible;' +
+        'opacity: 1;' 
+}
+
+function escondeTexto(){
+    x.style.cssText = 
+    'opacity = 0;' + 
+    'visibility = "hidden";'
+}
+
 /* Funções dos formulários de cadastro */
 
 function mascaraCpf(mascara, input){
