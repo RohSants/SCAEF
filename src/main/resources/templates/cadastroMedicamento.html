@@ -6,12 +6,12 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Cadastro de Medicamento</title>
         </div>
-        <link rel="stylesheet" href="../css/cadastromedicamento.css">
+        <link type="text/css" rel="stylesheet" href="/css/cadastromedicamento.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-            <div th:if="${message}" class="alert alert-success text-center" >
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 20px;">
                 [[${message}]]
             </div>
 
@@ -20,7 +20,7 @@
                 <form class="formulario" th:object="${medicamento}" method="post" action="#" th:action="@{/salvarMedicamento}">
             
                 <div class="cadicon">
-                    <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                    <img class="cadiconimg" src="/mídia/vetores/user_plus_by_colebemis.svg" alt="Uma figura que representa o sistema">
                     <legend>Cadastro de Medicamento</legend>
                 </div>
                 

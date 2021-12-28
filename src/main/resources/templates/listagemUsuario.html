@@ -6,18 +6,20 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Usuários</title>
         </div>
-        <link rel="stylesheet" href="../css/listagemUsuario.css">
+        <link type="text/css" rel="stylesheet" href="/css/listagemUsuario.css">
     </head>
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">>
 		<main>
-			<div th:if="${message}" class="alert alert-success text-center"></div>
+			<div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 20px;">
 			[[${message}]]
+			</div>
+
 			<div>
 				<h1>Lista de usuários</h1>
-				<table >
+				<table>
 					<thead>
-						<tr class="tabela" id="titulo-listagem" >
+						<tr class="tabela" id="titulo-listagem">
 							<th>Nome</th>
 							<th>Email</th>
 							<th>Celular</th>
@@ -25,24 +27,33 @@
 							<th>Função</th>
 						</tr>
 					</thead>
+
 					<tbody>
 						<tr class="lista" id="titulo-listagem" th:each = "usuario : ${listaUsuario}">
 							<td th:text="${usuario.nome}"></td>
 							<td th:text="${usuario.email}"></td>
-								<td th:text="${usuario.celular}"></td>
-								<td th:text="${usuario.fone}"></td>
-								<td th:text="${usuario.funcao}"></td>
+							<td th:text="${usuario.celular}"></td>
+							<td th:text="${usuario.fone}"></td>
+							<td th:text="${usuario.funcao}"></td>
+						
+							<td> 
+								<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
+							</td>
 							
-								<td> <a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar </a></td>
-								<td> <a th:href="@{excluir/{id}(id=${usuario.id})}" class="btn btn-danger">Excluir </a></td>
-							
+							<td> 
+								<button class="btn btn-danger" type="button">
+									<a th:href="@{excluir/{id}(id=${usuario.id})}">
+										Excluir
+									</a>
+								</button>
+							</td>
 						</tr>
 					</tbody>
 				</table>
-			<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;
-			margin-top: 21px;">
+
+				<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px; margin-top: 21px;">
 				<a href="/usuario/cadastro">Incluir novo usuário</a>
-			</button>
+				</button>
 			</div>
 		</main>
 	</body>

@@ -11,6 +11,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import org.hibernate.validator.constraints.br.CPF;
 
 /*Projeto Lombok*/
@@ -72,6 +74,7 @@ public class Paciente {
 
     @Column(name = "Nascimento", nullable = false)
     @NotBlank(message = "Data de Nascimento do Paciente é obrigatório")
+    @JsonFormat (shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     @Size(max = 10)
     private String dataNasc;
 

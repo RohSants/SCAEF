@@ -5,19 +5,19 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Cadastro de Paciente</title>
         </div>
-        <link rel="stylesheet" href="../css/cadastropaciente.css">
+        <link type="text/css" rel="stylesheet" href="/css/cadastropaciente.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-            <div th:if="${message}" class="alert alert-success text-center">
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 20px;">
                 [[${message}]]
             </div>
 
             <fieldset class="formularioborda">
                 <form class="formulario" th:object="${paciente}" action="#" th:action="@{/salvarPaciente}" method="post">
                     <div class="cadicon">
-                        <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                        <img class="cadiconimg" src="/mídia/vetores/user_plus_by_colebemis.svg" alt="Uma figura que representa o sistema">
                         <legend>Cadastro de Paciente</legend>
                     </div>
 

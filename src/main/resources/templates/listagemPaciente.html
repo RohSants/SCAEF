@@ -5,7 +5,7 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Pacientes</title>
         </div>
-        <link rel="stylesheet" href="../css/listagemPaciente.css">
+        <link type="text/css" rel="stylesheet" href="/css/listagemPaciente.css">
     </head>
 
 	<body th:replace="~{fragments/layout :: layout (~{:: main})}">
@@ -25,7 +25,6 @@
 					</thead>
 					<tbody>
 						<tr class="lista" id="titulo-listagem" th:each = "paciente : ${listaPaciente}">
-							<!--<td th:text="${paciente.nome}"></td>-->
 							<td th:switch="${paciente.idNome == 'Nome Social'}">
 								<span th:case="true">
 									<p th:text="${paciente.nomeS}" style="margin-bottom: 0px;"></p>
@@ -51,8 +50,7 @@
 						</tr>
 					</tbody>
 				</table>
-				<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;
-				margin-top: 21px;">
+				<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px; margin-top: 21px;">
 					<a href="/paciente/cadastro">Incluir novo paciente</a>
 				</button>
 			</div>

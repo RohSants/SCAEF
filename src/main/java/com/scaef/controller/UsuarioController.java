@@ -34,7 +34,7 @@ public class UsuarioController {
     @RequestMapping("/home")
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("index");
+        mv.setViewName("public/index");
         return mv;
     }
 
@@ -44,7 +44,7 @@ public class UsuarioController {
         if (principal != null) {
             mv.setViewName("redirect:/home");
         }
-        mv.setViewName("login");
+        mv.setViewName("public/login");
         return mv;
     }
 
@@ -54,7 +54,7 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView();
 
         model.addAttribute("erro", "Email e/ou Senha Inválidos!");
-        mv.setViewName("loginError");
+        mv.setViewName("error/loginError");
 
         if (principal != null) {
             mv.setViewName("redirect:/home");
@@ -93,6 +93,7 @@ public class UsuarioController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("listagemUsuario");
         model.addAttribute("listaUsuario", usuarioService.listar());
+        model.addAttribute("usuarioService", usuarioService);
         return mv;    
     }
 

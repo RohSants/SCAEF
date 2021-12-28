@@ -44,16 +44,17 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .logoutSuccessUrl("/login").permitAll()
                 .and()
             .authorizeRequests()
-                .antMatchers("/home").permitAll()
-                .and()
-            .authorizeRequests()
-                .antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
+                .antMatchers("/resources/**").permitAll().and()
+                /*.antMatchers("/usuario/**").hasAuthority(EnumFuncao.Administrador.toString())
                 .antMatchers("/paciente/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString(), EnumFuncao.Atendente.toString())
                 .antMatchers("/medicamento/**").hasAnyAuthority(EnumFuncao.Administrador.toString(), EnumFuncao.Farmacêutico.toString())
-                .and()
+                .and()*/
             .authorizeRequests()
                 .antMatchers("/css/**", "/js/**", "/mídia/**")
                 .permitAll();
+                /*.and()
+            .authorizeRequests()
+                .anyRequest().authenticated();*/
     }
 
     @Autowired

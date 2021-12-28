@@ -6,19 +6,19 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Cadastro de Usuário</title>
         </div>
-        <link rel="stylesheet" href="../css/cadastrousuario.css">
+        <link type="text/css" rel="stylesheet" href="/css/formulariousuario.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-            <div th:if="${message}" class="alert alert-success text-center">
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 52px;">
                 [[${message}]]
             </div>
 
-            <fieldset id="formularioborda">
-                <form id="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
+            <fieldset class="formularioborda">
+                <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
                     <div class="cadicon">
-                        <img class="cadiconimg" src="../mídia/vetores/user_plus.svg" alt="Uma figura que representa o sistema">
+                        <img class="cadiconimg" src="/mídia/vetores/user_plus_by_colebemis.svg" alt="">
                         <legend>Cadastro de Usuário</legend>
                     </div>
 
@@ -76,9 +76,7 @@
                     <label for="senha" class="dados-fila2">Senha
                         <div id="inputinside">
                             <input name="senha" type="password"  th:field="*{senha}" id="senha" class="form-control entrada">
-                            <img src="../mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()">
-                            <!--COLOCAR DESCRIÇÃO DE IMAGEM PELA ACESSIBILIDADE-->
-                            <!--Made by @colebemis-->
+                            <img src="/mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()" alt="ícone que representa um olho humano com um traço cortando o olho na diagonal, significa que a visibilidade do campo está desabilitada, sendo assim, é impossível visualizar o mesmo. Ao segurar este botão com o ponteiro do mouse, o traço some e o olho aberto pode ser visualizado com clareza, dessa forma, a visibilidade de senha também pode ser conferida sem restrições. Ao soltar o botão, a senha volta a ser ocultada. Artes criadas pelo Designer de Sistemas Cole Bemis, que pode ser encontrado com o nome de usuário @colebemis, onde estarão disponível os seus links de acesso para as outras redes sociais">
                         </div>
                     </label>
 
@@ -124,14 +122,14 @@
 
             if(entrada.type == "password"){
                 entrada.type = "text";
-                icone.src="../mídia/vetores/eye.svg";
+                icone.src="/mídia/vetores/eye.svg";
             }
         }
 
         function esconderSenha(){
             if(entrada.type == "text"){
                 entrada.type = "password";
-                icone.src="../mídia/vetores/eye-off.svg";
+                icone.src="/mídia/vetores/eye-off.svg";
             }
         }
         

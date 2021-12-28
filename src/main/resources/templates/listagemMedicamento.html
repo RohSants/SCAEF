@@ -6,7 +6,7 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Lista de Medicamentos</title>
         </div>
-        <link rel="stylesheet" href="../css/listagemMedicamento.css">
+        <link type="text/css" rel="stylesheet" href="/css/listagemMedicamento.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
@@ -44,10 +44,9 @@
                         </tr>
                     </tbody>
                 </table>
-            <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;margin-top: 21px;">
-                <a href="/medicamento/cadastro">Incluir novo medicamento</a>
-            </button>
-            
+                <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;margin-top: 21px;">
+                    <a href="/medicamento/cadastro">Incluir novo medicamento</a>
+                </button>
             </div>
         </main>
     </body>

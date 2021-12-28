@@ -21,7 +21,7 @@ label {
   padding: 0px;
 }
 
-#formularioborda{
+.formularioborda{
   margin: 0px 2px;
   padding: 5px 12px;
   border-radius: 6px;
@@ -30,11 +30,11 @@ label {
   color: var(--cor-fonte-claro);
 }
 
-#formulario{
+.formulario{
   margin: 10px;
 }
 
-#formularioborda > #formulario {
+.formularioborda > .formulario {
   color: var(--cor-fonte-claro);
   font-size: 1.3rem;
   margin-bottom: 10px;
@@ -43,15 +43,20 @@ label {
   justify-content: center;
 }
 
-#formularioborda > #formulario > label > input,
-#formularioborda > #formulario > label > div > input{
+.formularioborda > .formulario > label > input,
+.formularioborda > .formulario > label > div > input{
   font-size: 1.13rem;
   padding-left: 6px;
   width: 205px;
 }
 
 .cadicon{
-  margin-top: -45px;
+  margin-top: -50px;
+  width: 256px;
+}
+
+.cadicon > legend {
+  margin-bottom: 13px;
 }
 
 .mensagem{
