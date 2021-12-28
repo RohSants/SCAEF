@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+
+    <body>
+        <div th:fragment="userModal" class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content modal-sm">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Deseja excluir este usuário?</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal">
+                        </button>
+                    </div>
+    
+                    <div class="modal-body">
+                        <span th:text="${usuario.id}"></span>
+                    </div>
+    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger">
+                            <a th:href="@{excluir/{id}(id=${usuario.id})}">
+                                Excluir
+                            </a>
+                        </button>
+    
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        
+    </script>
+</html>

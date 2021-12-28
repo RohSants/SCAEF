@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Alterar Dados do Usuário</title>
+        </div>
+        <link type="text/css" rel="stylesheet" href="/css/formulariousuario.css">
+        <link type="text/css" rel="stylesheet" href="/css/alterarusuario.css">
+    </head>
+
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
+        <main>
+            <span th:if="${message} != null" class="alert alert-success text-center">
+                <span>[[${message}]]</span>
+            </span>
+
+            <fieldset class="formularioborda">
+                <form class="formulario" action="#" th:action="@{/alterarUsuario}" method = "post">
+                    <div class="cadicon">
+                        <img class="cadiconimg" src="/mídia/vetores/user_by_colebemis.svg" alt="">
+                        <legend>Alterar dados de Usuário</legend>
+                    </div>
+
+                    <input type="hidden" th:name="id" th:value="${usuario.id}">
+
+                    <label for="nome" class="dados-fila1">
+                        Nome
+                        <input th:name="nome" type="text" th:value="${usuario.nome}" class="form-control entrada">
+                    </label>
+                        
+                    <label for="cpf" class="dados-fila1">CPF
+                        <input  readonly = "readonly" type="cpf" th:name="cpf" th:value="${usuario.cpf}" class="form-control entrada" autocomplete="off" onkeyup="mascaraCpf('___.___.___-__', this)" maxlength="15">
+                    </label>
+
+                    <label for="rg" class="dados-fila1">RG
+                        <input readonly = "readonly" type="text" th:name="rg" th:value="${usuario.rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
+                    </label>
+
+                    <label for="email" class="dados-fila1">Email
+                        <input type="email" th:name="email" th:value="${usuario.email}" class="form-control entrada">
+                    </label>
+                    
+                    <br>
+
+                    <label for="celular" class="dados-fila2">Celular
+                        <input type="text" th:name="celular" th:value="${usuario.celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
+                    </label>
+
+                    <label for="fone" class="dados-fila2">Telefone
+                        <input type="fone" th:name="fone" th:value="${usuario.fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
+                    </label>
+                    
+                    <label class="dados-fila3">Função <br>
+                        <th:block>
+                            <div th:switch="${usuario.funcao.toString()}">
+                                <div th:case="'Administrador'">
+                                    <select type="text" th:name="funcao" id="fucaoselecionada" class="entrada" style="outline: none;">
+                                        <option selected value="Administrador">Administrador</option>
+                                        <option value="Atendente">Atendente</option>
+                                        <option value="Farmacêutico">Farmacêutico</option>
+                                    </select>
+                                </div>
+
+                                <div th:case="'Atendente'">
+                                    <select type="text" th:name="funcao" id="fucaoselecionada" class="entrada" style="outline: none;">
+                                        <option selected value="Atendente">Atendente</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Farmacêutico">Farmacêutico</option>
+                                    </select>
+                                </div>
+                                
+                                <div th:case="'Farmacêutico'">
+                                    <select type="text" th:name="funcao" id="fucaoselecionada" class="entrada" style="outline: none;">
+                                        <option selected value="Farmacêutico">Farmacêutico</option>
+                                        <option value="Atendente">Atendente</option>
+                                        <option value="Administrador">Administrador</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </th:block>
+                    </label>
+
+                    <br>
+
+                    <label for="crf" class="dados-fila3">CRF
+                        <input type="text" th:name="crf" th:value="${usuario.crf}" class="form-control entrada" onkeypress="return onlynumber()">
+                    </label>
+
+                    <label for="senha" class="dados-fila3" title = "Apesar de estar criptografada, a senha pode ser alterada normalmente">Senha Criptografada
+                        <br>
+                        <input type="text" th:name="senha" th:value="${usuario.senha}">
+                    </label>
+
+                    <br>
+
+                    <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">Alterar Dados</button>
+
+                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px;margin-bottom: 5px;padding-right: 12px;margin-left: 6px;">
+                        <a href="/usuario/listagem">Ir para a listagem</a>
+                    </button>
+                </form>
+            </fieldset>
+        </main>
+    </body>
+</html>

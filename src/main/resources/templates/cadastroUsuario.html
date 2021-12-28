@@ -1,66 +1,147 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{:: main})}">
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     
-<head>
-    <title id="thlayouttitle">Cadastro de Usuário</title> 
-</head>
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Cadastro de Usuário</title>
+        </div>
+        <link type="text/css" rel="stylesheet" href="/css/formulariousuario.css">
+    </head>
 
-<body>
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
-            <form class="formulario" th:object = "${usuario}" method="post" action="salvarUsuario">                
-                <div>
-                    <label for="nome">Nome</label>
-                    <span th:if="${#fields.hasErrors('nome')}" th:errors= "*{nome}" class= "text-danger"></span>
-                    <input  name="nome" type="text"  th:field="*{nome}">
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 52px;">
+                [[${message}]]
+            </div>
+
+            <fieldset class="formularioborda">
+                <form class="formulario" th:object = "${usuario}" action="#" th:action="@{/salvarUsuario}" method="post">
+                    <div class="cadicon">
+                        <img class="cadiconimg" src="/mídia/vetores/user_plus_by_colebemis.svg" alt="">
+                        <legend>Cadastro de Usuário</legend>
+                    </div>
+
+                    <div id="campo-erro1" th:if="${#fields.hasErrors()}">
+                        <span class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                            <span class="validation-message" th:errors="*{nome}"></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+                            <span class = "validation-message" th:errors="*{cpf}"></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                            <span class="validation-message" th:errors="*{email}" ></span>
+                        </span>
+                        <br>
+                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+                            <span class = "validation-message" th:errors="*{rg}"></span>
+                        </span>
+                    </div>
+
+                    <label for="nome" class="dados-fila1">
+                        Nome
+                        <input name="nome" type="text" th:field="*{nome}" class="form-control entrada">
+                    </label>
+                        
+                    <label for="cpf" class="dados-fila1">CPF
+                        <input  name="cpf" type="cpf" th:field="*{cpf}" class="form-control entrada" autocomplete="off" id = "cpf" onkeyup="mascaraCpf('___.___.___-__', this)" maxlength="15">
+                    </label>
+
+                    <label for="rg" class="dados-fila1">RG
+                        <input name="rg" type="text"  th:field="*{rg}" class="form-control entrada" autocomplete="off" id = "rg" onkeyup="mascaraRg('__.___.___-_', this)" >
+                    </label>
+
+                    <label for="email" class="dados-fila1">Email
+                        <input name="email" type="email" th:field="*{email}" class="form-control entrada">
+                    </label>
+                    
+                    <br>
+
+                    <div id="campo-erro2" th:if="${#fields.hasErrors()}">
+                        <span class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                            <span class = "validation-message" th:errors="*{senha}" ></span>
+                        </span>
+                    </div>
+
+                    <label for="celular" class="dados-fila2">Celular
+                        <input name="celular" type="text" th:field="*{celular}" class="form-control entrada" autocomplete="off" id = "celular" onkeyup="mascaraCel('(__)_____-____', this)">
+                    </label>
+
+                    <label for="fone" class="dados-fila2">Telefone
+                        <input name="fone" type="text"  th:field="*{fone}" class="form-control entrada" autocomplete="off" id = "fone" onkeyup="mascaraFone('(__)____-____', this)">
+                    </label>
+
+                    <label for="senha" class="dados-fila2">Senha
+                        <div id="inputinside">
+                            <input name="senha" type="password"  th:field="*{senha}" id="senha" class="form-control entrada">
+                            <img src="/mídia/vetores/eye-off.svg" id="icon" onmousedown="verSenha()" onmouseup="esconderSenha()" alt="ícone que representa um olho humano com um traço cortando o olho na diagonal, significa que a visibilidade do campo está desabilitada, sendo assim, é impossível visualizar o mesmo. Ao segurar este botão com o ponteiro do mouse, o traço some e o olho aberto pode ser visualizado com clareza, dessa forma, a visibilidade de senha também pode ser conferida sem restrições. Ao soltar o botão, a senha volta a ser ocultada. Artes criadas pelo Designer de Sistemas Cole Bemis, que pode ser encontrado com o nome de usuário @colebemis, onde estarão disponível os seus links de acesso para as outras redes sociais">
+                        </div>
+                    </label>
+
+                    <br>
+
+                <div id="campo-erro3" th:if="${#fields.hasErrors()}">
+                    <span class="mensagem" role = "alert" th:if="${#fields.hasErrors('funcao')}" th:errors="*{funcao}">
+                        <span class = "validation-message" th:errors="*{funcao}" ></span>
+                    </span> 
                 </div>
 
-                <div>
-                    <label for="cpf">CPF</label>
-                    <span th:if="${#fields.hasErrors('cpf')}" th:errors= "*{cpf}" class= "text-danger"></span> 
-                    <input  name="cpf" type="cpf" th:field="*{cpf}">
-                </div>
+                    <label class="dados-fila3">Função <br>
+                        <select name="funcao" th:field="*{funcao}" id="fucaoselecionada" class="entrada" style="outline: none;">
+                            <option selected value="">Selecione uma função</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Atendente">Atendente</option>
+                            <option value="Farmacêutico">Farmacêutico</option>
+                        </select>
+                    </label>
 
-                <div>
-                    <label for="rg">RG</label>
-                    <input name="rg" type="text"  th:field="*{rg}">
-                </div>
+                    <label for="crf" class="dados-fila3">CRF
+                        <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada" onkeypress="return onlynumber()">
+                    </label>
 
-                <div>
-                    <label for="email">Email</label>
-                    <span th:if="${#fields.hasErrors('email')}" th:errors= "*{email}" class= "text-danger"></span> 
-                <input name="email" type="email" th:field="*{email}">
-                </div>
+                    <br>
 
-                <div>
-                    <label for="celular">Celular</label>
-                    <input name="celular" type="number" th:field="*{celular}">
-                </div>
+                    <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">Cadastrar usuário</button>
 
-                <div>
-                    <label for="fone">Fone</label>
-                    <input name="fone" type="number"  th:field="*{fone}">
-                </div>
-
-                <div>
-                    <label for="funcao">Função</label>
-                    <input name="funcao" type="text"  th:field="*{funcao}">
-                </div>
-
-                <div>
-                    <label for="crf">CRF</label>
-                    <input name="crf" type="number"  th:field="*{crf}">
-                </div>
-
-                <div>
-                    <label for="senha">Senha</label>
-                    <span th:if="${#fields.hasErrors('senha')}" th:errors= "*{senha}" class= "text-danger"></span>
-                    <input name="senha" type="password"  th:field="*{senha}">
-                </div>
-
-                <div class="buttonUsuario">
-                    <button type="submit"> Cadastrar usuário</button>
-                </div>
-            </form>
+                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px; padding-right: 5px;
+                    margin-right: -7px;">
+                        <a href="/usuario/listagem">Ir para a listagem</a>
+                    </button>
+                </form>
+            </fieldset>
         </main>
     </body>
+    <script>
+
+        var entrada = document.getElementById("senha");
+        var icone = document.getElementById("icon")
+
+        function verSenha(){
+
+            if(entrada.type == "password"){
+                entrada.type = "text";
+                icone.src="/mídia/vetores/eye.svg";
+            }
+        }
+
+        function esconderSenha(){
+            if(entrada.type == "text"){
+                entrada.type = "password";
+                icone.src="/mídia/vetores/eye-off.svg";
+            }
+        }
+        
+        /*var opcao = document.getElementById("funcaoselecionada").value;
+        var crf = document.getElementById('crf');
+
+        function hideCrf(farm){
+            if(opcao === "Farmaceutico"){
+                crf.style.display = 'inline-block';
+            } else {
+                crf.style.display = 'none';
+            }
+        }*/
+    </script>
 </html>

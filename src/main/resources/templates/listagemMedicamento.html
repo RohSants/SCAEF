@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Lista de Medicamentos</title>
+        </div>
+        <link type="text/css" rel="stylesheet" href="/css/listagemMedicamento.css">
+    </head>
+
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
+        <main>
+            <div>
+                <h1>Lista de medicamentos</h1>
+                <table>
+                    <thead>
+                        <tr class="tabela">
+                            <th>Nome</th>
+                            <th>Dose</th>
+                            <th>CID</th>
+                            <th>Forma</th>
+                            <th>Classe</th>
+                            <th>PCDT</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="lista" id="titulo-listagem" th:each = "medicamento : ${listaMedicamento}">
+                            <td th:text="${medicamento.nome}"></td>
+                            <td th:text="${medicamento.dose}"></td>
+                            <td th:text="${medicamento.cid}"></td>
+                            <td th:text="${medicamento.forma}"></td>
+                            <td th:text="${medicamento.classeT}"></td>
+                            <td th:text="${medicamento.pcdt}"></td>
+
+                            
+                            <td>
+                                <a th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</a>
+                            </td>
+                            <td>
+                                <a th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</a>
+                            </td>		
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px;margin-top: 21px;">
+                    <a href="/medicamento/cadastro">Incluir novo medicamento</a>
+                </button>
+            </div>
+        </main>
+    </body>
+</html>

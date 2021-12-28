@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Tela Principal</title> 
+        </div>
+    </head>
+
+    <style>
+        #indexmessage > p, #indexmessage > span{
+            font-size: 1.3rem;
+            text-align: center;
+        }
+
+        #indexmessage > p{
+            margin-top: 1rem;
+        }
+    </style>
+
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
+        <main>              
+            <div id="indexmessage">
+                <p>Olá,  <span sec:authentication="name"></span></p>
+                <p>Tela de consulta em desenvolvimento, para acessar as outras telas basta clicar nas opções do menu acima! agradecemos a compreensão.</p>
+            </div>
+        </main>
+    </body>
+</html>

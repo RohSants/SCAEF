@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+.tabela{
+    display: grid;
+    grid-template-columns: 2.4fr 3.6fr 2.4fr 2.5fr 5fr;
+    border-bottom: 1.2px solid var(--cor-fonte-claro);
+    padding-bottom: 12px;
+    margin-top:20px;
+}
+
+.lista{
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 2fr 2fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1.2px solid var(--cor-fonte-claro);
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.btn-primary{
+    margin-left: 10px;
+    margin-right: 8px;
+}
+
+

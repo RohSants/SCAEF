@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SCAEF</title>
+        <link type="text/css" rel="stylesheet" href="/css/telalogin.css">
+        <script src="/js/funções.js"></script>
+        <link rel="icon" type="imagem/svg+xml" href="/mídia/vetores/logo_scaef.svg"/>
+        
+        <!--link de acesso ao bootstrap via CDN-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">  
+    </head>
+
+    <body>
+        <main id = "mainbody">
+            <section id="descricao" class="formatoconteiner"> 
+                <div id="titulo">
+                    <img id="logoscaef" src="/mídia/vetores/logo_scaef.svg" alt="Uma figura que representa o sistema">
+                    <p>Sistema Cadastral para Assistência Especializada em Farmácia - SCAEF</p>
+                </div> 
+
+                <section id="personagens">
+                        <img src="/mídia/vetores/personagem_1.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. O personagem traz características árabes e usa um turbante." class="tamanhosvg">
+                        <img src="/mídia/vetores/personagem_3.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. O personagem traz características negroides." class="tamanhosvg">
+                        <img src="/mídia/vetores/personagem_2.svg" alt="Um dos personagens que têm o papel de trazer representatividade étnica. A personagem traz características mestiças, com cabelos ondulados e cor entre negro e branco." id="centro" class="tamanhosvg">
+                </section>
+
+            </section>
+
+            <section id = "telalogin" class="formatoconteiner">
+
+                    <header id = "headerlogin">
+                        <p>Login</p>
+                    </header>
+
+                    <main id = "campologin">
+
+                        <form method="post" th:object = "${usuario}" th:action="@{/login}">
+                            <p id = "tamanhologin">Usuário</p>
+                            <input name="username"  id = "formatologin" class = "form-control" type = "text" placeholder = "nome" >
+                            <p id="senhalogin" class = "tamanhologin">Senha</p>
+
+                            <div id="camposenha">
+                                <input name="password" id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2">
+
+                                <button id="botaologin" type="submit" onmouseover="mostraTexto()" onmouseout="escondeTexto()">
+                                    <div class="tooltipbutton">
+                                        <img src="/mídia/vetores/botão_confirmação.svg" alt="botão de confimação do login" id="botaologinform">
+                                        <span id="tooltiptext">Efetuar Login</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </form>
+                    </main>
+
+                    <footer id = "footerlogin">
+                        <div class="menulogin">
+                                <a href = "#" target = "_self">Esqueci a Senha</a>
+                                <!--<a href = "/usuario/cadastro" target = "_self">Opção 2</a>-->
+                        </div>
+                    </footer>
+
+                </section>
+        </main>
+
+        <footer id = "footerbody"> 
+            <p>
+                Ministério da Saúde do Brasil
+            </p>
+            <picture>
+                <img id = "sus" src="/mídia/imagens/logo_sus.png" alt="Logo  do Sistema Único de Saúde (SUS)">
+                </picture>
+        </footer>
+    </body>
+    <script>
+        var x = document.getElementById("tooltiptext");
+
+        function mostraTexto(){
+            x.style.cssText = 
+                'visibility: visible;' +
+                'opacity: 1;' 
+        }
+
+        function escondeTexto(){
+            x.style.cssText = 
+            'opacity = 0;' + 
+            'visibility = "hidden";'
+        }
+    </script>
+</html>

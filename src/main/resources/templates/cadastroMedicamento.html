@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <div th:replace="fragments/headlayout :: headconfig">
+            <title id="thlayouttitle">Cadastro de Medicamento</title>
+        </div>
+        <link type="text/css" rel="stylesheet" href="/css/cadastromedicamento.css">
+    </head>
+
+    <body th:replace="~{fragments/layout :: layout (~{:: main})}">
+        <main>
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 20px;">
+                [[${message}]]
+            </div>
+
+            <fieldset class="formulariobox">
+                
+                <form class="formulario" th:object="${medicamento}" method="post" action="#" th:action="@{/salvarMedicamento}">
+            
+                <div class="cadicon">
+                    <img class="cadiconimg" src="/mídia/vetores/user_plus_by_colebemis.svg" alt="Uma figura que representa o sistema">
+                    <legend>Cadastro de Medicamento</legend>
+                </div>
+                
+                <div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                <label class="validation-message" th:errors="*{nome}"></label>
+                </div>
+
+                <label for="nome">Nome
+                <input name="nome" type="text" th:type="*{nome}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('cid')}" th:errors="*{cid}">
+                <label class="validation-message" th:errors="*{cid}"></label>
+                </div>-->
+
+                <label for="cid">CID
+                    <input name="cid" type="text" th:type="*{cid}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('catReg')}" th:errors="*{catReg}">
+                <label class="validation-message" th:errors="*{catReg}"></label>
+                </div>-->
+
+                <label for="catReg">Categoria regulatória
+                    <input name="catReg" type="text" th:type="*{catReg}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('pcdt')}" th:errors="*{pcdt}">
+                <label class="validation-message" th:errors="*{pcdt}"></label>
+                </div>-->
+
+                <label for="pcdt">PCDT
+                    <input name="pcdt" type="text" th:type="*{pcdt}" class = "entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('dose')}" th:errors="*{dose}">
+                <label class="validation-message" th:errors="*{dose}"></label>
+                </div>-->
+
+                <label for="dose">Dosagem
+                    <input name="dose" type="text" th:type="*{dose}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('forma')}" th:errors="*{forma}">
+                <label class="validation-message" th:errors="*{forma}"></label>
+                </div>-->
+
+                <label for="forma">Forma farmacêutica
+                    <input name="forma" type="text" th:type="*{forma}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('via')}" th:errors="*{via}">
+                <label class="validation-message" th:errors="*{via}"></label>
+                </div>-->
+
+                <label for="via">Via de consumo
+                    <input name="via" type="text" th:type="*{via}" class = "entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('priA')}" th:errors="*{priA}">
+                <label class="validation-message" th:errors="*{priA}"></label>
+                </div>-->
+
+                <label for="priA">Princípio ativo
+                    <input name="priA" type="text" th:type="*{priA}" class ="entrada form-control campos" autocomplete="off">
+                </label>
+
+                <!--<div class ="mensagem" role = "alert" th:if="${#fields.hasErrors('classeT')}" th:errors="*{classeT}">
+                <label class="validation-message" th:errors="*{classeT}"></label>
+                </div>-->
+
+                <label for="classeT">Classe terapêutica
+                    <input name="classeT" type="text" th:type="*{classeT}" class ="entrada form-control campos" autocomplete="off" >
+                </label>
+
+                <br>
+
+                <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; margin-right: 5px; margin-left: 50px;">Cadastrar Medicamento</button>
+
+                <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; padding-right: 10px;">
+                    <a href="/medicamento/listagem">Ir para a listagem</a>
+                </button>
+                </form>
+                </fieldset>
+        </main>
+    </body>
+</html>
