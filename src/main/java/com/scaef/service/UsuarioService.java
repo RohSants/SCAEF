@@ -35,5 +35,6 @@ public class UsuarioService {
 
    public Usuario findByNome(String nome){
        return usuarioRepository.findByNome(nome);
-   } 
+   }
+
 }

@@ -37,14 +37,11 @@
 							<td th:text="${usuario.funcao}"></td>
 						
 							<td> 
-								<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary">Alterar</a>
+								<a th:href="@{alterar/{id}(id=${usuario.id})}" class="btn btn-primary" style="text-decoration: none;">Alterar</a>
 							</td>
 							
-							<td> 
-								<button class="btn btn-danger" type="button">
-									<a th:href="@{excluir/{id}(id=${usuario.id})}">
-										Excluir
-									</a>
+							<td > 
+								<button id="botaoModal" class="btn btn-danger" type="button" th:onclick="'javascript:abrirModal(\'' + ${usuario.id} +'\');'">Excluir
 								</button>
 							</td>
 						</tr>
@@ -52,9 +49,34 @@
 				</table>
 
 				<button type="button" class="btn-layout btn btn-primary" style="margin-left: 0px; margin-top: 21px;">
-				<a href="/usuario/cadastro">Incluir novo usuário</a>
+					<a href="/usuario/cadastro">Incluir novo usuário</a>
 				</button>
+			</div>
+
+			<div id="userModalHolder">
+				<th:block th:replace="modalUsuario :: dadosUser"></th:block>
 			</div>
 		</main>
 	</body>
+
+	<script>
+		function abrirModal(id){
+			var url1= "http://localhost:8080/usuario/" + id;
+			var userdel = "excluir/" + id;
+
+			function viewModal(){
+				$("#userModalHolder #userModal").modal('show');
+				$("#userModalHolder #userModal #usuarioExcluir").attr("href", userdel);
+				$("#userModalHolder #userModal #usuarioNome").load(url1);
+			}
+
+			$.ajax({
+				url: url1,
+				dataType: "application/json",
+				cache: false,
+				sucess: viewModal(),
+				});
+		}
+	</script>
+	
 </html>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UsuarioController {
@@ -135,5 +136,13 @@ public class UsuarioController {
         usuarioService.deletar(usuarioOp.get());
         mv.setViewName("redirect:/usuario/listagem");
         return mv;
+    }
+
+
+    @RequestMapping(value = "/usuario/{id}", produces="application/json")
+    public @ResponseBody String dadosUser(@PathVariable("id") Long id, Model model){
+        Optional<Usuario> usuario = usuarioService.findById(id);
+        String nomeUser = usuario.get().getNome();
+        return nomeUser;
     }
 }

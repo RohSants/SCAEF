@@ -1,29 +1,12 @@
-/* Funções em desenvolvimento */
-
-/*var opcao = document.getElementById("funcaoselecionada").value;
-var crf = document.querySelector('.crf');
-
-function hideCrf(farm){
-    if(opcao === "Farmaceutico"){
-        crf.style.display = 'none';
-    } else {
-        crf.style.display = 'inline-block';
-    }
-}*/
-
 /* Funções de animações da interface */
-var x = document.getElementById("tooltiptext");
-
 function mostraTexto(){
-    x.style.cssText = 
-        'visibility: visible;' +
-        'opacity: 1;' 
+    $("#tooltiptext").css('visibility', 'visible')
+    $("#tooltiptext").css('opacity', '1')
 }
 
 function escondeTexto(){
-    x.style.cssText = 
-    'opacity = 0;' + 
-    'visibility = "hidden";'
+    $("#tooltiptext").css('visibility', 'hidden')
+    $("#tooltiptext").css('opacity', '0')
 }
 
 /* Funções dos formulários de cadastro */

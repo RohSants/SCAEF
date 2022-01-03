@@ -23,20 +23,20 @@
                     </div>
 
                     <div id="campo-erro1" th:if="${#fields.hasErrors()}">
-                        <span class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}">
+                        <span id="errosnome" class ="mensagem" role = "alert" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" style="margin-right: 20px;">
                             <span class="validation-message" th:errors="*{nome}"></span>
                         </span>
-                        <br>
-                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}">
+
+                        <span id="erroscpf" class="mensagem" role ="alert" th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" style="margin-right: 17px;">
                             <span class = "validation-message" th:errors="*{cpf}"></span>
                         </span>
-                        <br>
-                        <span class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
-                            <span class="validation-message" th:errors="*{email}" ></span>
-                        </span>
-                        <br>
-                        <span class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}">
+
+                        <span id="errosrg" class="mensagem" role ="alert" th:if="${#fields.hasErrors('rg')}" th:errors="*{rg}" style="margin-right: 26px;">
                             <span class = "validation-message" th:errors="*{rg}"></span>
+                        </span>
+
+                        <span id="errosemail" class="mensagem" role="alert" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">
+                            <span class="validation-message" th:errors="*{email}" ></span>
                         </span>
                     </div>
 
@@ -60,7 +60,7 @@
                     <br>
 
                     <div id="campo-erro2" th:if="${#fields.hasErrors()}">
-                        <span class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
+                        <span id="errossenha" class="mensagem" role = "alert" th:if="${#fields.hasErrors('senha')}" th:errors="*{senha}">
                             <span class = "validation-message" th:errors="*{senha}" ></span>
                         </span>
                     </div>
@@ -97,7 +97,7 @@
                         </select>
                     </label>
 
-                    <label for="crf" class="dados-fila3">CRF
+                    <label for="crf" id="crfcampo" class="dados-fila3" style="opacity: 0;">CRF
                         <input name="crf" type="text" th:field="*{crf}"  class="form-control entrada" onkeypress="return onlynumber()">
                     </label>
 
@@ -105,8 +105,7 @@
 
                     <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px;">Cadastrar usuário</button>
 
-                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 5px; padding-right: 5px;
-                    margin-right: -7px;">
+                    <button type="button" class="btn-layout btn btn-primary" style=" margin-top: 20px; margin-bottom: 5px; padding-right: 12px; margin-right: 0px;">
                         <a href="/usuario/listagem">Ir para a listagem</a>
                     </button>
                 </form>
@@ -132,16 +131,21 @@
                 icone.src="/mídia/vetores/eye-off.svg";
             }
         }
-        
-        /*var opcao = document.getElementById("funcaoselecionada").value;
-        var crf = document.getElementById('crf');
 
-        function hideCrf(farm){
-            if(opcao === "Farmaceutico"){
-                crf.style.display = 'inline-block';
+       $( "select" )
+        .change(function() {
+            var option = $('option:selected', this).attr('value');
+
+            if(option == "Farmacêutico"){
+                $("#crfcampo").css('opacity','1');
+                $("#crfcampo").css('transition','0.8s');
+                $("#crfcampo input").attr('required', 'required*')
             } else {
-                crf.style.display = 'none';
-            }
-        }*/
+                $("#crfcampo").css('opacity','0');
+                $("#crfcampo").css('transition','0.5s');
+                $("#crfcampo input").removeAttr('required', 'required*')
+            };
+        })
+        .trigger( "change" );
     </script>
 </html>

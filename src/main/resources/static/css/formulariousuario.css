@@ -64,13 +64,47 @@ label {
 }
 
 .dados-fila1{
-  margin-right: 20px;
+  margin-right: 18px;
   margin-bottom: 20px;
 }
 
+#campo-erro1 {
+  display: grid;
+  align-items: center;
+  grid-template-areas: "errosnome erroscpf errosrg errosemail";
+  grid-template-columns: 227px 228px 228px 206px;
+}
+
+#errosnome {
+  grid-area: errosnome;
+}
+
+#erroscpf {
+  grid-area: erroscpf;
+}
+
+#errosrg {
+  grid-area: errosrg;
+}
+
+#errosemail {
+  grid-area: errosemail;
+}
+
 .dados-fila2{
-  margin-right: 26px;
+  margin-right: 18px;
   margin-bottom: 20px;
+}
+
+#campo-erro2 {
+  display: grid;
+  align-items: center;
+  grid-template-areas: "celular fone errossenha";
+  grid-template-columns: 227px 229px 228px;
+}
+
+#errossenha{
+  grid-area: errossenha;
 }
 
 .dados-fila3{

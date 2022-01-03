@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+.formularioborda{
+  margin: 0px 2px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border-style: double;
+  border-width: 3px;
+  color: var(--cor-fonte-claro);
+}
+
+.formularioborda > .formulario {
+  color: var(--cor-fonte-claro);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.formularioborda > .formulario > label > input,
+.formularioborda > .formulario > label > div > input{
+  font-size: 1.13rem;
+  padding-left: 6px;
+  width: 205px;
+}
+
+.form-control{
+  padding: 0px;
+}
+
+.formulario >  label {
+  font-size: 1.3rem;
+  margin-left: 50px;
+  margin-bottom: 28px;
+}
+
+.formulario >  label > input{
+  padding-left: 6px;
+  width: 205px;
+}
+
+.cadicon{
+  width: 297px;
+  margin-top: -40px;
+}
+
+.cadicon > legend{
+  width: 220px;
+}
+
+.mensagem{
+  font-size: var(--bs-body-font-size);
+}
+
+#campo-erro1 {
+  margin-left: 50px;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "errosnome erroscid erroscatReg";
+  grid-template-columns: 259px 260px 228px;
+}
+
+#campo-erro1 > span{
+  margin-right: 18px;
+}
+
+#errosnome {
+  grid-area: errosnome;
+}
+
+#erroscid {
+  grid-area: erroscid;
+}
+
+#erroscatReg{
+  grid-area: erroscatReg;
+}
+
+#campo-erro2 {
+  margin-left: 50px;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "errospcdt errosdose errosforma";
+  grid-template-columns: 259px 260px 228px;
+}
+
+#campo-erro2 > span{
+  margin-right: 18px;
+}
+
+#errospcdt {
+  grid-area: errospcdt;
+}
+
+#errosdose {
+  grid-area: errosdose;
+}
+
+#errosforma {
+  grid-area: errosforma;
+}
+
+#campo-erro3 {
+  margin-left: 50px;
+  display: grid;
+  align-items: center;
+  grid-template-areas: "errosvia errospriA errosclasseT";
+  grid-template-columns: 259px 260px 228px;
+}
+
+#campo-erro3 > span{
+  margin-right: 18px;
+}
+
+#errosvia {
+  grid-area: errosvia;
+}
+
+#errospriA {
+  grid-area: errospriA;
+}
+
+#errosclasseT {
+  grid-area: errosclasseT;
+}

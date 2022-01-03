@@ -11,6 +11,10 @@
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
         <main>
+            <div th:if="${message}" class="alert alert-success text-center" style="margin-bottom: 20px;">
+                [[${message}]]
+            </div>
+
             <div>
                 <h1>Lista de medicamentos</h1>
                 <table>
@@ -28,18 +32,19 @@
                     <tbody>
                         <tr class="lista" id="titulo-listagem" th:each = "medicamento : ${listaMedicamento}">
                             <td th:text="${medicamento.nome}"></td>
-                            <td th:text="${medicamento.dose}"></td>
+                            <td th:text="${medicamento.dose}" style="margin-right: 
+                            8px;"></td>
                             <td th:text="${medicamento.cid}"></td>
-                            <td th:text="${medicamento.forma}"></td>
+                            <td th:text="${medicamento.forma}" style="padding: 8px;"></td>
                             <td th:text="${medicamento.classeT}"></td>
                             <td th:text="${medicamento.pcdt}"></td>
 
                             
                             <td>
-                                <a th:href="@{alterar/{id}(id=${medicamento.id})}" class="btn btn-primary">Alterar</a>
+                                <a th:href="@{alterar/{id}(id=${medicamento.id})}"  class="btn btn-primary">Alterar</a>
                             </td>
                             <td>
-                                <a th:href="@{excluir/{id}(id=${medicamento.id})}" class="btn btn-danger">Excluir</a>
+                                <a class="btn btn-danger" th:onclick="'javascript:abrirModal(\'' + ${medicamento.id} +'\');'">Excluir</a>
                             </td>		
                         </tr>
                     </tbody>
@@ -48,6 +53,32 @@
                     <a href="/medicamento/cadastro">Incluir novo medicamento</a>
                 </button>
             </div>
+
+            <div id="medicamentoModalHolder">
+				<th:block th:replace="modalMedicamento :: dadosMedicamento"></th:block>
+			</div>
         </main>
     </body>
+
+    <script>
+		function abrirModal(id){
+			var url1= "http://localhost:8080/medicamento/" + id;
+			var medicamentodel = "excluir/" + id;
+
+			function viewModal(){
+				$("#medicamentoModalHolder #medicamentoModal").modal('show');
+				$("#medicamentoModalHolder #medicamentoModal #medicamentoExcluir").attr("href", medicamentodel);
+				$("#medicamentoModalHolder #medicamentoModal #medicamentoNome").load(url1);
+			}
+
+			$.ajax({
+				url: url1,
+				dataType: "application/json",
+				cache: false,
+				sucess: viewModal(),
+				error: console.log('erro')
+				});
+		}
+	</script>
+
 </html>

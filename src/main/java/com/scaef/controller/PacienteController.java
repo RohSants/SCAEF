@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -36,6 +37,7 @@ public class PacienteController {
     public ModelAndView salvar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
+            mv.addObject("paciente", paciente);
             mv.setViewName("cadastroPaciente");
             return mv;
         }
@@ -69,10 +71,12 @@ public class PacienteController {
     public ModelAndView alterar(@Valid @ModelAttribute("paciente") Paciente paciente, BindingResult bindingResult, RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
+            mv.addObject("paciente", paciente);
             mv.setViewName("alterarPaciente");
             return mv;
         }
         pacienteService.salvar(paciente);
+        ra.addFlashAttribute("message","Paciente alterado com sucesso!");
         mv.setViewName("redirect:paciente/listagem");
         return mv;
     }
@@ -84,5 +88,12 @@ public class PacienteController {
         pacienteService.deletar(pacienteOp.get());
         mv.setViewName("redirect:/paciente/listagem");
         return mv;
+    }
+
+    @RequestMapping(value = "/paciente/{id}", produces="application/json")
+    public @ResponseBody String dadosPaciente(@PathVariable("id") Long id, Model model){
+        Optional<Paciente> paciente = pacienteService.findById(id);
+        String nomePaciente = paciente.get().getNome();
+        return nomePaciente;
     }
 }

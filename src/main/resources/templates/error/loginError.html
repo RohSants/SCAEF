@@ -39,11 +39,12 @@
 
                         <form method="post" th:object = "${usuario}" th:action="@{/login}">
                                 <p id = "tamanhologin">Usuário</p>
-                                <input name="username"  id = "formatologin" class = "form-control" type = "text" placeholder = "nome" >
+                                <input name="username" class = "form-control formatologin" type = "text" placeholder = "nome" >
                                 <p id="senhalogin" class = "tamanhologin">Senha</p>
 
                                 <div id="camposenha">
-                                    <input name="password" id = "formatologin" class="form-control" type="password" placeholder="********" aria-describedby="button-addon2" >
+                                    <input name="password" class="form-control formatologin" type="password" placeholder="********" aria-describedby="button-addon2">
+    
                                     <button id="botaologin" type="submit" onmouseover="mostraTexto()" onmouseout="escondeTexto()">
                                         <div class="tooltipbutton">
                                             <img src="/mídia/vetores/botão_confirmação.svg" alt="botão de confimação do login" id="botaologinform">
@@ -59,7 +60,7 @@
                         <div th:if="${erro != null}" th:text="${erro}" class="mensagem" role="alert"></div>
                         <div class="menulogin">
                                 <a href = "#" target = "_self">Esqueci a Senha</a>
-                                <a href = "/usuario/cadastro" target = "_self">Opção 2</a>
+                                <!--<a href = "/usuario/cadastro" target = "_self">Opção 2</a>-->
                         </div>
                     </footer>
 
