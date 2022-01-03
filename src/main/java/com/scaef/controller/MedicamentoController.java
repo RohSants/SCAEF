@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.stereotype.Controller;
@@ -37,8 +38,8 @@ public class MedicamentoController {
     public ModelAndView salvar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult,RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("cadastroMedicamento");
             mv.addObject("medicamento", medicamento);
+            mv.setViewName("cadastroMedicamento");
             return mv;
         }
         medicamentoService.salvar(medicamento);
@@ -72,11 +73,12 @@ public class MedicamentoController {
     public ModelAndView alterar(@Valid @ModelAttribute("medicamento") Medicamento medicamento,BindingResult bindingResult, RedirectAttributes ra){
         ModelAndView mv = new ModelAndView();
         if(bindingResult.hasErrors()){
-            mv.setViewName("alterarMedicamento");
             mv.addObject("medicamento", medicamento);
+            mv.setViewName("alterarMedicamento");
             return mv;
         }
         medicamentoService.salvar(medicamento);
+        ra.addFlashAttribute("message","Medicamento alterado com sucesso!");
         mv.setViewName("redirect:medicamento/listagem");
         return mv;
     }
@@ -88,5 +90,12 @@ public class MedicamentoController {
         medicamentoService.deletar(medicamentoOp.get());
         mv.setViewName("redirect:/medicamento/listagem"); 
         return mv;
+    }
+
+    @RequestMapping(value = "/medicamento/{id}", produces="application/json")
+    public @ResponseBody String dadosMedicamento(@PathVariable("id") Long id, Model model){
+        Optional<Medicamento> medicamento= medicamentoService.findById(id);
+        String nomeMedicamento= medicamento.get().getNome();
+        return nomeMedicamento;
     }
 }

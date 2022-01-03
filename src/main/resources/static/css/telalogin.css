@@ -125,14 +125,14 @@ p{
   margin: 8px 40px 0px 40px;
 }
 
-#telalogin #campologin #formatologin {
+#telalogin #campologin .formatologin {
   width: 320px;
   height: 35px;
   margin-top: 23px;
   border-radius: 21px;
 }
 
-#telalogin #campologin #formatologin:nth-last-child(2) {
+#telalogin #campologin .formatologin:nth-last-child(2) {
   width: 278px;
   margin-right: 10px;
 }

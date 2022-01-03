@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <body class="app" th:fragment="layout (conteudo)">
         <header class="menu">
-            <a href = "#" target = "_self">
+            <a href = "/home" target = "_self">
                 <figure class="menulogo">
                     <img class="logoscaef" src="/mídia/vetores/logo_scaef.svg" alt="logo do sistema">
                     <figcaption>SCAEF</figcaption>
@@ -21,7 +22,10 @@
                         <a href = "/medicamento/listagem" target = "_self" sec:authorize="hasAnyAuthority('Administrador', 'Farmacêutico')">Medicamentos</a>
                     </li>
                     <li>
-                        <a href = "#" target = "_self"sec:authorize="hasAnyAuthority('Administrador')">Estoque</a>
+                        <a href = "" target = "_self" sec:authorize="hasAnyAuthority('Administrador')" id="tooltipbutton" onmouseover="mostraTexto()" onmouseout="escondeTexto()">
+                            Estoque
+                            <span id="tooltiptext">Tela em Desenvolvimento</span>
+                        </a>
                     </li>
                     <li>
                         <a href = "/usuario/listagem" target = "_self" sec:authorize="hasAnyAuthority('Administrador')">Usuários</a>
@@ -67,4 +71,8 @@
             <p>Sistema Cadastral para a Assistência Especializada em Farmácia</p>
         </footer>
     </body>
-    </html>
+
+    <script>
+
+    </script>
+</html>

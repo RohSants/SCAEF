@@ -6,7 +6,8 @@
         <div th:replace="fragments/headlayout :: headconfig">
             <title id="thlayouttitle">Alterar Dados do Medicamento</title>
         </div>
-        <!--<link type="text/css" rel="stylesheet" href="/css/">-->
+        <link type="text/css" rel="stylesheet" href="/css/formulariomedicamento.css">
+        <link type="text/css" rel="stylesheet" href="/css/formularioalterarmedicamento.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
@@ -16,20 +17,59 @@
                 [[${message}]]
             </div>
 
-            <form class="formulario" action="#" th:action="@{/alterarMedicamento}" method = "post">
-                <input type="hidden" th:name="id" th:value="${medicamento.id}">
-                <input type="text" th:name="nome" th:value="${medicamento.nome}">
-                <input type="text" th:name="cid" th:value="${medicamento.cid}">
-                <input type="text" th:name="catReg" th:value="${medicamento.catReg}">
-                <input type="text" th:name="pcdt" th:value="${medicamento.pcdt}">
-                <input type="text" th:name="dose" th:value="${medicamento.dose}">
-                <input type="text" th:name="forma" th:value="${medicamento.forma}">
-                <input type="text" th:name="via" th:value="${medicamento.via}">
-                <input type="text" th:name="priA" th:value="${medicamento.priA}">
-                <input type="text" th:name="classeT" th:value="${medicamento.classeT}">
+            <fieldset class="formularioborda">
+                <form class="formulario" action="#" th:action="@{/alterarMedicamento}" method = "post">
 
-                <button type="submit">Alterar</button>
-            </form>
+                    <div class="cadicon">
+                        <img class="cadiconimg" src="/mídia/vetores/plus_by_colebemis.svg" alt="Uma figura que representa o sistema">
+                        <legend>Alterar Dados do Medicamento</legend>
+                    </div>
+
+                    <input type="hidden" th:name="id" th:value="${medicamento.id}">
+
+                    <label for="nome"> Nome
+                        <input type="text" th:name="nome" th:value="${medicamento.nome}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="cid"> CID
+                        <input type="text" th:name="cid" th:value="${medicamento.cid}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="catReg"> Categoria Regulatória
+                        <input type="text" th:name="catReg" th:value="${medicamento.catReg}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="pcdt"> PCDT
+                        <input type="text" th:name="pcdt" th:value="${medicamento.pcdt}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="dose"> Dosagem
+                        <input type="text" th:name="dose" th:value="${medicamento.dose}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="forma"> Forma
+                        <input type="text" th:name="forma" th:value="${medicamento.forma}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+                    
+                    <label for="via"> Via de Consumo
+                        <input type="text" th:name="via" th:value="${medicamento.via}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="priA"> Princípio Ativo
+                        <input type="text" th:name="priA" th:value="${medicamento.priA}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <label for="classeT"> Classe Terapêutica
+                        <input type="text" th:name="classeT" th:value="${medicamento.classeT}" class ="entrada form-control campos" autocomplete="off">
+                    </label>
+
+                    <button type="submit" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; margin-right: 5px; margin-left: 50px;">Alterar Dados</button>
+
+                    <button type="button" class="btn-layout btn btn-primary" style="margin-top: 20px; margin-bottom: 20px; padding-right: 10px;">
+                        <a href="/medicamento/listagem">Ir para a listagem</a>
+                    </button>
+                </form>
+            </fieldset>
         </main>
     </body>
 </html>

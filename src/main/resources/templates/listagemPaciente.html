@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html  lang="pt-br" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
     <head>
@@ -18,26 +19,26 @@
 							<th title="Nome Civil ou Social">Nome</th>
 							<th>CNS</th>
 							<th>CPF</th>
-							<th>Nome da Mãe</th>
+							<th title="Mãe, Pai ou Responsável">Nome da Mãe</th>
 							<th>Data de Nascimento</th>
-							<th>Sexo</th>
+							<th title="Sexo Biológico">Sexo</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr class="lista" id="titulo-listagem" th:each = "paciente : ${listaPaciente}">
 							<td th:switch="${paciente.idNome == 'Nome Social'}">
 								<span th:case="true">
-									<p th:text="${paciente.nomeS}" style="margin-bottom: 0px;"></p>
+									<p title="Nome Civil ou Social" th:text="${paciente.nomeS}" style="margin-bottom: 0px; padding-right: 7px;"></p>
 								</span>
 								<span th:case="*">
-									<p th:text="${paciente.nome}" style="margin-bottom: 0px;"></p>
+									<p title="Nome Civil ou Social" th:text="${paciente.nome}" style="margin-bottom: 0px; padding-right: 7px;"></p>
 								</span>
 							</td>
 							<td th:text="${paciente.cns}"></td>
 							<td th:text="${paciente.cpf}"></td>
-							<td th:text="${paciente.nomeM}"></td>
+							<td title="Mãe, Pai ou Responsável" th:text="${paciente.nomeM}"></td>
 							<td th:text="${paciente.dataNasc}"></td>
-							<td th:text="${paciente.sexo}"></td>
+							<td title="Sexo Biológico" th:text="${paciente.sexo}"></td>
 
 			
 							<td>
@@ -45,7 +46,7 @@
 							</td>
 
 							<td>
-								<a th:href="@{excluir/{id}(id=${paciente.id})}" class="btn btn-danger">Excluir</a>
+								<a class="btn btn-danger" th:onclick="'javascript:abrirModal(\'' + ${paciente.id} +'\');'">Excluir</a>
 							</td>
 						</tr>
 					</tbody>
@@ -54,6 +55,32 @@
 					<a href="/paciente/cadastro">Incluir novo paciente</a>
 				</button>
 			</div>
+
+			<div id="pacienteModalHolder">
+				<th:block th:replace="modalPaciente :: dadosPaciente"></th:block>
+			</div>
 		</main>
 	</body>
+
+	<script>
+		function abrirModal(id){
+			var url1= "http://localhost:8080/paciente/" + id;
+			var pacientedel = "excluir/" + id;
+
+			function viewModal(){
+				$("#pacienteModalHolder #pacienteModal").modal('show');
+				$("#pacienteModalHolder #pacienteModal #pacienteExcluir").attr("href", pacientedel);
+				$("#pacienteModalHolder #pacienteModal #pacienteNome").load(url1);
+			}
+
+			$.ajax({
+				url: url1,
+				dataType: "application/json",
+				cache: false,
+				sucess: viewModal(),
+				error: console.log('erro')
+				});
+		}
+	</script>
+
 </html>

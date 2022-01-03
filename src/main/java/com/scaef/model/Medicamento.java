@@ -29,46 +29,46 @@ public class Medicamento {
     private Long id;
  
     @Column(name = "Nome", nullable = false, unique = true)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 95)
+    @NotBlank(message = "O Nome do Medicamento é Obrigatório")
+    @Size(max = 150)
     private String nome;
  
     @Column(name = "CID", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
+    @NotBlank(message = "O CID do Medicamento é Obrigatório")
     private String cid;
 
     @Column(name = "Categoria_Regulatória", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 60)
+    @NotBlank(message = "A Categoria Regulatória do Medicamento é Obrigatória")
+    @Size(max = 150)
     private String catReg;
 
     @Column(name = "PCDT", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 50)
+    @NotBlank(message = "O PCDT do Medicamento é Obrigatório")
+    @Size(max = 150)
     private String pcdt;
 
     @Column(name = "Dosagem", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
+    @NotBlank(message = "A Dosagem do Medicamento é obrigatória")
     @Size(max = 25)
     private String dose;
 
     @Column(name = "Forma_Farmacêutica", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 25)
+    @NotBlank(message = "A Forma Farmacêutica do Medicamento é Obrigatória")
+    @Size(max = 150)
     private String forma;
 
     @Column(name = "Via_de_Administração", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 19)
+    @NotBlank(message = "A Via de Administração do Medicamento é Obrigatória")
+    @Size(max = 25)
     private String via;
 
     @Column(name = "Princípio_Ativo", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
-    @Size(max = 55)
+    @NotBlank(message = "O Princípio Ativo do Medicamento é Obrigatório")
+    @Size(max = 150)
     private String priA;
 
     @Column(name = "Classe_Terapêutica", nullable = false)
-    @NotBlank(message = "O preenchimento deste campo é obrigatório")
+    @NotBlank(message = "A Classe Terapêutica é obrigatória")
     @Size(max = 60)
     private String classeT;
 }

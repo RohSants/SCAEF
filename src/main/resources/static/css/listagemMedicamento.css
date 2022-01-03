@@ -2,8 +2,7 @@
 
 .tabela{
     display: grid;
-    grid-template-columns: 5fr 2fr 5fr 4fr 5fr 9fr;
-
+    grid-template-columns: 4.4fr 2.8fr 1.9fr 4fr 5fr 9fr;
     border-bottom: 1.2px solid var(--cor-fonte-claro);
     padding-bottom: 12px;
     margin-top:20px;
@@ -12,8 +11,7 @@
 
 .lista{
     display: grid;
-    grid-template-columns: 9fr 3.7fr 8.9fr 7.3fr 9fr 7fr 1fr 1fr
-    ; 
+    grid-template-columns: 9.1fr 5.85fr 3.89fr 8.29fr 10.3fr 9fr 1fr 1fr; 
     align-items: center;
     border-bottom: 1.2px solid var(--cor-fonte-claro);
     padding-bottom: 10px;

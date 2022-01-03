@@ -62,8 +62,8 @@ public class Usuario {
     @NotBlank(message = "o campo Celular não pode ser vazio")
     private String celular;
 
-    @Column(name = "Fone_Fixo", nullable = true)
-    @Size(max = 15, message= "o campo Telefone deve conter 11 dígitos")
+    @Column(name = "Fone_Fixo", nullable = true, unique = false)
+    @Size(max = 15)
     private String fone;
 
     @Column(name = "Função", nullable = false)
@@ -71,7 +71,7 @@ public class Usuario {
     @NotNull(message = "Escolha uma das seguinte opções!")
     private EnumFuncao funcao;
 
-    @Column(name = "CRF", nullable = true, unique = true)
+    @Column(name = "CRF", nullable = true, unique = false)
     private String crf;
 
     @Column(name = "Senha", nullable = false)

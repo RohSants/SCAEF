@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 .cadicon {
-    margin-top: -51px;
+    margin-top: -48px;
     margin-bottom: 25px;
-    width: 295px;
+    width: 297px;
 }
 
 .cadicon > legend {
-    width: 209px;
+    width: 215px;
 }

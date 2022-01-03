@@ -177,6 +177,37 @@ p, span, h1, table, thead, tr, th, h5{
     box-shadow: none;
   }  
 
+/*configuração da mensagem*/
+#tooltipbutton #tooltiptext {
+    visibility: hidden;
+    width: 155px;
+    position: absolute;
+    padding: 5px 0;
+    border-radius: 7px;
+    z-index: 1;
+    bottom: 82%;
+    left: 88%;
+    margin-left: -70px;
+    background-color: #3e606fdb;
+    color: #fff;
+    opacity: 0;
+    transition: all 1s cubic-bezier(0, 0.73, 0, 1.24) 0s;
+    text-align: center;
+}
+  
+  /*seta do conteiner da mensagem*/
+#tooltipbutton #tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #3e606fdb transparent;
+}
+
+/*classes do Layout*/
 .app{
     min-height: 100vh;
     height: auto;

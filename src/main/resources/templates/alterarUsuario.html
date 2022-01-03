@@ -6,7 +6,7 @@
             <title id="thlayouttitle">Alterar Dados do Usuário</title>
         </div>
         <link type="text/css" rel="stylesheet" href="/css/formulariousuario.css">
-        <link type="text/css" rel="stylesheet" href="/css/alterarusuario.css">
+        <link type="text/css" rel="stylesheet" href="/css/formularioalterarusuario.css">
     </head>
 
     <body th:replace="~{fragments/layout :: layout (~{:: main})}">
@@ -19,7 +19,7 @@
                 <form class="formulario" action="#" th:action="@{/alterarUsuario}" method = "post">
                     <div class="cadicon">
                         <img class="cadiconimg" src="/mídia/vetores/user_by_colebemis.svg" alt="">
-                        <legend>Alterar dados de Usuário</legend>
+                        <legend>Alterar Dados do Usuário</legend>
                     </div>
 
                     <input type="hidden" th:name="id" th:value="${usuario.id}">
@@ -83,9 +83,11 @@
 
                     <br>
 
-                    <label for="crf" class="dados-fila3">CRF
-                        <input type="text" th:name="crf" th:value="${usuario.crf}" class="form-control entrada" onkeypress="return onlynumber()">
-                    </label>
+                    <th:block th:if="${usuario.funcao} == 'Farmacêutico'">
+                        <label for="crf" class="dados-fila3">CRF
+                            <input type="text" th:name="crf" th:value="${usuario.crf}" class="form-control entrada" onkeypress="return onlynumber()">
+                        </label>
+                    </th:block>
 
                     <label for="senha" class="dados-fila3" title = "Apesar de estar criptografada, a senha pode ser alterada normalmente">Senha Criptografada
                         <br>

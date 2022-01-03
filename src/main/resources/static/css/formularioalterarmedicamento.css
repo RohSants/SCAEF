@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.cadicon {
+    width: 341px;
+}
+
+.cadicon > legend {
+    width: 263px;
+}
